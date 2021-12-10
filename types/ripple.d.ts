@@ -1,0 +1,41 @@
+import { z } from 'zod';
+declare const schema: z.ZodObject<{
+    target: z.ZodString;
+    color: z.ZodString;
+    size: z.ZodNumber;
+    gradient: z.ZodBoolean;
+    easing: z.ZodString;
+    duration: z.ZodNumber;
+    delay: z.ZodNumber;
+    alwaysVisible: z.ZodBoolean;
+    initialX: z.ZodNumber;
+    initialY: z.ZodNumber;
+    setTransparentText: z.ZodBoolean;
+}, "strip", z.ZodTypeAny, {
+    easing: string;
+    color: string;
+    target: string;
+    size: number;
+    delay: number;
+    duration: number;
+    gradient: boolean;
+    alwaysVisible: boolean;
+    initialX: number;
+    initialY: number;
+    setTransparentText: boolean;
+}, {
+    easing: string;
+    color: string;
+    target: string;
+    size: number;
+    delay: number;
+    duration: number;
+    gradient: boolean;
+    alwaysVisible: boolean;
+    initialX: number;
+    initialY: number;
+    setTransparentText: boolean;
+}>;
+declare type RippleConfig = z.infer<typeof schema>;
+export default function (rippleConfig?: Partial<RippleConfig>): void;
+export {};

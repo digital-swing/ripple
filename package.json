@@ -1,0 +1,63 @@
+{
+  "name": "ds-ripple",
+  "version": "0.0.1",
+  "description": "Ripple effect",
+  "type": "module",
+  "main": "./build/ripple.js",
+  "repository": "git://github.com/digital-swing/ripple.git",
+  "author": "Digital Swing <contact@digital-swing.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=v14.18.0"
+  },
+  "scripts": {
+    "build": "rimraf ./build && tsc --declaration --declarationDir types",
+    "start": "tsc -w --pretty",
+    "watch": "mix watch",
+    "test": "jest",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint resources/scripts",
+    "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\""
+  },
+  "dependencies": {
+    "color": "^4.0.2",
+    "csstype": "^3.0.10",
+    "gsap": "^3.8.0",
+    "zod": "^3.11.6"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/color": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "babel-jest": "^27.4.2",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^39.0.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "import": "^0.0.6",
+    "jest": "^27.4.2",
+    "jest-ts-auto-mock": "^2.0.0",
+    "prettier": "^2.5.0",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.1.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-property-sort-order-smacss": "^8.0.0",
+    "stylelint-config-standard": "^24.0.0",
+    "ts-auto-mock": "^3.5.0",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.4.3"
+  }
+}
