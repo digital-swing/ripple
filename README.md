@@ -37,7 +37,7 @@ It will create an onclick ripple animation on all html element with the default 
 ```js
 import ripple from 'ds-ripple';
 
-ripple(
+ripple({
     color: "red",
     gradient: true,
     duration: 0.8,
@@ -46,7 +46,7 @@ ripple(
     initialY: '0',
     fadeOutOnClick: false,
     expandOnClick: false
-    );
+    });
 ```
 
 If you want to use a global css variable to color your ripple, you can do:

@@ -1,55 +1,47 @@
-import Color from 'color';
 import { gsap } from 'gsap';
-import { z } from 'zod';
 /**
  * TODO allow various animation libraries / custom properties animation
  * @see https://css-tricks.com/build-complex-css-transitions-using-custom-properties-and-cubic-bezier/
  *
  **/
 
-const schema = z.object({
-  target: z.string(),
-  color: z.string(),
-  size: z.string(),
-  gradient: z.boolean(),
-  easing: z.string(),
-  duration: z.number(), // seconds
-  delay: z.number(), // seconds
-  visibility: z.enum(['always', 'onclick', 'onhover']),
-  expandOnClick: z.boolean(),
-  fadeOutOnClick: z.boolean(),
-  initialX: z.string(),
-  initialY: z.string(),
-  followCursor: z.boolean(),
-  toggleDuration: z.number(), // percentage
-  setTransparentText: z.boolean(),
-});
-
-type RippleConfig = z.infer<typeof schema>;
+type RippleConfig = {
+  color: string;
+  delay: number;
+  duration: number;
+  easing: string;
+  expandOnClick: boolean;
+  fadeOutOnClick: boolean;
+  followCursor: boolean;
+  gradient: boolean;
+  initialX: string;
+  initialY: string;
+  setTransparentText: boolean;
+  size: string;
+  target: string;
+  toggleDuration: number;
+  trigger: 'always' | 'click' | 'hover';
+};
 
 export default function (userConfig?: Partial<RippleConfig>) {
   const configDefaults: RippleConfig = {
-    target: '.ripple',
-    color: '#FFFFFF80',
-    size: '50px',
-    gradient: false,
+    color: '#ffffff42',
+    // seconds
+    delay: 0,
+    duration: 0,
     easing: 'power4',
-    duration: 0, // seconds
-    delay: 0, // seconds
-    visibility: 'onclick',
     expandOnClick: true,
     fadeOutOnClick: true,
+    followCursor: true,
+    gradient: false,
     initialX: '50%',
     initialY: '50%',
-    followCursor: true,
-    toggleDuration: 0.1,
     setTransparentText: false,
+    size: '50px',
+    target: '.ripple',
+    toggleDuration: 0.1, // seconds
+    trigger: 'click',
   };
-  try {
-    schema.partial().parse(userConfig);
-  } catch (e) {
-    console.error('Invalid user config.', e);
-  }
 
   const config = { ...configDefaults, ...userConfig };
 
@@ -150,7 +142,7 @@ export default function (userConfig?: Partial<RippleConfig>) {
       // el.style.setProperty('-webkit-background-clip', 'text');
     }
 
-    if (config.visibility === 'always') {
+    if (config.trigger === 'always') {
       el.style.setProperty('--ripple-size', rippleSize);
     } else {
       el.style.setProperty('--ripple-size', '0px');
@@ -164,7 +156,7 @@ export default function (userConfig?: Partial<RippleConfig>) {
     el.addEventListener('mouseenter', handleMouseEnter);
     function handleMouseEnter(this: HTMLElement) {
       this.style.setProperty('background-image', newBackgroundImage);
-      if (config.visibility === 'onhover') {
+      if (config.trigger === 'hover') {
         gsap.to(this, {
           '--ripple-size': rippleSize,
           duration: config.toggleDuration,
@@ -189,9 +181,9 @@ export default function (userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           '--ripple-x': `${x}%`,
           '--ripple-y': `${y}%`,
+          delay: config.delay,
           duration: config.duration,
           ease: config.easing,
-          delay: config.delay,
         });
         // }
       }
@@ -217,7 +209,7 @@ export default function (userConfig?: Partial<RippleConfig>) {
     function handleMouseLeave(this: HTMLElement) {
       // el.style.removeProperty('--ripple-x');
       // el.style.removeProperty('--ripple-y');
-      if (config.visibility !== 'always') {
+      if (config.trigger !== 'always') {
         // this.style.setProperty('background-image', originalBackgroundImage);
         // this.style.setProperty('color', originalColor);
         gsap.to(this, {
@@ -237,9 +229,9 @@ export default function (userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           '--ripple-x': rippleX,
           '--ripple-y': rippleY,
+          delay: config.delay,
           duration: config.duration,
           ease: config.easing,
-          delay: config.delay,
         });
       }
     }
@@ -282,7 +274,7 @@ export default function (userConfig?: Partial<RippleConfig>) {
           },
         }
       );
-      if (config.visibility !== 'onclick' && config.fadeOutOnClick) {
+      if (config.trigger !== 'click' && config.fadeOutOnClick) {
         tl.fromTo(
           this,
           {

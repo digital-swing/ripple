@@ -1,21 +1,20 @@
 {
-  "files": ["src/ripple.ts"],
-  // "exclude": ["node_modules/**/*.ts"],
-
+  "include": ["src/**/*.ts", "rollup.config.ts"],
+  "exclude": ["src/**/__mocks__/**/*.ts", "src/**/__tests__/**/*.ts", ".history"],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "allowJs": true,
-    "rootDir": "src",
-    "outDir": "build",
+    "rootDir": ".",
+    "outDir": "dist/esm",
     "module": "ESNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution":"node",
-    // "resolveJsonModule": true,
     "noImplicitAny": true,
     "removeComments": true,
     "strict": true,
     "sourceMap": true,
+    "declaration": false,
     "lib": ["ES2021", "DOM"],
     "plugins": [
       { "transform": "ts-auto-mock/transformer", "cacheBetweenTests": false }

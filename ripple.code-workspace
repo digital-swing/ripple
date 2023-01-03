@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "jest.debugCodeLens.showWhenTestStateIn": [
+      "pass",
+      "fail",
+      "unknown"
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "emmet.triggerExpansionOnTab": true,
+    "vetur.format.enable": true,
+    "search.exclude": {
+      "dist": true,
+      "public": true,
+      "types": true
+    },
+    "jest.rootPath": "",
+    "jest.jestCommandLine": "yarn test",
+  }
+}

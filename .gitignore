@@ -1,8 +1,7 @@
 node_modules
 dist
-public
-build
-*.code-workspace
+types
 .history
 yarn-error.log
 coverage
+.npmrc
