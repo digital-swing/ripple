@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/digital-swing/ripple/compare/ripple-v0.0.3...ripple-v0.0.4) (2023-01-03)
+
+
+### Fixes & updates
+
+* **deps:** Remove unused packages ([b84553b](https://github.com/digital-swing/ripple/commit/b84553b2ba6b93ea63c8797ea4a9729bd63b05ec))
+
 ## [0.0.3](https://github.com/digital-swing/ripple/compare/ripple-v0.0.2...ripple-v0.0.3) (2023-01-03)
 
 
