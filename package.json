@@ -29,8 +29,6 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "color": "^4.2.3",
-    "csstype": "^3.1.1",
     "gsap": "^3.11.4"
   },
   "devDependencies": {
