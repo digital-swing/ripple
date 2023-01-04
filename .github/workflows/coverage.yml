@@ -36,7 +36,10 @@ jobs:
       run: |
         SUMMARY="$(yarn cov --coverageReporters='text-summary' | tail -3 | head -1)"
         TOKENS=($SUMMARY)
-        echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
+        COVERAGE=${TOKENS[2]%"%"}
+        [[ ${COVERAGE} = 'Unknown' ]] && COVERAGE_VAL=0 || COVERAGE_VAL=${COVERAGE}
+        echo "COVERAGE_VAL=${COVERAGE_VAL}" >> $GITHUB_ENV
+        echo "COVERAGE=${COVERAGE}" >> $GITHUB_ENV
         REF=${{ github.ref }}
         echo "github.ref: $REF"
         IFS='/' read -ra PATHS <<< "$REF"
@@ -51,6 +54,8 @@ jobs:
         gistID: 47afa2dca4215d90df6248220a886a3e
         filename: ripple__${{ env.BRANCH }}.json
         label: Test Coverage
-        message: ${{ env.COVERAGE }}
-        color: green
+        message: ${{ env.COVERAGE }}%
         namedLogo: jest
+        valColorRange: ${{ env.COVERAGE_VAL }}
+        minColorRange: 50
+        maxColorRange: 90
