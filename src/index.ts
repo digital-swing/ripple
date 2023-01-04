@@ -259,7 +259,11 @@ export default function (userConfig?: Partial<RippleConfig>) {
           '--ripple-size': rippleSize,
         },
         {
-          '--ripple-color': config.fadeOutOnClick ? '#00000000' : rippleColor,
+          '--ripple-color': config.fadeOutOnClick
+            ? import('color-alpha').then(({ default: alpha }) =>
+                alpha(rippleColor, 0)
+              )
+            : rippleColor,
           '--ripple-size': config.expandOnClick
             ? `${parseFloat(rippleSize) * 2}${gsap.utils.getUnit(rippleSize)}`
             : rippleSize,
@@ -278,7 +282,9 @@ export default function (userConfig?: Partial<RippleConfig>) {
         tl.fromTo(
           this,
           {
-            '--ripple-color': '#00000000',
+            '--ripple-color': import('color-alpha').then(({ default: alpha }) =>
+              alpha(rippleColor, 0)
+            ),
             '--ripple-size': 0,
           },
           {

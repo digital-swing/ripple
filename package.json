@@ -29,6 +29,8 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
+    "color-alpha": "^1.1.3"
+  },
   "peerDependencies": {
     "gsap": "^3"
   },
