@@ -1,5 +1,7 @@
 # Ripple
 
+[![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/LucasDemea/47afa2dca4215d90df6248220a886a3e/raw/ripple__heads_main.json)]
+
 ## Examples
 
 See the [Digital Swing website](https://www.digital-swing.com) for a real life example or the [examples page](https://github.com).
@@ -39,13 +41,20 @@ import ripple from '@digital-swing/ripple';
 
 ripple({
     color: "red",
+    size: '100px',
+    target: '.alt-ripple',
+    delay: 0,
+    easing: 'power2',
     gradient: true,
     duration: 0.8,
     visibility: 'always',
     initialX: '100%',
     initialY: '0',
+    textClip: true,
     fadeOutOnClick: false,
-    expandOnClick: false
+    expandOnClick: false,
+    toggleDuration: 0.1,
+    trigger: 'click',
     });
 ```
 
@@ -141,6 +150,10 @@ When initialized, the ripple effect with `visibility: 'always'` will create a ch
  --ripple-size: 300px;
 }
 ```
+
+## Limitations
+
+- You can't have a css background on element with `textClip: true` option.If you need a background on these element, it should be on a wrapping element.
 
 ## Known Issues
 
