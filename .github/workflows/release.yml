@@ -34,6 +34,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: yarn test
   publish:
     needs: 
@@ -42,6 +43,7 @@ jobs:
     if: ${{needs.release-please.outputs.release_created}}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
