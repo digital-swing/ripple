@@ -5,3 +5,4 @@ types
 yarn-error.log
 coverage
 .npmrc
+docs

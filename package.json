@@ -25,6 +25,8 @@
     "test": "jest --passWithNoTests",
     "cov": "jest --coverage --passWithNoTests",
     "lint": "npm run lint:js && npm run lint:css",
+    "docs:html": "typedoc --plugin none --out docs src/index.ts",
+    "docs:md": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
     "prepare": "is-ci || husky install"
@@ -75,6 +77,8 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "ttypescript": "^1.5.15",
+    "typedoc": "^0.23.23",
+    "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^4.9.4"
   }
 }
