@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types: [ assigned, opened, synchronize, reopened, labeled ]
 name: Build & test
 jobs:
   release-please:
