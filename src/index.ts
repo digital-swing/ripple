@@ -68,6 +68,11 @@ export interface RippleConfig {
    **/
   initialY: string;
 
+  /** Event that triggers the ripple.
+   * @defaultValue `click`
+   **/
+  on: 'always' | 'click' | 'hover';
+
   /** Ripple size.
    * @defaultValue `50px`
    **/
@@ -90,11 +95,6 @@ export interface RippleConfig {
    * @defaultValue `0.1`
    **/
   toggleDuration: number;
-
-  /** Event that triggers the ripple.
-   * @defaultValue `click`
-   **/
-  trigger: 'always' | 'click' | 'hover';
 }
 
 /**
@@ -115,11 +115,12 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     gradient: false,
     initialX: '50%',
     initialY: '50%',
+    // seconds
+    on: 'click',
     size: '50px',
     target: '.ripple',
     textClip: false,
-    toggleDuration: 0.1, // seconds
-    trigger: 'click',
+    toggleDuration: 0.1,
   };
 
   config = { ...config, ...userConfig };
@@ -174,7 +175,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.setProperty('-webkit-background-clip', 'text');
     }
 
-    if (config.trigger === 'always') {
+    if (config.on === 'always') {
       el.style.setProperty('--ripple-size', rippleSize);
     } else {
       el.style.setProperty('--ripple-size', '0px');
@@ -187,7 +188,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     el.addEventListener('mouseenter', handleMouseEnter);
     function handleMouseEnter(this: HTMLElement) {
       this.style.setProperty('background-image', newBackgroundImage);
-      if (config.trigger === 'hover') {
+      if (config.on === 'hover') {
         gsap.to(this, {
           '--ripple-size': rippleSize,
           duration: config.toggleDuration,
@@ -213,7 +214,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
 
     el.addEventListener('mouseleave', handleMouseLeave);
     function handleMouseLeave(this: HTMLElement) {
-      if (config.trigger !== 'always') {
+      if (config.on !== 'always') {
         gsap.to(this, {
           '--ripple-size': 0,
           duration: config.toggleDuration,
@@ -265,7 +266,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           },
         }
       );
-      if (config.trigger !== 'click' && config.fadeOutOnClick) {
+      if (config.on !== 'click' && config.fadeOutOnClick) {
         tl.fromTo(
           this,
           {
