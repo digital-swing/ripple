@@ -16,9 +16,9 @@ type RippleConfig = {
   gradient: boolean;
   initialX: string;
   initialY: string;
-  setTransparentText: boolean;
   size: string;
   target: string;
+  textClip: boolean;
   toggleDuration: number;
   trigger: 'always' | 'click' | 'hover';
 };
@@ -36,9 +36,9 @@ export default function (userConfig?: Partial<RippleConfig>) {
     gradient: false,
     initialX: '50%',
     initialY: '50%',
-    setTransparentText: false,
     size: '50px',
     target: '.ripple',
+    textClip: false,
     toggleDuration: 0.1, // seconds
     trigger: 'click',
   };
@@ -129,17 +129,13 @@ export default function (userConfig?: Partial<RippleConfig>) {
 
     const originalColor = getComputedStyle(el).color;
 
-    // const rippleTransition = `--ripple-x ${config.duration}s ${config.easing} ${config.delay}s, --ripple-y ${config.duration}s ${config.easing} ${config.delay}s`;
-    // const newTransition = originalTransition
-    //   ? `${rippleTransition}, ${originalTransition}`
-    //   : rippleTransition;
+    if (config.textClip) {
+      newBackgroundImage = `${newBackgroundImage}, linear-gradient(${originalColor},${originalColor})`;
 
-    if (config.setTransparentText) {
-      newBackgroundImage = `${newBackgroundImage}, linear-gradient(currentColor,currentColor)`;
-
-      // el.style.setProperty('color', 'transparent');
-      // el.style.setProperty('background-clip', 'text');
-      // el.style.setProperty('-webkit-background-clip', 'text');
+      el.style.setProperty('color', 'transparent');
+      el.style.setProperty('-webkit-text-fill-color', 'transparent');
+      el.style.setProperty('background-clip', 'text');
+      el.style.setProperty('-webkit-background-clip', 'text');
     }
 
     if (config.trigger === 'always') {
