@@ -22,7 +22,8 @@
   "scripts": {
     "build": "rimraf ./dist && rollup -c rollup.config.ts --configPlugin typescript",
     "start": "rollup -c rollup.config.ts --configPlugin typescript -w",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
+    "cov": "jest --coverage --passWithNoTests",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
