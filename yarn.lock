@@ -1503,7 +1503,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-image-snapshot@^6.1.0":
+"@types/jest-image-snapshot@6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@types/jest-image-snapshot/-/jest-image-snapshot-6.1.0.tgz#d74176821cbdf24458f39819743e9adb3d3146e9"
   integrity sha512-wYayjKQGdI0ZbmsAq7OPt+5wMMi1CDXXkF3LfoGj4eRC0dOqlYJdXqLwfC89Qf2apQdlL9StgCkw0iTDb8lpUw==
@@ -1512,7 +1512,7 @@
     "@types/pixelmatch" "*"
     ssim.js "^3.1.1"
 
-"@types/jest@*", "@types/jest@^29.2.5":
+"@types/jest@*", "@types/jest@29.2.5":
   version "29.2.5"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.2.5.tgz#c27f41a9d6253f288d1910d3c5f09484a56b73c0"
   integrity sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==
@@ -1520,7 +1520,7 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
-"@types/jsdom-screenshot@^3.2.2":
+"@types/jsdom-screenshot@3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@types/jsdom-screenshot/-/jsdom-screenshot-3.2.2.tgz#4a2386761eddc2192865bba3a70ec6c0a5d9a22a"
   integrity sha512-UUjbnvOMOrxKfE3sVwiY+bo/BqxhteXpmJCy0F8Nb80d/gzbPSlA583X3Zf2DINXdBQ+RVOutnhrIKr3Kl5u5A==
@@ -3830,7 +3830,7 @@ jest-haste-map@^29.3.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-jest-image-snapshot@^6.1.0:
+jest-image-snapshot@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/jest-image-snapshot/-/jest-image-snapshot-6.1.0.tgz#96a17b00530e1358eae657f6c9bb948e29ee7510"
   integrity sha512-LZYoks6V1HAkYqyi80gUjMWVsa++Oy0fckAGMLBQseVweZT9AmJNKAINwHLqX1fpeMy2hTG5CCEe4IUX2N3Nmg==
@@ -4093,7 +4093,7 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-jsdom-screenshot@^4.0.0:
+jsdom-screenshot@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jsdom-screenshot/-/jsdom-screenshot-4.0.0.tgz#633c1bd0e557244cd602b47dcd19c755093654d1"
   integrity sha512-as86MWDSiwQEQqaw3qt41u4Fi0Wi60biHmL2p3xe8e/PoZoz/qcTmoCEsNrNzPm8RcnT69A8zXuMUL9g7uyQzA==
