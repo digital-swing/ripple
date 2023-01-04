@@ -1,0 +1,59 @@
+on:
+  push:
+    branches:
+      - main
+name: Update docs to Github page
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          command: manifest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@digital-swing"      
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmScopes.gsap.npmRegistryServer "https://npm.greensock.com"
+          yarn config set npmScopes.gsap.npmAlwaysAuth true
+          yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
+      - run: yarn
+      - run: yarn build
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test
+  publish:
+    needs: 
+      - test
+      - release-please
+    if: ${{needs.release-please.outputs.release_created}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  docs:
+    needs: 
+      - publish
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn docs:md
+      - name: Upload Documentation to Wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "docs"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
