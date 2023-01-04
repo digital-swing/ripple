@@ -20,9 +20,9 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -45,7 +45,7 @@ jobs:
         echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
     - if: ${{ matrix.node-version == '16.x' }}
       name: Create the Badge
-      uses: schneegans/dynamic-badges-action@v1.0.0
+      uses: schneegans/dynamic-badges-action@v1.6.0
       with:
         auth: ${{ secrets.BADGES_GIST_SECRET }}
         gistID: 47afa2dca4215d90df6248220a886a3e
