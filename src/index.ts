@@ -1,30 +1,109 @@
 import { gsap } from 'gsap';
 /**
  * TODO allow various animation libraries / custom properties animation
- * @see https://css-tricks.com/build-complex-css-transitions-using-custom-properties-and-cubic-bezier/
+ * {@link https://css-tricks.com/build-complex-css-transitions-using-custom-properties-and-cubic-bezier/}
  *
  **/
 
-type RippleConfig = {
+/** Ripple parameters. */
+export interface RippleConfig {
+  /**
+   * Ripple color.
+   * @defaultValue `#ffffff42`
+   **/
   color: string;
-  delay: number;
-  duration: number;
-  easing: string;
-  expandOnClick: boolean;
-  fadeOutOnClick: boolean;
-  followCursor: boolean;
-  gradient: boolean;
-  initialX: string;
-  initialY: string;
-  size: string;
-  target: string;
-  textClip: boolean;
-  toggleDuration: number;
-  trigger: 'always' | 'click' | 'hover';
-};
 
-export default function (userConfig?: Partial<RippleConfig>) {
-  const configDefaults: RippleConfig = {
+  /** Lag before the ripple moves.
+   * @defaultValue `0`
+   */
+  delay: number;
+
+  /** Animation duration.
+   * @defaultValue `0`
+   **/
+  duration: number;
+
+  /**
+   * Easing function.
+   * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
+   * @defaultValue `none`
+   **/
+  easing: string;
+
+  /** Whether the ripple should grow when the target is clicked.
+   * @defaultValue `true`
+   **/
+  expandOnClick: boolean;
+
+  /** Whether the ripple should fade out when the target is clicked.
+   * @defaultValue `true`
+   **/
+  fadeOutOnClick: boolean;
+
+  /** Whether the ripple should follow the cursor.
+   * @defaultValue `true`
+   **/
+  followCursor: boolean;
+
+  /** If the ripple should be a gradient.
+   * @defaultValue `false`
+   **/
+  gradient: boolean;
+
+  /**
+   * Initial horizontal relative position, expressed in percent. e.g.
+   * ```
+   * initialX : '30%';
+   * ```
+   * @defaultValue `50%`
+   **/
+  initialX: string;
+
+  /**
+   * Initial vertical relative position, expressed in percent. e.g.
+   * ```
+   * initialY : '30%';
+   * ```
+   * @defaultValue `50%`
+   **/
+  initialY: string;
+
+  /** Ripple size.
+   * @defaultValue `50px`
+   **/
+  size: string;
+
+  /** Target selector. e.g.
+   * ```
+   * target : '.ripple-text';
+   * ```
+   * @defaultValue `.ripple`
+   */
+  target: string;
+
+  /** Whether the ripple should apply as a text clip.
+   * @defaultValue `false`
+   **/
+  textClip: boolean;
+
+  /** Ripple display animation duration in seconds.
+   * @defaultValue `0.1`
+   **/
+  toggleDuration: number;
+
+  /** Event that triggers the ripple.
+   * @defaultValue `click`
+   **/
+  trigger: 'always' | 'click' | 'hover';
+}
+
+/**
+ * Initializes the ripple effect.
+ * @param  userConfig - Custom user config. {@link RippleConfig | See detailed options.}
+ *
+ */
+export function ripple(userConfig?: Partial<RippleConfig>) {
+  let config: RippleConfig = {
     color: '#ffffff42',
     // seconds
     delay: 0,
@@ -43,7 +122,7 @@ export default function (userConfig?: Partial<RippleConfig>) {
     trigger: 'click',
   };
 
-  const config = { ...configDefaults, ...userConfig };
+  config = { ...config, ...userConfig };
 
   const rippleTargets: NodeListOf<HTMLElement> = document.querySelectorAll(
     config.target
