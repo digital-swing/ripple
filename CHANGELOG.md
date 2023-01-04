@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/digital-swing/ripple/compare/ripple-v0.2.0...ripple-v0.2.1) (2023-01-04)
+
+
+### Fixes & updates
+
+* Rename 'trigger' setting to 'on' ([b93bb54](https://github.com/digital-swing/ripple/commit/b93bb54e424b9d4fe5766e41597c7a8faf8bab20))
+
 ## [0.2.0](https://github.com/digital-swing/ripple/compare/ripple-v0.1.0...ripple-v0.2.0) (2023-01-04)
 
 
