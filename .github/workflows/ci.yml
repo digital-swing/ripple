@@ -2,20 +2,15 @@ on:
   push:
     branches:
       - main
-name: Update release PR / Create release
+name: Build & test
 jobs:
   release-please:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: 
-          - ubuntu-latest
-        node-version: 
-          - 16
-
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
+        os: [ubuntu-latest]
+        node-version: [12.x, 14.x, 16.x, 18.x]
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to npm
