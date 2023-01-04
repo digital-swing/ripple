@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/digital-swing/ripple/compare/ripple-v0.1.0...ripple-v0.1.1) (2023-01-04)
+
+
+### Documentation
+
+* Complete docs ([3280b77](https://github.com/digital-swing/ripple/commit/3280b7787a980bff6c915f327927876ddc30e934))
+* Complete readme ([411e65c](https://github.com/digital-swing/ripple/commit/411e65cbdd8eaebce37bc8aafb3f661d25a0c9bf))
+
 ## [0.1.0](https://github.com/digital-swing/ripple/compare/ripple-v0.0.4...ripple-v0.1.0) (2023-01-04)
 
 
