@@ -6,18 +6,18 @@ See the [Digital Swing website](https://www.digital-swing.com) for a real life e
 
 ## Installation
 
-ds-ripple is available as a npm package.
+@digital-swing/ripple is available as a npm package.
 
 ### npm
 
 ```console
-npm install --save ds-ripple
+npm install --save @digital-swing/ripple
 ```
 
 ### yarn
 
 ```console
-yarn add ds-ripple
+yarn add @digital-swing/ripple
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ yarn add ds-ripple
 ### Basic
 
 ```js
-import ripple from 'ds-ripple';
+import ripple from '@digital-swing/ripple';
 
 ripple();
 ```
@@ -35,7 +35,7 @@ It will create an onclick ripple animation on all html element with the default 
 ### With custom parameters
 
 ```js
-import ripple from 'ds-ripple';
+import ripple from '@digital-swing/ripple';
 
 ripple({
     color: "red",
@@ -52,7 +52,7 @@ ripple({
 If you want to use a global css variable to color your ripple, you can do:
 
 ```js
-import ripple from 'ds-ripple';
+import ripple from '@digital-swing/ripple';
 
 ripple(
     color: getComputedStyle(document.documentElement).getPropertyValue(
