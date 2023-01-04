@@ -6,11 +6,13 @@ name: Build Status
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'src/**'
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  coverage:
 
     runs-on: ${{ matrix.os }}
 

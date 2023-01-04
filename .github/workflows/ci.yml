@@ -5,18 +5,23 @@ on:
 name: Update release PR / Create release
 jobs:
   release-please:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: 
+          - ubuntu-latest
+        node-version: 
+          - 16
+
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          command: manifest
       - uses: actions/checkout@v3
-        if: ${{ steps.release.outputs.release_created }}
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://npm.pkg.github.com"
           scope: "@digital-swing"      
       - name: Setup .yarnrc.yml
@@ -26,7 +31,4 @@ jobs:
           yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
       - run: yarn
       - run: yarn build
-      - run: yarn publish
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn test
