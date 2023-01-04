@@ -1,6 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import pkg from './package.json' assert { type: 'json' };
 import renameNodeModules from 'rollup-plugin-rename-node-modules';
@@ -39,7 +38,6 @@ export default [
       // esbuild({
       //   minify: true,
       // }),
-      dynamicImportVars(),
       summary(),
       renameNodeModules('external'),
     ],
