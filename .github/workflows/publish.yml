@@ -20,6 +20,15 @@ jobs:
           yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
       - run: yarn
       - run: yarn build
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
