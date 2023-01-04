@@ -9,25 +9,23 @@ module.exports = {
     jquery: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended'],
   ignorePatterns: [
     '**/node_modules/*.[tj]s',
     '**/vendor/*.[tj]s',
     '**/dist/**/*.[tj]s',
     '**/public/**/*.[tj]s',
     '**/build/**/*.[tj]s',
-  ].concat(tsConfig.exclude),
+  ],
   overrides: [
     {
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:prettier/recommended',
       ],
       files: tsConfig.include,
       parser: '@typescript-eslint/parser',
-      // Your TypeScript files extension
       parserOptions: {
         project: ['./tsconfig.json'], // Specify it only for TypeScript files
       },
@@ -44,25 +42,17 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:prettier/recommended',
       ],
       files: tsTestConfig.include,
-
       parser: '@typescript-eslint/parser',
-      // Your TypeScript files extension
       parserOptions: {
         project: ['./tsconfig.test.json'], // Specify it only for TypeScript files
       },
-      plugins: ['jest'],
-    },
-    {
-      files: ['src/plugins/**'],
-      rules: {
-        'no-param-reassign': [
-          'error',
-          { ignorePropertyModificationsFor: ['ctx'], props: true },
-        ],
-      },
+      plugins: [
+        '@typescript-eslint/eslint-plugin',
+        'eslint-plugin-tsdoc',
+        'jest',
+      ],
     },
   ],
   parser: '@babel/eslint-parser',
@@ -76,10 +66,9 @@ module.exports = {
       objectLiteralDuplicateProperties: false,
     },
     ecmaVersion: 'latest',
-    extraFileExtensions: ['.cjs'],
     sourceType: 'module',
   },
-  plugins: ['import', 'prettier', 'sort-keys-fix', 'typescript-sort-keys'],
+  plugins: ['import', 'sort-keys-fix', 'typescript-sort-keys'],
   root: true,
   rules: {
     'comma-dangle': [
@@ -124,16 +113,7 @@ module.exports = {
       },
     ],
     'no-underscore-dangle': 0,
-    'sort-imports': [
-      'warn',
-      {
-        allowSeparatedGroups: false,
-        ignoreCase: false,
-        ignoreDeclarationSort: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
+
     'sort-keys-fix/sort-keys-fix': 'warn',
 
     'tsdoc/syntax': 'warn',

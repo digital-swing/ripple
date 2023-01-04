@@ -1,6 +1,6 @@
 {
   // "typescript.validate.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": [
     "source.fixAll.format",
     "source.fixAll.eslint",
