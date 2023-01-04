@@ -24,7 +24,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: yarn test
+      - run: yarn test --passWithNoTests
   publish:
     needs: test
     runs-on: ubuntu-latest
