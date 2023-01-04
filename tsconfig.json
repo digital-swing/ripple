@@ -4,6 +4,7 @@
   "compilerOptions": {
     "target": "es6",
     "allowJs": true,
+    "resolveJsonModule":true,
     "rootDir": ".",
     "outDir": "dist/esm",
     "module": "ESNext",

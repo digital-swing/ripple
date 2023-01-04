@@ -2,12 +2,14 @@ import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import pkg from './package.json' assert { type: 'json' };
 import renameNodeModules from 'rollup-plugin-rename-node-modules';
 import summary from 'rollup-plugin-summary';
 import typescript from '@rollup/plugin-typescript';
 
 export default [
   {
+    external: Object.keys(pkg.peerDependencies),
     input: 'src/index.ts',
     output: [
       {

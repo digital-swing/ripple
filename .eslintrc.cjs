@@ -68,7 +68,7 @@ module.exports = {
   parser: '@babel/eslint-parser',
   parserOptions: {
     babelOptions: {
-      configFile: './.babelrc.cjs',
+      configFile: './babel.config.cjs',
     },
     ecmaFeatures: {
       generators: false,
