@@ -1,11 +1,10 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-
+import type { JestConfigWithTsJest } from 'ts-jest';
 /*
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+const jestConfig: JestConfigWithTsJest = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -61,14 +60,6 @@ module.exports = {
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
 
-  // A set of global variables that need to be available in all test environments
-  globals: {
-    'ts-jest': {
-      babelConfig: '.babelrc',
-      compiler: 'ttypescript',
-    },
-  },
-
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
 
@@ -100,7 +91,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: 'ts-jest/presets/js-with-ts',
+  preset: 'ts-jest/presets/js-with-ts-esm',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -121,7 +112,7 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: './',
+  rootDir: '.',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -132,10 +123,10 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>config.ts'],
+  // setupFiles: ['<rootDir>/setupTestFrameworkScriptFile.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>/setupTestFrameworkScriptFile.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -154,8 +145,9 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
+  //   // "**/__tests__/**/*.[jt]s?(x)",
+  //   // "**/?(*.)+(spec|test).[tj]s?(x)"
+  //   "__tests__/**/*.[jt]s?(x)",
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -182,12 +174,20 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '.(ts|tsx)': 'ts-jest',
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        isolatedModules: true,
+        tsconfig: 'tsconfig.test.json',
+        useESM: true,
+      },
+    ],
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    'node_modules/(?!(gsap))',
+    // 'node_modules',
+    // 'node_modules/(?!(gsap)/)',
     // 'node_modules/(?!(react-native|gsap)/)',
     // '\\.pnp\\.[^\\/]+$',
   ],
@@ -196,11 +196,12 @@ module.exports = {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: undefined,
+  verbose: true,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
-  // watchPathIgnorePatterns: [],
+  // watchPathIgnorePatterns: ["node_modules/"],
 
   // Whether to use watchman for file crawling
-  // watchman: true,
+  watchman: false,
 };
+export default jestConfig;
