@@ -45,66 +45,27 @@ export default function (userConfig?: Partial<RippleConfig>) {
 
   const config = { ...configDefaults, ...userConfig };
 
-  const rippleElements: NodeListOf<HTMLElement> = document.querySelectorAll(
+  const rippleTargets: NodeListOf<HTMLElement> = document.querySelectorAll(
     config.target
   );
 
-  // if ('registerProperty' in CSS) {
-  //   if (!CSS.supports('(--ripple-x: 50%)')) {
-  //     // eslint-disable-next-line  @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore eslint-disable-next-line  @typescript-eslint/ban-ts-comment
-  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  //     CSS.registerProperty({
-  //       name: '--ripple-x',
-  //       syntax: '<percentage>',
-  //       inherits: false,
-  //       initialValue: '50%',
-  //     });
-  //   }
+  function getRelativeMouseX(element: HTMLElement, mouseEvent: MouseEvent) {
+    const rect = element.getBoundingClientRect();
+    const x =
+      (100 * (mouseEvent.pageX - rect.left - window.scrollX)) /
+      element.offsetWidth;
+    return x;
+  }
 
-  //   if (!CSS.supports('(--ripple-y: 50%)')) {
-  //     // eslint-disable-next-line  @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  //     window.CSS.registerProperty({
-  //       name: '--ripple-y',
-  //       syntax: '<percentage>',
-  //       inherits: false,
-  //       initialValue: '50%',
-  //     });
-  //   }
+  function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
+    const rect = element.getBoundingClientRect();
+    const y =
+      (100 * (mouseEvent.pageY - rect.top - window.scrollY)) /
+      element.offsetHeight;
+    return y;
+  }
 
-  //   if (!CSS.supports('(--ripple-size: 50%)')) {
-  //     // eslint-disable-next-line  @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  //     window.CSS.registerProperty({
-  //       name: '--ripple-size',
-  //       syntax: '<number>',
-  //       inherits: false,
-  //       initialValue: '0px',
-  //     });
-  //   }
-
-  //   if (!CSS.supports('(--ripple-color: #000)')) {
-  //     // eslint-disable-next-line  @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  //     window.CSS.registerProperty({
-  //       name: '--ripple-color',
-  //       syntax: '<color>',
-  //       inherits: false,
-  //       initialValue: 'rgba(0,0,0,0)',
-  //     });
-  //   }
-  // }
-  rippleElements.forEach((el) => {
-    // el.style.setProperty('--ripple-x', `${origX}px`);
-    // el.style.setProperty('--ripple-y', `${origY}px`);
-
-    // const originalTransition = getComputedStyle(el).transition;
-    // const rippleColor = Color(config.color.trim()).hex();
-
+  rippleTargets.forEach((el) => {
     const initialRippleColor =
       getComputedStyle(el).getPropertyValue('--ripple-color');
     const rippleColor =
@@ -121,10 +82,6 @@ export default function (userConfig?: Partial<RippleConfig>) {
       ? `radial-gradient(var(--ripple-size) at var(--ripple-x) var(--ripple-y), var(--ripple-color), transparent)`
       : `radial-gradient(var(--ripple-size) at var(--ripple-x) var(--ripple-y), var(--ripple-color) 0%, var(--ripple-color) 100%, transparent)`;
 
-    // const originalBackgroundImage = getComputedStyle(el).backgroundImage;
-    // let newBackgroundImage = originalBackgroundImage
-    //   ? `${ripple}, ${originalBackgroundImage}`
-    //   : ripple;
     let newBackgroundImage = ripple;
 
     const originalColor = getComputedStyle(el).color;
@@ -143,7 +100,6 @@ export default function (userConfig?: Partial<RippleConfig>) {
     } else {
       el.style.setProperty('--ripple-size', '0px');
     }
-    // el.style.setProperty('transition', newTransition);
     el.style.setProperty('--ripple-x', rippleX);
     el.style.setProperty('--ripple-y', rippleY);
     el.style.setProperty('--ripple-color', rippleColor);
@@ -166,14 +122,6 @@ export default function (userConfig?: Partial<RippleConfig>) {
       if (config.followCursor) {
         const x = getRelativeMouseX(this, e);
         const y = getRelativeMouseY(this, e);
-        // if (
-        //   CSS.supports('(--ripple-x: 0%)') &&
-        //   CSS.supports('(--ripple-y: 0%)')
-        // ) {
-        // el.style.setProperty('--ripple-x', `${x}%`);
-        // el.style.setProperty('--ripple-y', `${y}%`);
-        // } else {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         gsap.to(this, {
           '--ripple-x': `${x}%`,
           '--ripple-y': `${y}%`,
@@ -181,47 +129,18 @@ export default function (userConfig?: Partial<RippleConfig>) {
           duration: config.duration,
           ease: config.easing,
         });
-        // }
       }
-    }
-
-    function getRelativeMouseX(element: HTMLElement, mouseEvent: MouseEvent) {
-      const rect = element.getBoundingClientRect();
-      const x =
-        (100 * (mouseEvent.pageX - rect.left - window.scrollX)) /
-        element.offsetWidth;
-      return x;
-    }
-
-    function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
-      const rect = element.getBoundingClientRect();
-      const y =
-        (100 * (mouseEvent.pageY - rect.top - window.scrollY)) /
-        element.offsetHeight;
-      return y;
     }
 
     el.addEventListener('mouseleave', handleMouseLeave);
     function handleMouseLeave(this: HTMLElement) {
-      // el.style.removeProperty('--ripple-x');
-      // el.style.removeProperty('--ripple-y');
       if (config.trigger !== 'always') {
-        // this.style.setProperty('background-image', originalBackgroundImage);
-        // this.style.setProperty('color', originalColor);
         gsap.to(this, {
           '--ripple-size': 0,
           duration: config.toggleDuration,
           ease: config.easing,
         });
       } else {
-        // if (
-        //   CSS.supports('(--ripple-x: 0%)') &&
-        //   CSS.supports('(--ripple-y: 0%)')
-        // ) {
-        //   el.style.setProperty('--ripple-x', `${config.initialX}%`);
-        //   el.style.setProperty('--ripple-y', `${config.initialY}%`);
-        // } else {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         gsap.to(this, {
           '--ripple-x': rippleX,
           '--ripple-y': rippleY,
@@ -234,21 +153,14 @@ export default function (userConfig?: Partial<RippleConfig>) {
 
     el.addEventListener('click', handleClick);
     function handleClick(this: HTMLElement, e: MouseEvent) {
-      // this.style.setProperty('--ripple-size', rippleSize);
-      // this.style.setProperty('--ripple-color', rippleColor);
-
       if (config.fadeOutOnClick || config.expandOnClick) {
         this.removeEventListener('mousemove', handleMouseMove);
         this.removeEventListener('mouseleave', handleMouseLeave);
         this.removeEventListener('mouseenter', handleMouseEnter);
       }
-      // if (config.expandOnClick) {
 
       const tl = gsap.timeline();
-      tl.set(this, {
-        '--ripple-x': getRelativeMouseX(this, e),
-        '--ripple-y': getRelativeMouseY(this, e),
-      }).fromTo(
+      tl.fromTo(
         this,
         {
           '--ripple-color': rippleColor,
@@ -287,30 +199,10 @@ export default function (userConfig?: Partial<RippleConfig>) {
             '--ripple-color': rippleColor,
             '--ripple-size': rippleSize,
             duration: 1,
-            ease: 'power4.in',
+            ease: 'power4',
           }
         );
       }
-
-      // .set(this, {
-      //   '--ripple-size': rippleSize,
-      //   duration: 1,
-      //   ease: 'power4.out',
-      // });
-      // }
-
-      // if (config.fadeOutOnClick) {
-      //   gsap.timeline().to(this, {
-      //     '--ripple-color': '#00000000',
-      //     duration: 1,
-      //     ease: 'power4.out',
-      //   });
-      //   // .set(this, {
-      //   //   '--ripple-color': rippleColor,
-      //   //   duration: 1,
-      //   //   ease: 'power4.out',
-      //   // });
-      // }
     }
   });
 }
