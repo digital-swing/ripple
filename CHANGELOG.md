@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.3.0](https://github.com/digital-swing/ripple/compare/ripple-v0.2.1...ripple-v0.3.0) (2023-01-04)
+
+
+### Features
+
+* Set text background ripple ([349827b](https://github.com/digital-swing/ripple/commit/349827b9a9f1df73cebb425c2cd7ef6f3d7dd6d2))
+
+
+### Documentation
+
+* Complete docs ([c3bf5e6](https://github.com/digital-swing/ripple/commit/c3bf5e6c817ceccbc9523f6f665b99c9b4992675))
+* Complete readme ([e1480f9](https://github.com/digital-swing/ripple/commit/e1480f9f69f15bc573b47a78b586e2786e3ea0c9))
+* Update docs ([ab0ff32](https://github.com/digital-swing/ripple/commit/ab0ff3255eba7baa0e68cd4b1c5d73413eeb2d2b))
+
+
+### Fixes & updates
+
+* **deps:** Remove unused packages ([8a449eb](https://github.com/digital-swing/ripple/commit/8a449eb56e791830baf4874bf08fd2fc7140c095))
+* **deps:** Set gsap as a peer dependency ([50ae3ad](https://github.com/digital-swing/ripple/commit/50ae3ad90bbcda91db1016835adf0639302c4aab))
+* Dynamically set fadeout alpha color ([0151f92](https://github.com/digital-swing/ripple/commit/0151f92ed897a4252ca297706bacc26553bda955))
+* Rename 'trigger' setting to 'on' ([b93bb54](https://github.com/digital-swing/ripple/commit/b93bb54e424b9d4fe5766e41597c7a8faf8bab20))
+* Set node to 16.18.1 ([5391cee](https://github.com/digital-swing/ripple/commit/5391ceec530fad5698606e5c470546ae9b75c5b5))
+
 ## [0.2.1](https://github.com/digital-swing/ripple/compare/ripple-v0.2.0...ripple-v0.2.1) (2023-01-04)
 
 
