@@ -29,7 +29,8 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "gsap": "^3.11.4"
+  "peerDependencies": {
+    "gsap": "^3"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
