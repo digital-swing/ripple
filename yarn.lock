@@ -968,7 +968,7 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@commitlint/cli@^17.4.0":
+"@commitlint/cli@17.4.0":
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-17.4.0.tgz#14a5f9b713a5b60ff1a0cfce66b0bb207954c1ad"
   integrity sha512-SEY4sYe8yVlgxPP7X0wJb96DBAGBPsCsy6QbqJt/UECbIAjDeDV5xXBV4jnS7T/qMC10sk6Ub9kDhEX0VWvblw==
@@ -984,7 +984,7 @@
     resolve-global "1.0.0"
     yargs "^17.0.0"
 
-"@commitlint/config-conventional@^17.4.0":
+"@commitlint/config-conventional@17.4.0":
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-17.4.0.tgz#9188d793886d8a1c633834602f06a642dd16ed64"
   integrity sha512-G4XBf45J4ZMspO4NwBFzY3g/1Kb+B42BcIxeikF8wucQxcyxcmhRdjeQpRpS1XEcBq5pdtEEQFipuB9IuiNFhw==
@@ -2296,7 +2296,7 @@
     vue "^3.2.45"
     vue-router "^4.1.6"
 
-"@vuepress/plugin-back-to-top@2.0.0-beta.60", "@vuepress/plugin-back-to-top@^2.0.0-beta.60":
+"@vuepress/plugin-back-to-top@2.0.0-beta.60":
   version "2.0.0-beta.60"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-2.0.0-beta.60.tgz#03b769855b40785f24aa33290cfc17409cdab5b2"
   integrity sha512-vpVTA6EwWjjYyl6Op5J16RV6rEvwUYkLnjYhJ2qWroDb8U2x32HGWFJZQFIyatGO+oU6UBVYow90j2+Ery2g6g==
@@ -7371,7 +7371,7 @@ vuepress-vite@2.0.0-beta.60:
     "@vuepress/core" "2.0.0-beta.60"
     "@vuepress/theme-default" "2.0.0-beta.60"
 
-vuepress@^2.0.0-beta.60:
+vuepress@2.0.0-beta.60:
   version "2.0.0-beta.60"
   resolved "https://registry.yarnpkg.com/vuepress/-/vuepress-2.0.0-beta.60.tgz#19205a971ecd6c14d6412564e16e613fcebd58e7"
   integrity sha512-evkv5PtX5pdlEyY5EcEV+rN/HTmi8iG7ZcvAnMFfYKWdvKiUjE+/DPwZfmE8emx33FEE2htbAKgtruABTocEjA==
