@@ -2,6 +2,8 @@
 
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/LucasDemea/47afa2dca4215d90df6248220a886a3e/raw/ripple__heads_main.json)
 
+Sage Directives is a simple Composer package adding a variety of useful Blade directives for use with Sage 9 including directives for WordPress, ACF, and various miscellaneous helpers.
+
 ## Examples
 
 See the [Digital Swing website](https://www.digital-swing.com) for a real life example or the [examples page](https://github.com).
@@ -32,7 +34,7 @@ import ripple from '@digital-swing/ripple';
 ripple();
 ```
 
-It will create an onclick ripple animation on all html element with the default `.ripple` class similar to the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/).
+It will create an onclick ripple animation on all html element with the default `.ripple` class similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/).
 
 ### With custom parameters
 
@@ -44,7 +46,7 @@ ripple({
   size: '100px',
   target: '.alt-ripple',
   delay: 0,
-  easing: 'power2',
+  ease: 'power2',
   gradient: true,
   duration: 0.8,
   visibility: 'always',
@@ -75,13 +77,12 @@ This example uses a [Bootstrap5 css variable](https://getbootstrap.com/docs/5.0/
 
 [See the documentation](https://digital-swing.github.io/ripple/interfaces/RippleConfig.html) for detailed config options.
 
-## Preventing FOUC at initialization
+## Initial Ripple styles
 
-When initialized, the ripple effect with `on: 'always'` will create a change in the appareance of your html element, resulting in a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content). To prevent this you can add this css with your defaults values to your project:
+In some cases you will want to style the ripple with css before javascript sets its styles (especially with `on: 'always'`). You can do it this way :
 
 ```css
-.ripple {
-  // whatever class you use
+.ripple { // or whatever class you want to use
   --ripple-x: 100%;
   --ripple-y: 0%;
   --ripple-color: 'red';
@@ -89,19 +90,21 @@ When initialized, the ripple effect with `on: 'always'` will create a change in 
 }
 ```
 
+This can also prevent a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) that happens in rare cases.
+
 ## Limitations
 
-- You can't have a css background on element with `textClip: true` option.If you need a background on these element, it should be on a wrapping element.
+- You can't have a css background on element with `textClip: true` option. If you need a background on these element, it should be setup on a wrapping element instead.
 
 ## Known Issues
 
-The background text clip doesn't work in chrome if the element has a transform translate.
+- The background text clip doesn't work in chrome if the element has a transform translate set.
 
 [See this post on StackOverflow](https://stackoverflow.com/questions/55725461/webkit-background-clip-text-on-an-element-with-transition-is-not-working-after).
 
 ## Changelog
 
-Please see CHANGELOG for more information what has changed recently.
+Please [see the CHANGELOG](https://github.com/digital-swing/ripple/blob/main/CHANGELOG.md) for more information about what has changed recently.
 
 ## Testing
 
@@ -112,7 +115,7 @@ yarn test
 
 ## Contributing
 
-Please see CONTRIBUTING for details.
+Please [see CONTRIBUTING](https://github.com/digital-swing/ripple/blob/main/CONTRIBUTING.md) for details.
 
 ## Security
 
