@@ -169,15 +169,18 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.setProperty('-webkit-background-clip', 'text');
     }
 
-    if (config.on === 'always') {
-      el.style.setProperty('--ripple-size', rippleSize);
-    } else {
-      el.style.setProperty('--ripple-size', '0px');
-    }
+    el.style.setProperty('--ripple-size', '0px');
     el.style.setProperty('--ripple-x', rippleX);
     el.style.setProperty('--ripple-y', rippleY);
     el.style.setProperty('--ripple-color', rippleColor);
     el.style.setProperty('background-image', newBackgroundImage);
+    if (config.on === 'always') {
+      gsap.to(el, {
+        '--ripple-size': rippleSize,
+        duration: config.toggleDuration,
+        ease: config.ease,
+      });
+    }
 
     el.addEventListener('mouseenter', handleMouseEnter);
     function handleMouseEnter(this: HTMLElement) {
