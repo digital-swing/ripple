@@ -2,7 +2,9 @@
 
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/LucasDemea/47afa2dca4215d90df6248220a886a3e/raw/ripple__heads_main.json)
 
-A ripple effect, similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/), but with more options.
+A ripple effect, similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/), but with a lot of options. Have fun !
+
+*This package depends on Greensock GSAP.*
 
 ## Installation
 
@@ -11,13 +13,13 @@ A ripple effect, similar to the [Google Material ripple effect](https://m2.mater
 ### npm
 
 ```console
-npm install --save @digital-swing/ripple
+npm install gsap @digital-swing/ripple
 ```
 
 ### yarn
 
 ```console
-yarn add @digital-swing/ripple
+yarn add gsap @digital-swing/ripple
 ```
 
 ## Usage
@@ -88,7 +90,7 @@ In some cases you will want to style the ripple with css before javascript sets 
 }
 ```
 
-This can also prevent a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) that happens in rare cases.
+This can prevent a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) that happens in rare cases.
 
 ## Limitations
 
@@ -123,4 +125,7 @@ If you discover any security related issues, please email lucas@digital-swing.co
 
 [Lucas Demea](https://github.com/LucasDemea)
 
-## License
+## Roadmap
+
+- Add compatibility with other animation libraries : anime.js, shifty, popmotion...
+- Add a `background-clip: text` polyfill
