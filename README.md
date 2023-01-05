@@ -86,7 +86,7 @@ This example uses a [Bootstrap5 css variable](https://getbootstrap.com/docs/5.0/
 In some cases you will want to style the ripple with css before javascript sets its styles (especially with `on: 'always'`). You can do it this way :
 
 ```css
-.ripple { // or whatever class you want to use
+.ripple { /* or whatever class you want to use */
   --ripple-x: 100%;
   --ripple-y: 0%;
   --ripple-color: 'red';
