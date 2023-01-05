@@ -2,11 +2,7 @@
 
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/LucasDemea/47afa2dca4215d90df6248220a886a3e/raw/ripple__heads_main.json)
 
-Sage Directives is a simple Composer package adding a variety of useful Blade directives for use with Sage 9 including directives for WordPress, ACF, and various miscellaneous helpers.
-
-## Examples
-
-See the [Digital Swing website](https://www.digital-swing.com) for a real life example or the [examples page](https://github.com).
+A ripple effect, similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/), but with more options.
 
 ## Installation
 
@@ -34,7 +30,7 @@ import ripple from '@digital-swing/ripple';
 ripple();
 ```
 
-It will create an onclick ripple animation on all html element with the default `.ripple` class similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/).
+This will create an on-click ripple animation on all html element with the default `.ripple` class.
 
 ### With custom parameters
 
