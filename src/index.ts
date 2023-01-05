@@ -33,7 +33,8 @@ export interface RippleConfig {
 
   /**
    * Grow animation easing function.
-   * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
+   * @remarks
+   * See {@link https://greensock.com/docs/v3/Eases | GSAP Eases} for possible easings.
    * @defaultValue `none`
    **/
   expandEase: string;
@@ -42,6 +43,11 @@ export interface RippleConfig {
    * @defaultValue `true`
    **/
   expandOnClick: boolean;
+
+  /** Target element size multiplier to determine ripple expanded size (when `expandOnClick: true`). Rela
+   * @defaultValue `2`
+   **/
+  expandedFactor: number;
 
   /** Whether the ripple should fade out when the target is clicked.
    * @defaultValue `true`
@@ -124,6 +130,7 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
     expandDuration: 0.4, // seconds
     expandEase: 'none',
     expandOnClick: true,
+    expandedFactor: 2,
     fadeOutOnClick: true,
     followCursor: true,
     gradient: false,
@@ -133,7 +140,8 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
     size: '50px',
     target: '.ripple',
     textClip: false,
-    toggleDuration: 0.1, // seconds
+    toggleDuration: 0.1,
+    // seconds
     trackDuration: 0.1,
   };
 
@@ -261,8 +269,9 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
       }
 
       const transparentColor = alpha(rippleColor, 0);
-      const rippleGrowSize = Math.max(el.offsetHeight, el.offsetWidth) * 2;
-
+      const rippleExpandedSize = `${
+        Math.max(el.offsetHeight, el.offsetWidth) * config.expandedFactor
+      }px`;
       const tl = gsap.timeline();
       tl.fromTo(
         this,
@@ -275,7 +284,7 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
             ? transparentColor
             : rippleColor,
           '--ripple-size': config.expandOnClick
-            ? `${rippleGrowSize}${gsap.utils.getUnit(rippleSize)}`
+            ? `${rippleExpandedSize}${gsap.utils.getUnit(rippleSize)}`
             : rippleSize,
           duration: config.expandDuration,
           ease: config.expandEase,
