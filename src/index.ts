@@ -18,17 +18,12 @@ export interface RippleConfig {
    */
   delay: number;
 
-  /** Animation duration.
-   * @defaultValue `0`
-   **/
-  duration: number;
-
   /**
    * Easing function.
    * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
    * @defaultValue `none`
    **/
-  easing: string;
+  ease: string;
 
   /** Whether the ripple should grow when the target is clicked.
    * @defaultValue `true`
@@ -89,6 +84,11 @@ export interface RippleConfig {
    * @defaultValue `0.1`
    **/
   toggleDuration: number;
+
+  /** Cursor tracking animation duration.
+   * @defaultValue `0`
+   **/
+  trackDuration: number;
 }
 
 /**
@@ -101,8 +101,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     color: '#ffffff42',
     // seconds
     delay: 0,
-    duration: 0,
-    easing: 'power4',
+    ease: 'power4',
     expandOnClick: true,
     fadeOutOnClick: true,
     followCursor: true,
@@ -115,6 +114,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     target: '.ripple',
     textClip: false,
     toggleDuration: 0.1,
+    trackDuration: 0,
   };
 
   config = { ...config, ...userConfig };
@@ -186,7 +186,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           '--ripple-size': rippleSize,
           duration: config.toggleDuration,
-          ease: config.easing,
+          ease: config.ease,
         });
       }
     }
@@ -200,8 +200,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           '--ripple-x': `${x}%`,
           '--ripple-y': `${y}%`,
           delay: config.delay,
-          duration: config.duration,
-          ease: config.easing,
+          duration: config.trackDuration,
+          ease: config.ease,
         });
       }
     }
@@ -212,15 +212,15 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           '--ripple-size': 0,
           duration: config.toggleDuration,
-          ease: config.easing,
+          ease: config.ease,
         });
       } else {
         gsap.to(this, {
           '--ripple-x': rippleX,
           '--ripple-y': rippleY,
           delay: config.delay,
-          duration: config.duration,
-          ease: config.easing,
+          duration: config.trackDuration,
+          ease: config.ease,
         });
       }
     }
