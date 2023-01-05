@@ -5,15 +5,16 @@ name: Build Status
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - '!renovate/**'
     paths:
       - 'src/**'
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   coverage:
-
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -22,42 +23,42 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    # basically npm install but only installs from package-lock
-    - run: yarn --frozen-lockfile
-    - run: yarn test
+      # basically npm install but only installs from package-lock
+      - run: yarn --frozen-lockfile
+      - run: yarn test
 
-    # Only run the coverage once
-    - if: ${{ matrix.node-version == '16.x' }}
-      name: Get Coverage for badge
-      run: |
-        SUMMARY="$(yarn cov --coverageReporters='text-summary' | tail -3 | head -1)"
-        TOKENS=($SUMMARY)
-        COVERAGE=${TOKENS[2]%"%"}
-        [[ ${COVERAGE} = 'Unknown' ]] && COVERAGE_VAL=0 || COVERAGE_VAL=${COVERAGE}
-        echo "COVERAGE_VAL=${COVERAGE_VAL}" >> $GITHUB_ENV
-        echo "COVERAGE=${COVERAGE}" >> $GITHUB_ENV
-        REF=${{ github.ref }}
-        echo "github.ref: $REF"
-        IFS='/' read -ra PATHS <<< "$REF"
-        BRANCH_NAME="${PATHS[1]}_${PATHS[2]}"
-        echo $BRANCH_NAME
-        echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
-    - if: ${{ matrix.node-version == '16.x' }}
-      name: Create the Badge
-      uses: schneegans/dynamic-badges-action@v1.6.0
-      with:
-        auth: ${{ secrets.BADGES_GIST_SECRET }}
-        gistID: 47afa2dca4215d90df6248220a886a3e
-        filename: ripple__${{ env.BRANCH }}.json
-        label: Test Coverage
-        message: ${{ env.COVERAGE }}%
-        namedLogo: jest
-        valColorRange: ${{ env.COVERAGE_VAL }}
-        minColorRange: 50
-        maxColorRange: 90
+      # Only run the coverage once
+      - if: ${{ matrix.node-version == '16.x' }}
+        name: Get Coverage for badge
+        run: |
+          SUMMARY="$(yarn cov --coverageReporters='text-summary' | tail -3 | head -1)"
+          TOKENS=($SUMMARY)
+          COVERAGE=${TOKENS[2]%"%"}
+          [[ ${COVERAGE} = 'Unknown' ]] && COVERAGE_VAL=0 || COVERAGE_VAL=${COVERAGE}
+          echo "COVERAGE_VAL=${COVERAGE_VAL}" >> $GITHUB_ENV
+          echo "COVERAGE=${COVERAGE}" >> $GITHUB_ENV
+          REF=${{ github.ref }}
+          echo "github.ref: $REF"
+          IFS='/' read -ra PATHS <<< "$REF"
+          BRANCH_NAME="${PATHS[1]}_${PATHS[2]}"
+          echo $BRANCH_NAME
+          echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
+      - if: ${{ matrix.node-version == '16.x' }}
+        name: Create the Badge
+        uses: schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.BADGES_GIST_SECRET }}
+          gistID: 47afa2dca4215d90df6248220a886a3e
+          filename: ripple__${{ env.BRANCH }}.json
+          label: Test Coverage
+          message: ${{ env.COVERAGE }}%
+          namedLogo: jest
+          valColorRange: ${{ env.COVERAGE_VAL }}
+          minColorRange: 50
+          maxColorRange: 90
