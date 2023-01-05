@@ -89,10 +89,8 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          'webpack.config.cjs',
-          'webpack.prod.cjs',
-          'webpack.dev.cjs',
           'rollup.config.ts',
+          'vuepress.config.ts',
           'setupTestFrameworkScriptFile.ts',
           '.eslintrc.cjs',
           '__tests__/**/*',
