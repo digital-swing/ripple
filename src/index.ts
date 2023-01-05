@@ -1,4 +1,3 @@
-import { gsap } from 'gsap';
 import alpha from 'color-alpha';
 
 /**
@@ -110,7 +109,14 @@ export interface RippleConfig {
  * @param  userConfig - Custom user config. {@link RippleConfig | See detailed options.}
  *
  */
-export function ripple(userConfig?: Partial<RippleConfig>) {
+export async function ripple(userConfig?: Partial<RippleConfig>) {
+  const { gsap } = await import('gsap');
+
+  if (!gsap) {
+    console.warn('gsap not found. Skipping ripple initialization.');
+    return;
+  }
+
   let config: RippleConfig = {
     color: '#ffffff42',
     delay: 0, // seconds
