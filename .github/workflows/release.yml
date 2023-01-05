@@ -17,6 +17,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@digital-swing'
       - name: Setup .yarnrc.yml
         if: ${{ steps.release.outputs.release_created }}
         run: |
@@ -27,7 +29,15 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: yarn build
         if: ${{ steps.release.outputs.release_created }}
-      - run: yarn publish --access public
+      - run: yarn publish
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/setup-node@v3
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+      - run: yarn publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
