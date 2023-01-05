@@ -73,7 +73,7 @@ ripple(
 
 This example uses a [Bootstrap5 css variable](https://getbootstrap.com/docs/5.0/customize/css-variables/).
 
-[See the Wiki](https://github.com/digital-swing/ripple/wiki) for detailed configuration explained.
+[See the documentation](https://digital-swing.github.io/ripple/interfaces/RippleConfig.html) for detailed config options.
 
 ## Preventing FOUC at initialization
 

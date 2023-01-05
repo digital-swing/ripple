@@ -51,19 +51,13 @@ export interface RippleConfig {
   gradient: boolean;
 
   /**
-   * Initial horizontal relative position, expressed in percent. e.g.
-   * ```
-   * initialX : '30%';
-   * ```
+   * Initial horizontal relative position, expressed in percent.
    * @defaultValue `50%`
    **/
   initialX: string;
 
   /**
-   * Initial vertical relative position, expressed in percent. e.g.
-   * ```
-   * initialY : '30%';
-   * ```
+   * Initial vertical relative position, expressed in percent.
    * @defaultValue `50%`
    **/
   initialY: string;
