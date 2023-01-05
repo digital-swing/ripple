@@ -25,6 +25,18 @@ export interface RippleConfig {
    **/
   ease: string;
 
+  /** Ripple display animation duration in seconds.
+   * @defaultValue `0.4`
+   **/
+  expandDuration: number;
+
+  /**
+   * Grow animation easing function.
+   * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
+   * @defaultValue `none`
+   **/
+  expandEase: string;
+
   /** Whether the ripple should grow when the target is clicked.
    * @defaultValue `true`
    **/
@@ -99,21 +111,21 @@ export interface RippleConfig {
 export function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
     color: '#ffffff42',
-    // seconds
-    delay: 0,
+    delay: 0, // seconds
     ease: 'power4',
+    expandDuration: 0.4, // seconds
+    expandEase: 'none',
     expandOnClick: true,
     fadeOutOnClick: true,
     followCursor: true,
     gradient: false,
     initialX: '50%',
     initialY: '50%',
-    // seconds
     on: 'click',
     size: '50px',
     target: '.ripple',
     textClip: false,
-    toggleDuration: 0.1,
+    toggleDuration: 0.1, // seconds
     trackDuration: 0,
   };
 
@@ -252,8 +264,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           '--ripple-size': config.expandOnClick
             ? `${parseFloat(rippleSize) * 2}${gsap.utils.getUnit(rippleSize)}`
             : rippleSize,
-          duration: 1,
-          ease: 'power1.out',
+          duration: config.expandDuration,
+          ease: config.expandEase,
           onComplete: () => {
             if (config.fadeOutOnClick) {
               this.addEventListener('mousemove', handleMouseMove);
@@ -275,8 +287,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           {
             '--ripple-color': rippleColor,
             '--ripple-size': rippleSize,
-            duration: 1,
-            ease: 'power4',
+            duration: config.expandDuration,
+            ease: config.expandEase,
           }
         );
       }

@@ -56,6 +56,8 @@ ripple({
   fadeOutOnClick: false,
   expandOnClick: false,
   toggleDuration: 0.1,
+  expandDuration: 0.2,
+  expandEase: 'power2.out',
   on: 'click',
 });
 ```
