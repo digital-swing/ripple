@@ -186,21 +186,18 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
     let newBackgroundImage = ripple;
 
     const originalColor = getComputedStyle(el).color;
-
-    if (config.textClip) {
-      newBackgroundImage = `${newBackgroundImage}, linear-gradient(${originalColor},${originalColor})`;
-
-      el.style.setProperty('color', 'transparent');
-      el.style.setProperty('-webkit-text-fill-color', 'transparent');
-      el.style.setProperty('background-clip', 'text');
-      el.style.setProperty('-webkit-background-clip', 'text');
-    }
-
     el.style.setProperty('--ripple-size', '0px');
     el.style.setProperty('--ripple-x', rippleX);
     el.style.setProperty('--ripple-y', rippleY);
     el.style.setProperty('--ripple-color', rippleColor);
     el.style.setProperty('background-image', newBackgroundImage);
+
+    if (config.textClip) {
+      newBackgroundImage = `${newBackgroundImage}, linear-gradient(${originalColor},${originalColor})`;
+      el.style.setProperty('color', 'transparent');
+      el.style.setProperty('-webkit-text-fill-color', 'transparent');
+      el.style.setProperty('background-clip', 'text');
+    }
     if (config.on === 'always') {
       gsap.to(el, {
         '--ripple-size': rippleSize,
