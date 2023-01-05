@@ -20,8 +20,8 @@
   "scripts": {
     "build": "rimraf ./dist && rollup -c rollup.config.ts --configPlugin typescript",
     "start": "rollup -c rollup.config.ts --configPlugin typescript -w",
-    "test": "jest --passWithNoTests",
-    "cov": "jest --coverage --passWithNoTests",
+    "test": "jest",
+    "cov": "jest --coverage",
     "lint": "npm run lint:js && npm run lint:css",
     "docs:html": "typedoc --plugin none --readme none --out docs src/index.ts",
     "docs:md": "typedoc --plugin typedoc-plugin-markdown --readme none --out docs src/index.ts",
