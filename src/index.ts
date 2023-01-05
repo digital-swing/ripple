@@ -99,7 +99,7 @@ export interface RippleConfig {
   toggleDuration: number;
 
   /** Cursor tracking animation duration.
-   * @defaultValue `0`
+   * @defaultValue `0.1`
    **/
   trackDuration: number;
 }
@@ -134,7 +134,7 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
     target: '.ripple',
     textClip: false,
     toggleDuration: 0.1, // seconds
-    trackDuration: 0,
+    trackDuration: 0.1,
   };
 
   config = { ...config, ...userConfig };
