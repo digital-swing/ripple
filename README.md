@@ -40,22 +40,22 @@ It will create an onclick ripple animation on all html element with the default 
 import ripple from '@digital-swing/ripple';
 
 ripple({
-    color: "red",
-    size: '100px',
-    target: '.alt-ripple',
-    delay: 0,
-    easing: 'power2',
-    gradient: true,
-    duration: 0.8,
-    visibility: 'always',
-    initialX: '100%',
-    initialY: '0',
-    textClip: true,
-    fadeOutOnClick: false,
-    expandOnClick: false,
-    toggleDuration: 0.1,
-    trigger: 'click',
-    });
+  color: 'red',
+  size: '100px',
+  target: '.alt-ripple',
+  delay: 0,
+  easing: 'power2',
+  gradient: true,
+  duration: 0.8,
+  visibility: 'always',
+  initialX: '100%',
+  initialY: '0',
+  textClip: true,
+  fadeOutOnClick: false,
+  expandOnClick: false,
+  toggleDuration: 0.1,
+  on: 'click',
+});
 ```
 
 If you want to use a global css variable to color your ripple, you can do:
@@ -73,81 +73,19 @@ ripple(
 
 This example uses a [Bootstrap5 css variable](https://getbootstrap.com/docs/5.0/customize/css-variables/).
 
-## Options
-
-### target
-
-type: `string`
-
-### color
-
-type: `string`
-
-### size
-
-type: `string`
-
-### gradient
-
-type: `boolean`
-
-### easing
-
-type: `string`
-
-### duration
-
-type: `number`
-second
-
-### delay
-
-type: `number`
-seconds
-
-### visibility
-
-type: `['always', 'onclick', 'onhover']`
-
-### expandOnClick
-
-type: `boolean`
-
-### fadeOutOnClick
-
-type: `boolean`
-
-### initialX
-
-type: `string`
-
-### initialY
-
-type: `string`
-
-### followCursor
-
-type: `boolean`
-
-### toggleDuration
-
-type: `number`
-percentage
-
-### setTransparentText
-
-type: `boolean`
+[See the Wiki](https://github.com/digital-swing/ripple/wiki) for detailed configuration explained.
 
 ## Preventing FOUC at initialization
 
-When initialized, the ripple effect with `visibility: 'always'` will create a change in the appareance of your html element, resulting in a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content). To prevent this you can add this css with your defaults values to your project:
+When initialized, the ripple effect with `on: 'always'` will create a change in the appareance of your html element, resulting in a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Flash_of_unstyled_content). To prevent this you can add this css with your defaults values to your project:
 
 ```css
-.ripple { // whatever class you use
- --ripple-x: 100%;
- --ripple-y: 0%;
- --ripple-color: 'red';
- --ripple-size: 300px;
+.ripple {
+  // whatever class you use
+  --ripple-x: 100%;
+  --ripple-y: 0%;
+  --ripple-color: 'red';
+  --ripple-size: 300px;
 }
 ```
 
