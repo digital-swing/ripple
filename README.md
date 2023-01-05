@@ -1,10 +1,12 @@
 # Ripple
 
+<div align="center">
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/LucasDemea/47afa2dca4215d90df6248220a886a3e/raw/ripple__heads_main.json)
 
 A ripple effect, similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/), but with a lot of options. Have fun !
 
-*This package depends on Greensock GSAP.*
+*This package depends on Greensock GSAP. Other options will be added soon...*
+</div>
 
 ## Installation
 
