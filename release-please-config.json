@@ -28,7 +28,7 @@
 				},
 				{
 					"type": "docs",
-					"section": "Documentation"
+					"hidden": true
 				},
 				{
 					"type": "style",
