@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/digital-swing/ripple/compare/ripple-v0.3.0...ripple-v0.4.0) (2023-01-05)
+
+
+### Features
+
+* Add expand ease & duration settings ([2e3b255](https://github.com/digital-swing/ripple/commit/2e3b255347fba0159d46b9acd78505d83635b00a))
+* Add expandedFactor setting ([be21c49](https://github.com/digital-swing/ripple/commit/be21c49f70fdb16d317b0017a3fd8b9124e8f780))
+
+
+### Fixes & updates
+
+* Animate the initial toggle ([69982d8](https://github.com/digital-swing/ripple/commit/69982d83651c634d5b257681b006088c9144828b))
+* Renamed config props ([71c4541](https://github.com/digital-swing/ripple/commit/71c45410152e9bb58d4e1c64de90c52cdd54d629))
+* Set ripple expand size to 200% of parent element ([bb25928](https://github.com/digital-swing/ripple/commit/bb2592807084f15b9c9d1d1b98bbc5ca044a9497))
+
 ## [0.3.0](https://github.com/digital-swing/ripple/compare/ripple-v0.2.1...ripple-v0.3.0) (2023-01-04)
 
 
