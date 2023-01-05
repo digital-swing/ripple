@@ -1,4 +1,6 @@
 import { gsap } from 'gsap';
+import alpha from 'color-alpha';
+
 /**
  * TODO allow various animation libraries / custom properties animation
  * {@link https://css-tricks.com/build-complex-css-transitions-using-custom-properties-and-cubic-bezier/}
@@ -241,12 +243,15 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     }
 
     el.addEventListener('click', handleClick);
-    function handleClick(this: HTMLElement, e: MouseEvent) {
+    function handleClick(this: HTMLElement): void {
       if (config.fadeOutOnClick || config.expandOnClick) {
         this.removeEventListener('mousemove', handleMouseMove);
         this.removeEventListener('mouseleave', handleMouseLeave);
         this.removeEventListener('mouseenter', handleMouseEnter);
       }
+
+      const transparentColor = alpha(rippleColor, 0);
+      const rippleGrowSize = Math.max(el.offsetHeight, el.offsetWidth) * 2;
 
       const tl = gsap.timeline();
       tl.fromTo(
@@ -257,12 +262,10 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         },
         {
           '--ripple-color': config.fadeOutOnClick
-            ? import('color-alpha').then(({ default: alpha }) =>
-                alpha(rippleColor, 0)
-              )
+            ? transparentColor
             : rippleColor,
           '--ripple-size': config.expandOnClick
-            ? `${parseFloat(rippleSize) * 2}${gsap.utils.getUnit(rippleSize)}`
+            ? `${rippleGrowSize}${gsap.utils.getUnit(rippleSize)}`
             : rippleSize,
           duration: config.expandDuration,
           ease: config.expandEase,
@@ -279,9 +282,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         tl.fromTo(
           this,
           {
-            '--ripple-color': import('color-alpha').then(({ default: alpha }) =>
-              alpha(rippleColor, 0)
-            ),
+            '--ripple-color': transparentColor,
             '--ripple-size': 0,
           },
           {
