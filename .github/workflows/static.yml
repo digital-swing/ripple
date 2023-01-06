@@ -36,6 +36,7 @@ jobs:
         with:
           node-version: 16
       - run: yarn install --frozen-lockfile
+      - run: yarn docs:html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
