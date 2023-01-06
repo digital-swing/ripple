@@ -10,7 +10,7 @@
 
 </div>
 
-## Installation
+## 📥 Installation
 
 @digital-swing/ripple is available as a npm package.
 
@@ -26,7 +26,7 @@ npm install gsap @digital-swing/ripple
 yarn add gsap @digital-swing/ripple
 ```
 
-## Usage
+## 🛠️ Usage
 
 ### Basic
 
@@ -81,7 +81,7 @@ This example uses a [Bootstrap5 css variable](https://getbootstrap.com/docs/5.0/
 
 [See the documentation](https://digital-swing.github.io/ripple/interfaces/RippleConfig.html) for detailed config options.
 
-## Initial Ripple styles
+## 🎨 Initial Ripple styles
 
 In some cases you will want to style the ripple with css before javascript sets its styles (especially with `on: 'always'`). You can do it this way :
 
