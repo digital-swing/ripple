@@ -4,6 +4,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import pkg from './package.json' assert { type: 'json' };
 import summary from 'rollup-plugin-summary';
 import typescript from '@rollup/plugin-typescript';
+import terser from '@rollup/plugin-terser';
 
 export default [
   {
@@ -12,22 +13,33 @@ export default [
     output: [
       {
         dir: 'dist/esm',
-        // file: 'dist/esm/index.js',
+        exports: 'named',
         format: 'esm',
         preserveModules: true,
         preserveModulesRoot: 'src',
-        // exports: 'named',
         sourcemap: true,
       },
       {
-        // file: 'dist/index.js',
         dir: 'dist',
+        exports: 'named',
         format: 'cjs',
-        // exports: 'named',
         sourcemap: true,
       },
+      {
+        file: 'dist/bundle.js',
+        format: 'iife',
+        name: 'ripple',
+        plugins: [
+          terser({
+            compress: {
+              module: false,
+              toplevel: false,
+              unsafe_arrows: true,
+            },
+          }),
+        ],
+      },
     ],
-
     plugins: [
       nodeResolve(),
       commonjs({
