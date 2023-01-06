@@ -116,11 +116,12 @@ export interface RippleConfig {
  *
  */
 export async function ripple(userConfig?: Partial<RippleConfig>) {
-  const { gsap } = await import('gsap');
-
   if (!gsap) {
-    console.warn('gsap not found. Skipping ripple initialization.');
-    return;
+    const { gsap } = await import('gsap');
+    if (!gsap) {
+      console.warn('gsap not found. Skipping ripple initialization.');
+      return;
+    }
   }
 
   let config: RippleConfig = {
@@ -146,7 +147,6 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
   };
 
   config = { ...config, ...userConfig };
-
   if (config.textClip && !CSS.supports('background-clip', 'text')) {
     console.warn(
       "Browser doesn't support background-clip:'text' property. Skipping ripple initialization."
