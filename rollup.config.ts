@@ -4,7 +4,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import pkg from './package.json' assert { type: 'json' };
 import summary from 'rollup-plugin-summary';
 import typescript from '@rollup/plugin-typescript';
-import terser from '@rollup/plugin-terser';
 
 export default [
   {
@@ -24,20 +23,6 @@ export default [
         exports: 'named',
         format: 'cjs',
         sourcemap: true,
-      },
-      {
-        file: 'dist/bundle.js',
-        format: 'iife',
-        name: 'ripple',
-        plugins: [
-          terser({
-            compress: {
-              module: false,
-              toplevel: false,
-              unsafe_arrows: true,
-            },
-          }),
-        ],
       },
     ],
     plugins: [

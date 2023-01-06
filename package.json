@@ -5,8 +5,6 @@
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
-  "browser": "./dist/bundle.js",
-  "unpkg": "./dist/bundle.js",
   "types": "./types/index.d.ts",
   "files": [
     "/dist",

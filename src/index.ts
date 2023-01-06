@@ -1,11 +1,11 @@
 import alpha from 'color-alpha';
+import { gsap } from 'gsap';
 
 /**
  * TODO allow various animation libraries / custom properties animation
  * {@link https://css-tricks.com/build-complex-css-transitions-using-custom-properties-and-cubic-bezier/}
  *
  **/
-
 /** Ripple parameters. */
 export interface RippleConfig {
   /**
@@ -110,20 +110,28 @@ export interface RippleConfig {
   trackDuration: number;
 }
 
+function getRelativeMouseX(element: HTMLElement, mouseEvent: MouseEvent) {
+  const rect = element.getBoundingClientRect();
+  const x =
+    (100 * (mouseEvent.pageX - rect.left - window.scrollX)) /
+    element.offsetWidth;
+  return x;
+}
+
+function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
+  const rect = element.getBoundingClientRect();
+  const y =
+    (100 * (mouseEvent.pageY - rect.top - window.scrollY)) /
+    element.offsetHeight;
+  return y;
+}
+
 /**
  * Initializes the ripple effect.
  * @param  userConfig - Custom user config. {@link RippleConfig | See detailed options.}
  *
  */
-export async function ripple(userConfig?: Partial<RippleConfig>) {
-  if (!gsap) {
-    const { gsap } = await import('gsap');
-    if (!gsap) {
-      console.warn('gsap not found. Skipping ripple initialization.');
-      return;
-    }
-  }
-
+export function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
     color: '#ffffff42',
     delay: 0, // seconds
@@ -157,22 +165,6 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
   const rippleTargets: NodeListOf<HTMLElement> = document.querySelectorAll(
     config.target
   );
-
-  function getRelativeMouseX(element: HTMLElement, mouseEvent: MouseEvent) {
-    const rect = element.getBoundingClientRect();
-    const x =
-      (100 * (mouseEvent.pageX - rect.left - window.scrollX)) /
-      element.offsetWidth;
-    return x;
-  }
-
-  function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
-    const rect = element.getBoundingClientRect();
-    const y =
-      (100 * (mouseEvent.pageY - rect.top - window.scrollY)) /
-      element.offsetHeight;
-    return y;
-  }
 
   rippleTargets.forEach((el) => {
     const initialRippleColor =
