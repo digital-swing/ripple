@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/digital-swing/ripple/compare/ripple-v0.4.0...ripple-v0.4.1) (2023-01-06)
+
+
+### Fixes & updates
+
+* Fix ripple expansion ([a58fae0](https://github.com/digital-swing/ripple/commit/a58fae05c7c6954cb66d8348108466ffda42e312))
+
 ## [0.4.0](https://github.com/digital-swing/ripple/compare/ripple-v0.3.0...ripple-v0.4.0) (2023-01-05)
 
 
