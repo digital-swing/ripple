@@ -50,7 +50,6 @@
     "@commitlint/config-conventional": "17.4.0",
     "@rollup/plugin-commonjs": "24.0.0",
     "@rollup/plugin-node-resolve": "15.0.1",
-    "@rollup/plugin-terser": "^0.2.1",
     "@rollup/plugin-typescript": "10.0.1",
     "@types/gsap": "3.0.0",
     "@types/jest": "29.2.5",
