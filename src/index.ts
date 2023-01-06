@@ -284,7 +284,7 @@ export async function ripple(userConfig?: Partial<RippleConfig>) {
             ? transparentColor
             : rippleColor,
           '--ripple-size': config.expandOnClick
-            ? `${rippleExpandedSize}${gsap.utils.getUnit(rippleSize)}`
+            ? `${rippleExpandedSize}`
             : rippleSize,
           duration: config.expandDuration,
           ease: config.expandEase,
