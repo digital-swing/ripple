@@ -81,6 +81,11 @@ export interface RippleConfig {
    **/
   on: 'always' | 'click' | 'hover';
 
+  /** Prefix to css vars.
+   * @defaultValue `ripple`
+   **/
+  prefix: string;
+
   /** Ripple size.
    * @defaultValue `50px`
    **/
@@ -146,6 +151,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     initialX: '50%',
     initialY: '50%',
     on: 'click',
+    prefix: 'ripple',
     size: '50px',
     target: '.ripple',
     textClip: false,
@@ -167,30 +173,35 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   );
 
   rippleTargets.forEach((el) => {
-    const initialRippleColor =
-      getComputedStyle(el).getPropertyValue('--ripple-color');
+    const initialRippleColor = getComputedStyle(el).getPropertyValue(
+      `--${config.prefix}-color`
+    );
     const rippleColor =
       initialRippleColor !== '' ? initialRippleColor : config.color.trim();
-    const initialRippleX = getComputedStyle(el).getPropertyValue('--ripple-x');
+    const initialRippleX = getComputedStyle(el).getPropertyValue(
+      `--${config.prefix}-x`
+    );
     const rippleX = initialRippleX !== '' ? initialRippleX : config.initialX;
-    const initialRippleY = getComputedStyle(el).getPropertyValue('--ripple-y');
+    const initialRippleY = getComputedStyle(el).getPropertyValue(
+      `--${config.prefix}-y`
+    );
     const rippleY = initialRippleY !== '' ? initialRippleY : config.initialY;
-    const initialRippleSize =
-      getComputedStyle(el).getPropertyValue('--ripple-size');
+    const initialRippleSize = getComputedStyle(el).getPropertyValue(
+      `--${config.prefix}-size`
+    );
     const rippleSize =
       initialRippleSize !== '' ? initialRippleSize : config.size;
     const ripple = config.gradient
-      ? `radial-gradient(var(--ripple-size) at var(--ripple-x) var(--ripple-y), var(--ripple-color), transparent)`
-      : `radial-gradient(var(--ripple-size) at var(--ripple-x) var(--ripple-y), var(--ripple-color) 0%, var(--ripple-color) 100%, transparent)`;
+      ? `radial-gradient(var(--${config.prefix}-size) at var(--${config.prefix}-x) var(--${config.prefix}-y), var(--${config.prefix}-color), transparent)`
+      : `radial-gradient(var(--${config.prefix}-size) at var(--${config.prefix}-x) var(--${config.prefix}-y), var(--${config.prefix}-color) 0%, var(--${config.prefix}-color) 100%, transparent)`;
 
     let newBackgroundImage = ripple;
 
     const originalColor = getComputedStyle(el).color;
-    el.style.setProperty('--ripple-size', '0px');
-    el.style.setProperty('--ripple-x', rippleX);
-    el.style.setProperty('--ripple-y', rippleY);
-    el.style.setProperty('--ripple-color', rippleColor);
-    el.style.setProperty('background-image', newBackgroundImage);
+    el.style.setProperty(`--${config.prefix}-size`, '0px');
+    el.style.setProperty(`--${config.prefix}-x`, rippleX);
+    el.style.setProperty(`--${config.prefix}-y`, rippleY);
+    el.style.setProperty(`--${config.prefix}-color`, rippleColor);
 
     if (config.textClip) {
       newBackgroundImage = `${newBackgroundImage}, linear-gradient(${originalColor},${originalColor})`;
@@ -200,7 +211,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     }
     if (config.on === 'always') {
       gsap.to(el, {
-        '--ripple-size': rippleSize,
+        [`--${config.prefix}-size`]: rippleSize,
         duration: config.toggleDuration,
         ease: config.ease,
       });
@@ -211,7 +222,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       this.style.setProperty('background-image', newBackgroundImage);
       if (config.on === 'hover') {
         gsap.to(this, {
-          '--ripple-size': rippleSize,
+          [`--${config.prefix}-size`]: rippleSize,
           duration: config.toggleDuration,
           ease: config.ease,
         });
@@ -224,8 +235,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         const x = getRelativeMouseX(this, e);
         const y = getRelativeMouseY(this, e);
         gsap.to(this, {
-          '--ripple-x': `${x}%`,
-          '--ripple-y': `${y}%`,
+          [`--${config.prefix}-x`]: `${x}%`,
+          [`--${config.prefix}-y`]: `${y}%`,
           delay: config.delay,
           duration: config.trackDuration,
           ease: config.ease,
@@ -237,14 +248,14 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     function handleMouseLeave(this: HTMLElement) {
       if (config.on !== 'always') {
         gsap.to(this, {
-          '--ripple-size': 0,
+          [`--${config.prefix}-size`]: 0,
           duration: config.toggleDuration,
           ease: config.ease,
         });
       } else {
         gsap.to(this, {
-          '--ripple-x': rippleX,
-          '--ripple-y': rippleY,
+          [`--${config.prefix}-x`]: rippleX,
+          [`--${config.prefix}-y`]: rippleY,
           delay: config.delay,
           duration: config.trackDuration,
           ease: config.ease,
@@ -268,14 +279,14 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       tl.fromTo(
         this,
         {
-          '--ripple-color': rippleColor,
-          '--ripple-size': rippleSize,
+          [`--${config.prefix}-color`]: rippleColor,
+          [`--${config.prefix}-size`]: rippleSize,
         },
         {
-          '--ripple-color': config.fadeOutOnClick
+          [`--${config.prefix}-color`]: config.fadeOutOnClick
             ? transparentColor
             : rippleColor,
-          '--ripple-size': config.expandOnClick
+          [`--${config.prefix}-size`]: config.expandOnClick
             ? `${rippleExpandedSize}`
             : rippleSize,
           duration: config.expandDuration,
@@ -293,12 +304,12 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         tl.fromTo(
           this,
           {
-            '--ripple-color': transparentColor,
-            '--ripple-size': 0,
+            [`--${config.prefix}-color`]: transparentColor,
+            [`--${config.prefix}-size`]: 0,
           },
           {
-            '--ripple-color': rippleColor,
-            '--ripple-size': rippleSize,
+            [`--${config.prefix}-color`]: rippleColor,
+            [`--${config.prefix}-size`]: rippleSize,
             duration: config.expandDuration,
             ease: config.expandEase,
           }
