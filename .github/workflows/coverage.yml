@@ -55,7 +55,7 @@ jobs:
         with:
           auth: ${{ secrets.BADGES_GIST_SECRET }}
           gistID: 47afa2dca4215d90df6248220a886a3e
-          filename: ripple__${{ env.BRANCH }}.json
+          filename: ${{ github.event.repository.name }}__${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}%
           namedLogo: jest
