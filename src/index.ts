@@ -54,11 +54,6 @@ export interface RippleConfig {
    **/
   fadeOutOnClick: boolean;
 
-  /** Whether the ripple should follow the cursor.
-   * @defaultValue `true`
-   **/
-  followCursor: boolean;
-
   /** If the ripple should be a gradient.
    * @defaultValue `false`
    **/
@@ -109,6 +104,11 @@ export interface RippleConfig {
    **/
   toggleDuration: number;
 
+  /** Whether the ripple should follow the cursor.
+   * @defaultValue `true`
+   **/
+  trackCursor: boolean;
+
   /** Cursor tracking animation duration.
    * @defaultValue `0.1`
    **/
@@ -146,7 +146,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     expandOnClick: true,
     expandedFactor: 2,
     fadeOutOnClick: true,
-    followCursor: true,
     gradient: false,
     initialX: '50%',
     initialY: '50%',
@@ -156,6 +155,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     target: '.ripple',
     textClip: false,
     toggleDuration: 0.1,
+    trackCursor: true,
     // seconds
     trackDuration: 0.1,
   };
@@ -231,7 +231,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
 
     el.addEventListener('mousemove', handleMouseMove);
     function handleMouseMove(this: HTMLElement, e: MouseEvent) {
-      if (config.followCursor) {
+      if (config.trackCursor) {
         const x = getRelativeMouseX(this, e);
         const y = getRelativeMouseY(this, e);
         gsap.to(this, {
