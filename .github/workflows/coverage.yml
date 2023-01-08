@@ -11,7 +11,9 @@ on:
     paths:
       - 'src/**'
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - '!renovate/**'
 
 jobs:
   coverage:
