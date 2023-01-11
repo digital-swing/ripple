@@ -4,6 +4,5 @@ types
 .history
 yarn-error.log
 coverage
-.npmrc
 docs/*
 !docs/.vuepress
