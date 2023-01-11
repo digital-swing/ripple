@@ -19,13 +19,6 @@ export interface RippleConfig {
    */
   delay: number;
 
-  /**
-   * Easing function.
-   * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
-   * @defaultValue `none`
-   **/
-  ease: string;
-
   /** Ripple display animation duration in seconds.
    * @defaultValue `0.4`
    **/
@@ -141,6 +134,13 @@ export interface RippleConfig {
    * @defaultValue `0.1`
    **/
   trackDuration: number;
+
+  /**
+   * Tracking easing function.
+   * {@link https://greensock.com/docs/v3/Eases | GSAP Eases}
+   * @defaultValue `none`
+   **/
+  trackEase: string;
 }
 
 function getRelativeMouseX(element: HTMLElement, mouseEvent: MouseEvent) {
@@ -168,7 +168,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
     color: '#ffffff42',
     delay: 0, // seconds
-    ease: 'power4',
     expandDuration: 0.4, // seconds
     expandEase: 'none',
     expandOnClick: true,
@@ -189,8 +188,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     textClip: false,
     toggleDuration: 0.1,
     trackCursor: true,
-    // seconds
     trackDuration: 0.1,
+    trackEase: 'power4',
   };
 
   config = { ...config, ...userConfig };
@@ -257,11 +256,12 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.setProperty('-webkit-text-fill-color', 'transparent');
       el.style.setProperty('background-clip', 'text');
     }
+
     if (config.on === 'always') {
       gsap.to(el, {
         [`--${config.prefix}-size`]: rippleSize,
         duration: config.toggleDuration,
-        ease: config.ease,
+        ease: config.trackEase,
       });
     }
 
@@ -272,7 +272,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           [`--${config.prefix}-size`]: rippleSize,
           duration: config.toggleDuration,
-          ease: config.ease,
+          ease: config.trackEase,
         });
       }
     }
@@ -287,7 +287,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           [`--${config.prefix}-y`]: `${y}%`,
           delay: config.delay,
           duration: config.trackDuration,
-          ease: config.ease,
+          ease: config.trackEase,
         });
       }
     }
@@ -298,7 +298,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         gsap.to(this, {
           [`--${config.prefix}-size`]: 0,
           duration: config.toggleDuration,
-          ease: config.ease,
+          ease: config.trackEase,
         });
       } else {
         gsap.to(this, {
@@ -306,7 +306,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           [`--${config.prefix}-y`]: rippleY,
           delay: config.delay,
           duration: config.trackDuration,
-          ease: config.ease,
+          ease: config.trackEase,
         });
       }
     }
