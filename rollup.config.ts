@@ -11,18 +11,30 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        dir: 'dist/esm',
+        dir: 'dist',
+        entryFileNames: '[name].mjs',
         exports: 'named',
-        format: 'esm',
+        format: 'es',
         preserveModules: true,
         preserveModulesRoot: 'src',
         sourcemap: true,
       },
       {
         dir: 'dist',
+        entryFileNames: '[name].cjs',
         exports: 'named',
         format: 'cjs',
         sourcemap: true,
+      },
+      {
+        dir: 'dist',
+        entryFileNames: 'bundle.min.js',
+        exports: 'named',
+        format: 'umd',
+        globals: {
+          gsap: 'gsap',
+        },
+        name: 'ripple',
       },
     ],
     plugins: [

@@ -3,8 +3,11 @@
   "version": "0.4.1",
   "description": "Ripple effect",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
+  "main": "./dist/index.cjs",
+  "exports": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/bundle.min.js",
+  "unpkg": "./dist/bundle.min.js",
   "types": "./types/index.d.ts",
   "files": [
     "/dist",

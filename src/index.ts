@@ -1,5 +1,5 @@
 import alpha from 'color-alpha';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 
 /**
  * TODO allow various animation libraries / custom properties animation
