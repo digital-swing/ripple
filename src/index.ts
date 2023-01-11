@@ -59,6 +59,20 @@ export interface RippleConfig {
    **/
   gradient: boolean;
 
+  /** Function to generates the gradient spotlight
+   * @defaultValue `(size, x, y, variationX, variationY, color) => {
+    return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+  }`
+   **/
+  gradientSpotlight: (
+    size: string,
+    x: string,
+    y: string,
+    variationX: string,
+    variationY: string,
+    color: string
+  ) => string;
+
   /**
    * Initial horizontal relative position, expressed in percent.
    * @defaultValue `50%`
@@ -80,6 +94,20 @@ export interface RippleConfig {
    * @defaultValue `ripple`
    **/
   prefix: string;
+
+  /** Function to generates the sharp spotlight
+   * @defaultValue `(size, x, y, variationX, variationY, color) => {
+      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+    }`
+   **/
+  sharpSpotlight: (
+    size: string,
+    x: string,
+    y: string,
+    variationX: string,
+    variationY: string,
+    color: string
+  ) => string;
 
   /** Ripple size.
    * @defaultValue `50px`
@@ -147,11 +175,16 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     expandedFactor: 2,
     fadeOutOnClick: true,
     gradient: false,
+    gradientSpotlight: (size, x, y, variationX, variationY, color) => {
+      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+    },
     initialX: '50%',
     initialY: '50%',
     on: 'click',
     prefix: 'ripple',
-    size: '50px',
+    sharpSpotlight: (size, x, y, variationX, variationY, color) => {
+      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+    },
     target: '.ripple',
     textClip: false,
     toggleDuration: 0.1,
@@ -192,8 +225,23 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     const rippleSize =
       initialRippleSize !== '' ? initialRippleSize : config.size;
     const ripple = config.gradient
-      ? `radial-gradient(var(--${config.prefix}-size) at var(--${config.prefix}-x) var(--${config.prefix}-y), var(--${config.prefix}-color), transparent)`
-      : `radial-gradient(var(--${config.prefix}-size) at var(--${config.prefix}-x) var(--${config.prefix}-y), var(--${config.prefix}-color) 0%, var(--${config.prefix}-color) 100%, transparent)`;
+      ? config.gradientSpotlight(
+          `var(--${config.prefix}-size)`,
+          `var(--${config.prefix}-x)`,
+          `var(--${config.prefix}-y)`,
+          `var(--${config.prefix}-variationX)`,
+          `var(--${config.prefix}-variationY)`,
+          `var(--${config.prefix}-color)`
+        )
+      : config.sharpSpotlight(
+          `var(--${config.prefix}-size)`,
+          `var(--${config.prefix}-x)`,
+          `var(--${config.prefix}-y)`,
+          `var(--${config.prefix}-variationX)`,
+          `var(--${config.prefix}-variationY)`,
+          `var(--${config.prefix}-color)`
+        );
+
 
     let newBackgroundImage = ripple;
 
