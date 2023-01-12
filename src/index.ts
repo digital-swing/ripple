@@ -167,8 +167,8 @@ function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
 export function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
     color: '#ffffff42',
-    delay: 0, // seconds
-    expandDuration: 0.4, // seconds
+    delay: 0,
+    expandDuration: 0.4,
     expandEase: 'none',
     expandOnClick: true,
     expandedFactor: 2,
@@ -194,13 +194,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   };
 
   config = { ...config, ...userConfig };
-  if (config.textClip && !CSS.supports('background-clip', 'text')) {
-    console.warn(
-      "Browser doesn't support background-clip:'text' property. Skipping ripple initialization."
-    );
-    return;
-  }
-
   const rippleTargets: NodeListOf<HTMLElement> = document.querySelectorAll(
     config.target
   );
