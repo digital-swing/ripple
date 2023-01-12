@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/digital-swing/ripple/compare/ripple-v0.5.0...ripple-v0.6.0) (2023-01-12)
+
+
+### Features
+
+* Add ripple to window object ([49e0107](https://github.com/digital-swing/ripple/commit/49e01070173df19470b106a7f464481c9a27d632))
+
 ## [0.5.0](https://github.com/digital-swing/ripple/compare/ripple-v0.4.1...ripple-v0.5.0) (2023-01-12)
 
 
