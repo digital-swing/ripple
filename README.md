@@ -1,5 +1,5 @@
 # Ripple
-
+<!-- markdownlint-disable-next-line MD033-->
 <div align="center">
 
 🌈 A ripple effect, similar to the [Google Material ripple effect](https://m2.material.io/develop/ios/supporting/ripple) or the [Vuetify ripple effect](https://vuetifyjs.com/en/directives/ripple/), but with a lot of options. 🌈

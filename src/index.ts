@@ -53,9 +53,12 @@ export interface RippleConfig {
   gradient: boolean;
 
   /** Function to generates the gradient spotlight
-   * @defaultValue `(size, x, y, variationX, variationY, color) => {
-    return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
-  }`
+   * @defaultValue
+   * ```
+   * (size, x, y, variationX, variationY, color) => {
+   * return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+   * }
+   *```
    **/
   gradientSpotlight: (
     size: string,
@@ -89,9 +92,12 @@ export interface RippleConfig {
   prefix: string;
 
   /** Function to generates the sharp spotlight
-   * @defaultValue `(size, x, y, variationX, variationY, color) => {
-      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
-    }`
+   * @defaultValue
+   * ```
+   * (size, x, y, variationX, variationY, color) => {
+   *  return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+   * }
+   * ```
    **/
   sharpSpotlight: (
     size: string,
