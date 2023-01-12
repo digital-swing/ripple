@@ -4,6 +4,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import pkg from './package.json' assert { type: 'json' };
 import summary from 'rollup-plugin-summary';
 import typescript from '@rollup/plugin-typescript';
+import terser from '@rollup/plugin-terser';
 
 export default [
   {
@@ -27,14 +28,14 @@ export default [
         sourcemap: true,
       },
       {
-        dir: 'dist',
-        entryFileNames: 'bundle.min.js',
         exports: 'named',
+        file: pkg.browser,
         format: 'umd',
         globals: {
           gsap: 'gsap',
         },
         name: 'ripple',
+        plugins: [terser()],
       },
     ],
     plugins: [
