@@ -43,7 +43,8 @@
 
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://unpkg.com/@digital-swing/ripple"></script>
+    <!-- <script src="https://unpkg.com/@digital-swing/ripple"></script> -->
+    <script src="../../dist/bundle.min.js"></script>
     <script>
       function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -64,6 +65,7 @@
         <script>
           ripple({
             target: '.subtle-shine',
+            color: 'rgba(255, 255, 255, 0.25)',
             on: 'hover',
             size: '100px',
             gradient: true,

@@ -172,7 +172,7 @@ function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
  */
 export function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
-    color: '#ffffff42',
+    color: 'rgba(255, 255, 255, 0.7)',
     delay: 0,
     expandDuration: 0.4,
     expandEase: 'none',
