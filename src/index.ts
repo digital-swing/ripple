@@ -103,7 +103,7 @@ export interface RippleConfig {
   ) => string;
 
   /** Ripple size.
-   * @defaultValue `50px`
+   * @defaultValue `0`
    **/
   size: string;
 
@@ -184,6 +184,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     sharpSpotlight: (size, x, y, variationX, variationY, color) => {
       return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
     },
+    size: '0px',
     target: '.ripple',
     textClip: false,
     toggleDuration: 0.1,
