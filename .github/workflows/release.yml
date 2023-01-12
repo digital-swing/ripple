@@ -17,6 +17,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
       - name: Setup .yarnrc.yml
         if: ${{ steps.release.outputs.release_created }}
         run: |
