@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/digital-swing/ripple/compare/ripple-v0.4.1...ripple-v0.5.0) (2023-01-12)
+
+
+### Features
+
+* Add prefix setting ([c7941b0](https://github.com/digital-swing/ripple/commit/c7941b0593651fff631d9a93f01781946392cb97))
+
 ## [0.4.1](https://github.com/digital-swing/ripple/compare/ripple-v0.4.0...ripple-v0.4.1) (2023-01-06)
 
 
