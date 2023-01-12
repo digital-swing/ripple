@@ -30,6 +30,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: yarn publish
         if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/setup-node@v3
         if: ${{ steps.release.outputs.release_created }}
         with:
