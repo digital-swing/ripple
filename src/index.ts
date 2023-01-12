@@ -374,3 +374,9 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     }
   });
 }
+declare global {
+  interface Window {
+    ripple: typeof ripple;
+  }
+}
+window.ripple = ripple;
