@@ -3,6 +3,7 @@ on:
     branches:
       - main
       - '!renovate/pin-dependencies'
+      - '!release-please-*'
   pull_request:
     types: [assigned, opened, synchronize, reopened, labeled]
 name: Build & test
