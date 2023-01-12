@@ -17,19 +17,13 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-      - name: Setup .yarnrc.yml
+      - name: Authenticate with private NPM package
+        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
+      - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
-        run: |
-          yarn config set npmScopes.gsap.npmRegistryServer "https://npm.greensock.com"
-          yarn config set npmScopes.gsap.npmAlwaysAuth true
-          yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
-          yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-      - run: yarn install --frozen-lockfile
+      - run: npm run build
         if: ${{ steps.release.outputs.release_created }}
-      - run: yarn build
-        if: ${{ steps.release.outputs.release_created }}
-      - run: yarn publish
+      - run: npm publish
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -37,7 +31,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - run: yarn publish
+      - run: npm publish
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}

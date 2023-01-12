@@ -30,22 +30,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmScopes.gsap.npmRegistryServer "https://npm.greensock.com"
-          yarn config set npmScopes.gsap.npmAlwaysAuth true
-          yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
-          yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-
+      - name: Authenticate with private NPM package
+        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
       # basically npm install but only installs from package-lock
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+      - run: npm ci
+      - run: npm test
 
       # Only run the coverage once
       - if: ${{ matrix.node-version == '16.x' }}
         name: Get Coverage for badge
         run: |
-          SUMMARY="$(yarn cov --coverageReporters='text-summary' | tail -3 | head -1)"
+          SUMMARY="$(npm run cov --coverageReporters='text-summary' | tail -3 | head -1)"
           TOKENS=($SUMMARY)
           COVERAGE=${TOKENS[2]%"%"}
           [[ ${COVERAGE} = 'Unknown' ]] && COVERAGE_VAL=0 || COVERAGE_VAL=${COVERAGE}

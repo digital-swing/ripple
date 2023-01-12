@@ -38,14 +38,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmScopes.gsap.npmRegistryServer "https://npm.greensock.com"
-          yarn config set npmScopes.gsap.npmAlwaysAuth true
-          yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
-          yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-      - run: yarn install --frozen-lockfile
-      - run: yarn docs:html
+      - name: Authenticate with private NPM package
+        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
+      - run: npm ci
+      - run: npm run docs:html
       - name: Upload docs
         uses: actions/upload-pages-artifact@v1
         with:
