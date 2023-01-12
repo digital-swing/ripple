@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ripple examples</title>
+    <meta
+      name="description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta name="author" content="SitePoint" />
+
+    <meta property="og:title" content="A Basic HTML5 Template" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.sitepoint.com/a-basic-html5-template/"
+    />
+    <meta
+      property="og:description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta property="og:image" content="image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- <script async type="module" src="/js/main.esm.min.js"></script>
+    <script async nomodule src="/js/main.iife.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/@digital-swing/ripple"></script>
+    <script>
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+      }
+    </script>
+    <div class="grid">
+      <div class="grid-section">
+        <button class="button ripple">Classic ripple</button>
+        <script>
+          ripple.ripple();
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section">
+        <button class="button subtle-shine">Subtle shine</button>
+        <script>
+          ripple.ripple({
+            target: '.subtle-shine',
+            on: 'hover',
+            size: '100px',
+            gradient: true,
+            fadeOutOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section bg-spotlight" style="background: black">
+        <div style="font-size: 10rem">Background Spotlight</div>
+        <script>
+          ripple.ripple({
+            color: 'yellow',
+            target: '.bg-spotlight',
+            on: 'always',
+            size: '300px',
+            gradient: false,
+            trackDuration: 0.5,
+            fadeOutOnClick: false,
+            randomAmplitude: 1000,
+            randomDelay: 1,
+            randomDuration: 0.2,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section" style="background: white">
+        <button class="button button--glow">Smooth gradient</button>
+        <script>
+          ripple.ripple({
+            color: '#ff6670',
+            target: '.button--glow',
+            on: 'always',
+            trackDuration: 3,
+            initialX: '100%',
+            initialY: '100%',
+            size: '200px',
+            gradient: true,
+            fadeOutOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section text-sp" style="background: black">
+        <div
+          style="font-size: 8rem; font-weight: 900; text-transform: uppercase"
+        >
+          On click
+        </div>
+        <script>
+          ripple.ripple({
+            color: 'yellow',
+            target: '.text-sp',
+            on: 'always',
+            size: '150px',
+            textClip: true,
+            gradient: false,
+            trackDuration: 0.5,
+            fadeOutOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section" style="background-color: black">
+        <h1
+          class="shiny-text"
+          style="
+            font-size: 8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: radial-gradient(
+                ellipse farthest-corner at right bottom,
+                #fedb37 0%,
+                #fdb931 8%,
+                #9f7928 30%,
+                #8a6e2f 40%,
+                transparent 80%
+              ),
+              radial-gradient(
+                ellipse farthest-corner at left top,
+                #ffffff 0%,
+                #ffffac 8%,
+                #d1b464 25%,
+                #5d4a1f 62.5%,
+                #5d4a1f 100%
+              );
+          "
+        >
+          shiny text with initial background-clip
+        </h1>
+        <script>
+          ripple.ripple({
+            target: '.shiny-text',
+            on: 'hover',
+            color: 'white',
+            size: '300px',
+            textClip: true,
+            toggleDuration: 0.5,
+            gradient: true,
+            trackDuration: 0,
+            fadeOutOnClick: false,
+            expandOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section multi-bg-spotlight">
+        <button class="button">Multiple Background Spotlight</button>
+        <script>
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r1',
+            size: '50px',
+            initialX: '0',
+            initialY: '0',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r2',
+            size: '50px',
+            initialX: '0',
+            initialY: '100%',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r3',
+            size: '50px',
+            initialX: '100%',
+            initialY: '0',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r4',
+            size: '50px',
+            initialX: '100%',
+            initialY: '100%',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r5',
+            size: '50px',
+            initialX: '50%',
+            initialY: '0',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+          ripple.ripple({
+            target: '.multi-bg-spotlight',
+            color: 'blue',
+            on: 'always',
+            prefix: 'r6',
+            size: '50px',
+            initialX: '50%',
+            initialY: '100%',
+            gradient: false,
+            trackDuration: 3,
+            fadeOutOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section crazy" style="background: white">
+        <button class="button">Go crazy !</button>
+        <script>
+          for (let i = 0; i < 10; i++) {
+            var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+            ripple.ripple({
+              target: '.crazy',
+              color: color,
+              on: 'always',
+              prefix: `r${i}`,
+              size: `${getRandomInt(0, 15)}px`,
+              initialX: `${getRandomInt(0, 100)}%`,
+              initialY: `${getRandomInt(0, 100)}%`,
+              gradient: false,
+              delay: getRandomInt(0, 10) / 10,
+              trackDuration: getRandomInt(0, 10),
+              fadeOutOnClick: false,
+              expandOnClick: false,
+              randomAmplitude: 150,
+            });
+          }
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section animated-gradient" style="background: white">
+        <button class="button">Animated gradient</button>
+        <script>
+          for (let i = 0; i < 4; i++) {
+            var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+            ripple.ripple({
+              target: '.animated-gradient',
+              color: color,
+              on: 'always',
+              prefix: `r${i}`,
+              size: '1000px',
+              ease: 'linear',
+              initialX: `${getRandomInt(0, 100)}%`,
+              initialY: `${getRandomInt(0, 100)}%`,
+              gradient: true,
+              trackDuration: 10,
+              fadeOutOnClick: false,
+              expandOnClick: false,
+              randomAmplitude: 1000,
+              trackCursor: false,
+            });
+          }
+        </script>
+      </div>
+      <!-- /.grid-section -->
+    </div>
+    <!-- /.grid -->
+  </body>
+</html>

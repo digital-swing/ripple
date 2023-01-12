@@ -1,0 +1,75 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-section {
+  padding: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #c9c9c9;
+  text-align: center;
+}
+
+.grid-section:nth-child(odd) {
+  background: #afafaf;
+}
+
+.button {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #5a6ef6;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button--glow {
+  position: relative;
+  z-index: 0;
+  transition: transform 0.3s ease 0s;
+  color: #fff;
+}
+
+.button--glow::before,
+.button--glow::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  background: inherit;
+}
+
+.button--glow::before {
+  opacity: 0.5;
+  filter: blur(10px);
+}
+
+.button--glow::after {
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.button--glow:active {
+  color: #fff;
+}
+
+.button--glow:hover {
+  color: #fff;
+}
+
+.button--glow:hover::after {
+  opacity: 0.5;
+}

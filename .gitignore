@@ -6,3 +6,4 @@ yarn-error.log
 coverage
 docs/*
 !docs/.vuepress
+!docs/examples
