@@ -141,13 +141,13 @@ describe('--ripple-y', () => {
 });
 
 describe('--ripple-color', () => {
-  it('is set to #ffffff42 by default', () => {
+  it('is set to rgba(255, 255, 255, 0.7) by default', () => {
     ripple();
     expect(
       (
         document.getElementsByClassName('ripple')[0] as HTMLElement
       ).style.getPropertyValue('--ripple-color')
-    ).toBe('#ffffff42');
+    ).toBe('rgba(255, 255, 255, 0.7)');
   });
 
   it('is set to user defined named color', () => {
