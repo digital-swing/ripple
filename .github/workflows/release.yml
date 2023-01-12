@@ -19,6 +19,7 @@ jobs:
           node-version: 16
       - name: Authenticate with private NPM package
         run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
+        if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
       - run: npm run build
