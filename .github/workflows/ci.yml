@@ -26,5 +26,8 @@ jobs:
           yarn config set npmScopes.gsap.npmAlwaysAuth true
           yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
       - run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GSAP_TOKEN: ${{ secrets.GSAP_TOKEN }}
       - run: yarn build
       - run: yarn test

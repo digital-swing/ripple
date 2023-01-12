@@ -36,6 +36,9 @@ jobs:
         with:
           node-version: 16
       - run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GSAP_TOKEN: ${{ secrets.GSAP_TOKEN }}
       - run: yarn docs:html
       - name: Upload docs
         uses: actions/upload-pages-artifact@v1

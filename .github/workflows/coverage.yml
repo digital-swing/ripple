@@ -33,6 +33,9 @@ jobs:
 
       # basically npm install but only installs from package-lock
       - run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GSAP_TOKEN: ${{ secrets.GSAP_TOKEN }}
       - run: yarn test
 
       # Only run the coverage once
