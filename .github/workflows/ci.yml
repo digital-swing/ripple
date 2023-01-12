@@ -25,9 +25,7 @@ jobs:
           yarn config set npmScopes.gsap.npmRegistryServer "https://npm.greensock.com"
           yarn config set npmScopes.gsap.npmAlwaysAuth true
           yarn config set npmScopes.gsap.npmAuthToken $GSAP_TOKEN
+          yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
       - run: yarn install --frozen-lockfile
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GSAP_TOKEN: ${{ secrets.GSAP_TOKEN }}
       - run: yarn build
       - run: yarn test
