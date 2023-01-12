@@ -235,21 +235,28 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           `var(--${config.prefix}-color)`
         );
 
+    const originalBackground =
+      el.style.backgroundImage !== '' && el.style.backgroundImage !== 'initial'
+        ? el.style.backgroundImage
+        : getComputedStyle(el).backgroundImage;
+    let newBackground =
+      originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
 
-    let newBackgroundImage = ripple;
-
-    const originalColor = getComputedStyle(el).color;
     el.style.setProperty(`--${config.prefix}-size`, '0px');
     el.style.setProperty(`--${config.prefix}-x`, rippleX);
     el.style.setProperty(`--${config.prefix}-y`, rippleY);
     el.style.setProperty(`--${config.prefix}-variationX`, '0px');
     el.style.setProperty(`--${config.prefix}-variationY`, '0px');
     el.style.setProperty(`--${config.prefix}-color`, rippleColor);
+    el.style.setProperty('background-image', newBackground);
 
     if (config.textClip) {
-      newBackgroundImage = `${newBackgroundImage}, linear-gradient(${originalColor},${originalColor})`;
+      const originalColor = getComputedStyle(el).color;
+      newBackground = `${ripple},${originalBackground}, linear-gradient(${originalColor},${originalColor})`;
+      el.style.setProperty('background-image', newBackground);
       el.style.setProperty('color', 'transparent');
       el.style.setProperty('-webkit-text-fill-color', 'transparent');
+      el.style.setProperty('-webkit-background-clip', 'text');
       el.style.setProperty('background-clip', 'text');
     }
 
@@ -263,7 +270,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
 
     el.addEventListener('mouseenter', handleMouseEnter);
     function handleMouseEnter(this: HTMLElement) {
-      this.style.setProperty('background-image', newBackgroundImage);
       if (config.on === 'hover') {
         gsap.to(this, {
           [`--${config.prefix}-size`]: rippleSize,
