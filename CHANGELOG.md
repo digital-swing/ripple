@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/digital-swing/ripple/compare/ripple-v0.6.0...ripple-v0.6.1) (2023-01-12)
+
+
+### Fixes & updates
+
+* Better default ripple color ([c13cfd1](https://github.com/digital-swing/ripple/commit/c13cfd19579cbb53d6f93b5d73027e5f3d294909))
+
 ## [0.6.0](https://github.com/digital-swing/ripple/compare/ripple-v0.5.0...ripple-v0.6.0) (2023-01-12)
 
 
