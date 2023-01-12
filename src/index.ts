@@ -242,6 +242,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     el.style.setProperty(`--${config.prefix}-size`, '0px');
     el.style.setProperty(`--${config.prefix}-x`, rippleX);
     el.style.setProperty(`--${config.prefix}-y`, rippleY);
+    el.style.setProperty(`--${config.prefix}-variationX`, '0px');
+    el.style.setProperty(`--${config.prefix}-variationY`, '0px');
     el.style.setProperty(`--${config.prefix}-color`, rippleColor);
 
     if (config.textClip) {
