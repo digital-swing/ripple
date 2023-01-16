@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/digital-swing/ripple/compare/ripple-v0.6.1...ripple-v0.7.0) (2023-01-16)
+
+
+### Features
+
+* Add ignore setting to disable the ripple ([260647a](https://github.com/digital-swing/ripple/commit/260647ad7111ff9f27f2172c354bd13ab122bb00))
+
 ## [0.6.1](https://github.com/digital-swing/ripple/compare/ripple-v0.6.0...ripple-v0.6.1) (2023-01-12)
 
 
