@@ -17,8 +17,9 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
       - name: Authenticate with private NPM package
-        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
+        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" >> ~/.npmrc
         if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
