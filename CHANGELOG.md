@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/digital-swing/ripple/compare/ripple-v0.7.0...ripple-v0.7.1) (2023-01-16)
+
+
+### Fixes & updates
+
+* Preserve settings between reinitializations ([006b488](https://github.com/digital-swing/ripple/commit/006b488b3b132dc8cc0cb265bfd66042df9db3a7))
+
 ## [0.7.0](https://github.com/digital-swing/ripple/compare/ripple-v0.6.1...ripple-v0.7.0) (2023-01-16)
 
 
