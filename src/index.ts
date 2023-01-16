@@ -70,6 +70,12 @@ export interface RippleConfig {
   ) => string;
 
   /**
+   * Selector for which the ripple won't be applied.
+   * @defaultValue `.disabled, [disabled]`
+   */
+  ignore: string;
+
+  /**
    * Initial horizontal relative position, expressed in percent.
    * @defaultValue `50%`
    **/
@@ -183,6 +189,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     gradientSpotlight: (size, x, y, variationX, variationY, color) => {
       return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
     },
+    ignore: `.disabled, [disabled]`,
     initialX: '50%',
     initialY: '50%',
     on: 'click',
@@ -205,6 +212,9 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   );
 
   rippleTargets.forEach((el) => {
+    const isIgnored = () => el.matches(config.ignore);
+    let isInit = false;
+    if (isIgnored()) return;
     const initialRippleColor = getComputedStyle(el).getPropertyValue(
       `--${config.prefix}-color`
     );
@@ -248,59 +258,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     let newBackground =
       originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
 
-    el.style.setProperty(`--${config.prefix}-size`, '0px');
-    el.style.setProperty(`--${config.prefix}-x`, rippleX);
-    el.style.setProperty(`--${config.prefix}-y`, rippleY);
-    el.style.setProperty(`--${config.prefix}-variationX`, '0px');
-    el.style.setProperty(`--${config.prefix}-variationY`, '0px');
-    el.style.setProperty(`--${config.prefix}-color`, rippleColor);
-    el.style.setProperty('background-image', newBackground);
-
-    if (config.textClip) {
-      const originalColor = getComputedStyle(el).color;
-      newBackground = `${ripple},${originalBackground}, linear-gradient(${originalColor},${originalColor})`;
-      el.style.setProperty('background-image', newBackground);
-      el.style.setProperty('color', 'transparent');
-      el.style.setProperty('-webkit-text-fill-color', 'transparent');
-      el.style.setProperty('-webkit-background-clip', 'text');
-      el.style.setProperty('background-clip', 'text');
-    }
-
-    if (config.on === 'always') {
-      gsap.to(el, {
-        [`--${config.prefix}-size`]: rippleSize,
-        duration: config.toggleDuration,
-        ease: config.trackEase,
-      });
-    }
-
-    el.addEventListener('mouseenter', handleMouseEnter);
-    function handleMouseEnter(this: HTMLElement) {
-      if (config.on === 'hover') {
-        gsap.to(this, {
-          [`--${config.prefix}-size`]: rippleSize,
-          duration: config.toggleDuration,
-          ease: config.trackEase,
-        });
-      }
-    }
-
-    el.addEventListener('mousemove', handleMouseMove);
-    function handleMouseMove(this: HTMLElement, e: MouseEvent) {
-      if (config.trackCursor) {
-        const x = getRelativeMouseX(this, e);
-        const y = getRelativeMouseY(this, e);
-        gsap.to(this, {
-          [`--${config.prefix}-x`]: `${x}%`,
-          [`--${config.prefix}-y`]: `${y}%`,
-          delay: config.delay,
-          duration: config.trackDuration,
-          ease: config.trackEase,
-        });
-      }
-    }
-
-    el.addEventListener('mouseleave', handleMouseLeave);
+    function handleMouseEnter(this: HTMLElement) {}
     function handleMouseLeave(this: HTMLElement) {
       if (config.on !== 'always') {
         gsap.to(this, {
@@ -319,7 +277,27 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       }
     }
 
-    el.addEventListener('click', handleClick);
+    function handleMouseMove(this: HTMLElement, e: MouseEvent) {
+      if (config.trackCursor) {
+        const x = getRelativeMouseX(this, e);
+        const y = getRelativeMouseY(this, e);
+        gsap.to(this, {
+          [`--${config.prefix}-x`]: `${x}%`,
+          [`--${config.prefix}-y`]: `${y}%`,
+          delay: config.delay,
+          duration: config.trackDuration,
+          ease: config.trackEase,
+        });
+      }
+      if (config.on === 'hover') {
+        gsap.to(this, {
+          [`--${config.prefix}-size`]: rippleSize,
+          duration: config.toggleDuration,
+          ease: config.trackEase,
+        });
+      }
+    }
+
     function handleClick(this: HTMLElement): void {
       if (config.fadeOutOnClick || config.expandOnClick) {
         this.removeEventListener('mousemove', handleMouseMove);
@@ -372,6 +350,75 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
         );
       }
     }
+
+    const init = () => {
+      el.style.setProperty(`--${config.prefix}-size`, '0px');
+      el.style.setProperty(`--${config.prefix}-x`, rippleX);
+      el.style.setProperty(`--${config.prefix}-y`, rippleY);
+      el.style.setProperty(`--${config.prefix}-variationX`, '0px');
+      el.style.setProperty(`--${config.prefix}-variationY`, '0px');
+      el.style.setProperty(`--${config.prefix}-color`, rippleColor);
+      el.style.setProperty('background-image', newBackground);
+
+      const originalColor = getComputedStyle(el).color;
+      if (config.textClip) {
+        newBackground = `${ripple},${originalBackground}, linear-gradient(${originalColor},${originalColor})`;
+        el.style.setProperty('background-image', newBackground);
+        el.style.setProperty('color', 'transparent');
+        el.style.setProperty('-webkit-text-fill-color', 'transparent');
+        el.style.setProperty('-webkit-background-clip', 'text');
+        el.style.setProperty('background-clip', 'text');
+      }
+
+      if (config.on === 'always') {
+        gsap.to(el, {
+          [`--${config.prefix}-size`]: rippleSize,
+          duration: config.toggleDuration,
+          ease: config.trackEase,
+        });
+      }
+
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mousemove', handleMouseMove);
+      el.addEventListener('mouseleave', handleMouseLeave);
+      el.addEventListener('click', handleClick);
+
+      isInit = true;
+    };
+    const disable = () => {
+      el.style.removeProperty(`--${config.prefix}-size`);
+      el.style.removeProperty(`--${config.prefix}-x`);
+      el.style.removeProperty(`--${config.prefix}-y`);
+      el.style.removeProperty(`--${config.prefix}-variationX`);
+      el.style.removeProperty(`--${config.prefix}-variationY`);
+      el.style.removeProperty(`--${config.prefix}-color`);
+      // el.style.setProperty('background-image', originalBackground);
+      // el.style.setProperty('color', originalColor);
+      // el.style.setProperty('-webkit-text-fill-color', 'transparent');
+      // el.style.setProperty('-webkit-background-clip', 'text');
+      // el.style.setProperty('background-clip', 'text');
+
+      el.removeEventListener('mouseenter', handleMouseEnter);
+      el.removeEventListener('mousemove', handleMouseMove);
+      el.removeEventListener('mouseleave', handleMouseLeave);
+      el.removeEventListener('click', handleClick);
+      isInit = false;
+    };
+    init();
+
+    const observer = new MutationObserver((mutationList, observer) => {
+      if (isIgnored()) {
+        disable();
+      } else {
+        if (!isInit) init();
+      }
+    });
+
+    observer.observe(el, {
+      attributes: true,
+      childList: false,
+      subtree: false,
+    });
   });
 }
 declare global {
