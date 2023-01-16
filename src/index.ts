@@ -214,6 +214,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   rippleTargets.forEach((el) => {
     const isIgnored = () => el.matches(config.ignore);
     let isInit = false;
+    let isHovered = true;
     if (isIgnored()) return;
     const initialRippleColor = getComputedStyle(el).getPropertyValue(
       `--${config.prefix}-color`
@@ -258,8 +259,14 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     let newBackground =
       originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
 
-    function handleMouseEnter(this: HTMLElement) {}
+    function handleMouseEnter(this: HTMLElement) {
+      isHovered = true;
+      show(el);
+      console.log(isHovered);
+    }
+
     function handleMouseLeave(this: HTMLElement) {
+      isHovered = false;
       if (config.on !== 'always') {
         gsap.to(this, {
           [`--${config.prefix}-size`]: 0,
@@ -289,20 +296,12 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           ease: config.trackEase,
         });
       }
-      if (config.on === 'hover') {
-        gsap.to(this, {
-          [`--${config.prefix}-size`]: rippleSize,
-          duration: config.toggleDuration,
-          ease: config.trackEase,
-        });
-      }
     }
 
     function handleClick(this: HTMLElement): void {
       if (config.fadeOutOnClick || config.expandOnClick) {
         this.removeEventListener('mousemove', handleMouseMove);
         this.removeEventListener('mouseleave', handleMouseLeave);
-        this.removeEventListener('mouseenter', handleMouseEnter);
       }
 
       const transparentColor = alpha(rippleColor, 0);
@@ -329,7 +328,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
             if (config.fadeOutOnClick) {
               this.addEventListener('mousemove', handleMouseMove);
               this.addEventListener('mouseleave', handleMouseLeave);
-              this.addEventListener('mouseenter', handleMouseEnter);
             }
           },
         }
@@ -351,6 +349,15 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       }
     }
 
+    const show = (ripple: HTMLElement) => {
+      console.log('show');
+      gsap.to(ripple, {
+        [`--${config.prefix}-size`]: rippleSize,
+        duration: config.toggleDuration,
+        ease: config.trackEase,
+      });
+    };
+
     const init = () => {
       el.style.setProperty(`--${config.prefix}-size`, '0px');
       el.style.setProperty(`--${config.prefix}-x`, rippleX);
@@ -371,11 +378,11 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       }
 
       if (config.on === 'always') {
-        gsap.to(el, {
-          [`--${config.prefix}-size`]: rippleSize,
-          duration: config.toggleDuration,
-          ease: config.trackEase,
-        });
+        show(el);
+      }
+
+      if (isHovered) {
+        show(el);
       }
 
       el.addEventListener('mouseenter', handleMouseEnter);
@@ -392,13 +399,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.removeProperty(`--${config.prefix}-variationX`);
       el.style.removeProperty(`--${config.prefix}-variationY`);
       el.style.removeProperty(`--${config.prefix}-color`);
-      // el.style.setProperty('background-image', originalBackground);
-      // el.style.setProperty('color', originalColor);
-      // el.style.setProperty('-webkit-text-fill-color', 'transparent');
-      // el.style.setProperty('-webkit-background-clip', 'text');
-      // el.style.setProperty('background-clip', 'text');
 
-      el.removeEventListener('mouseenter', handleMouseEnter);
       el.removeEventListener('mousemove', handleMouseMove);
       el.removeEventListener('mouseleave', handleMouseLeave);
       el.removeEventListener('click', handleClick);
@@ -406,11 +407,11 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     };
     init();
 
-    const observer = new MutationObserver((mutationList, observer) => {
+    const observer = new MutationObserver(() => {
       if (isIgnored()) {
         disable();
-      } else {
-        if (!isInit) init();
+      } else if (!isInit) {
+        init();
       }
     });
 
