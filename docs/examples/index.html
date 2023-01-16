@@ -47,8 +47,7 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <!-- <script src="https://unpkg.com/@digital-swing/ripple"></script> -->
-    <script src="../../dist/bundle.min.js"></script>
+    <script src="https://unpkg.com/@digital-swing/ripple"></script>
     <script>
       function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -286,6 +285,7 @@
             on: 'always',
             size: '50px',
             gradient: false,
+            trackDuration: 0.5,
             fadeOutOnClick: false,
             expandOnClick: false,
           });
