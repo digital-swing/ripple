@@ -216,24 +216,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     let isInit = false;
     let isHovered = true;
     if (isIgnored()) return;
-    const initialRippleColor = getComputedStyle(el).getPropertyValue(
-      `--${config.prefix}-color`
-    );
-    const rippleColor =
-      initialRippleColor !== '' ? initialRippleColor : config.color.trim();
-    const initialRippleX = getComputedStyle(el).getPropertyValue(
-      `--${config.prefix}-x`
-    );
-    const rippleX = initialRippleX !== '' ? initialRippleX : config.initialX;
-    const initialRippleY = getComputedStyle(el).getPropertyValue(
-      `--${config.prefix}-y`
-    );
-    const rippleY = initialRippleY !== '' ? initialRippleY : config.initialY;
-    const initialRippleSize = getComputedStyle(el).getPropertyValue(
-      `--${config.prefix}-size`
-    );
-    const rippleSize =
-      initialRippleSize !== '' ? initialRippleSize : config.size;
+
     const ripple = config.gradient
       ? config.gradientSpotlight(
           `var(--${config.prefix}-size)`,
@@ -252,17 +235,47 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           `var(--${config.prefix}-color)`
         );
 
+    let initialRippleColor: string;
+    let rippleColor: string;
+    let initialRippleX: string;
+    let rippleX: string;
+    let initialRippleY: string;
+    let rippleY: string;
+    let initialRippleSize: string;
+    let rippleSize: string;
+    let newBackground: string;
     const originalBackground =
       el.style.backgroundImage !== '' && el.style.backgroundImage !== 'initial'
         ? el.style.backgroundImage
         : getComputedStyle(el).backgroundImage;
-    let newBackground =
-      originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
+
+    const originalColor = getComputedStyle(el).color;
+
+    function getInitialValues(el: HTMLElement) {
+      initialRippleColor = getComputedStyle(el).getPropertyValue(
+        `--${config.prefix}-color`
+      );
+      rippleColor =
+        initialRippleColor !== '' ? initialRippleColor : config.color.trim();
+      initialRippleX = getComputedStyle(el).getPropertyValue(
+        `--${config.prefix}-x`
+      );
+      rippleX = initialRippleX !== '' ? initialRippleX : config.initialX;
+      initialRippleY = getComputedStyle(el).getPropertyValue(
+        `--${config.prefix}-y`
+      );
+      rippleY = initialRippleY !== '' ? initialRippleY : config.initialY;
+      initialRippleSize = getComputedStyle(el).getPropertyValue(
+        `--${config.prefix}-size`
+      );
+      rippleSize = initialRippleSize !== '' ? initialRippleSize : config.size;
+      newBackground =
+        originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
+    }
 
     function handleMouseEnter(this: HTMLElement) {
       isHovered = true;
       show(el);
-      console.log(isHovered);
     }
 
     function handleMouseLeave(this: HTMLElement) {
@@ -350,7 +363,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     }
 
     const show = (ripple: HTMLElement) => {
-      console.log('show');
       gsap.to(ripple, {
         [`--${config.prefix}-size`]: rippleSize,
         duration: config.toggleDuration,
@@ -359,6 +371,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     };
 
     const init = () => {
+      getInitialValues(el);
       el.style.setProperty(`--${config.prefix}-size`, '0px');
       el.style.setProperty(`--${config.prefix}-x`, rippleX);
       el.style.setProperty(`--${config.prefix}-y`, rippleY);
@@ -367,7 +380,6 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.setProperty(`--${config.prefix}-color`, rippleColor);
       el.style.setProperty('background-image', newBackground);
 
-      const originalColor = getComputedStyle(el).color;
       if (config.textClip) {
         newBackground = `${ripple},${originalBackground}, linear-gradient(${originalColor},${originalColor})`;
         el.style.setProperty('background-image', newBackground);
@@ -394,15 +406,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     };
     const disable = () => {
       el.style.removeProperty(`--${config.prefix}-size`);
-      el.style.removeProperty(`--${config.prefix}-x`);
-      el.style.removeProperty(`--${config.prefix}-y`);
-      el.style.removeProperty(`--${config.prefix}-variationX`);
-      el.style.removeProperty(`--${config.prefix}-variationY`);
       el.style.removeProperty(`--${config.prefix}-color`);
-
-      el.removeEventListener('mousemove', handleMouseMove);
-      el.removeEventListener('mouseleave', handleMouseLeave);
-      el.removeEventListener('click', handleClick);
       isInit = false;
     };
     init();
