@@ -260,7 +260,7 @@
       </div>
       <!-- /.grid-section -->
       <div class="grid-section">
-        <p>Click the button to toggle the ripple</p>
+        <p>Click to toggle</p>
         <button
           class="button ripple-disabled"
           x-data="{disabled:false, buttonText: this.disabled ? 'disable' : 'enable'}"
@@ -273,7 +273,7 @@
           ripple({
             target: '.ripple-disabled',
             color: 'rgba(255, 0, 255, 0.55)',
-            on: 'hover',
+            on: 'always',
             size: '50px',
             gradient: false,
             fadeOutOnClick: false,
