@@ -97,6 +97,11 @@ export interface RippleConfig {
    **/
   prefix: string;
 
+  /** Rembmer the ripple position on disable in case of ulterior reenable.
+   * @defaultValue `false`
+   **/
+  rememberPositionOnDisable: boolean;
+
   /** Function to generates the sharp spotlight
    * @defaultValue
    * ```
@@ -194,6 +199,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     initialY: '50%',
     on: 'click',
     prefix: 'ripple',
+    rememberPositionOnDisable: false,
     sharpSpotlight: (size, x, y, variationX, variationY, color) => {
       return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
     },
@@ -257,18 +263,22 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       );
       rippleColor =
         initialRippleColor !== '' ? initialRippleColor : config.color.trim();
+
       initialRippleX = getComputedStyle(el).getPropertyValue(
         `--${config.prefix}-x`
       );
       rippleX = initialRippleX !== '' ? initialRippleX : config.initialX;
+
       initialRippleY = getComputedStyle(el).getPropertyValue(
         `--${config.prefix}-y`
       );
       rippleY = initialRippleY !== '' ? initialRippleY : config.initialY;
+
       initialRippleSize = getComputedStyle(el).getPropertyValue(
         `--${config.prefix}-size`
       );
       rippleSize = initialRippleSize !== '' ? initialRippleSize : config.size;
+
       newBackground =
         originalBackground !== '' ? `${ripple},${originalBackground}` : ripple;
     }
@@ -371,7 +381,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     };
 
     const init = () => {
-      getInitialValues(el);
+      if (config.rememberPositionOnDisable) getInitialValues(el);
       el.style.setProperty(`--${config.prefix}-size`, '0px');
       el.style.setProperty(`--${config.prefix}-x`, rippleX);
       el.style.setProperty(`--${config.prefix}-y`, rippleY);
@@ -409,6 +419,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.removeProperty(`--${config.prefix}-color`);
       isInit = false;
     };
+
+    getInitialValues(el);
     init();
 
     const observer = new MutationObserver(() => {
