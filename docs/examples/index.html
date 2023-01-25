@@ -64,6 +64,24 @@
       </div>
       <!-- /.grid-section -->
       <div class="grid-section">
+        <button class="button btn-bg" style="background: yellow">
+          button background
+        </button>
+        <script>
+          ripple({
+            target: '.btn-bg',
+            color: 'blue',
+            on: 'hover',
+            size: '150%',
+            toggleDuration: 0.2,
+            gradient: false,
+            fadeOutOnClick: false,
+            expandOnClick: false,
+          });
+        </script>
+      </div>
+      <!-- /.grid-section -->
+      <div class="grid-section">
         <button class="button subtle-shine">Subtle shine</button>
         <script>
           ripple({

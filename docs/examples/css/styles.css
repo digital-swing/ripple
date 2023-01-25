@@ -8,11 +8,11 @@ body {
 }
 
 .grid-section {
-  padding: 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 15rem;
   background: #c9c9c9;
   text-align: center;
 }
@@ -72,4 +72,13 @@ body {
 
 .button--glow:hover::after {
   opacity: 0.5;
+}
+
+.btn-bg {
+  background-color: #fdc910;
+  color: #000;
+}
+
+.btn-bg:hover {
+  color: #fff;
 }

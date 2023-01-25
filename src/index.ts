@@ -192,7 +192,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     fadeOutOnClick: true,
     gradient: false,
     gradientSpotlight: (size, x, y, variationX, variationY, color) => {
-      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+      return `radial-gradient(${size} ${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
     },
     ignore: `.disabled, [disabled]`,
     initialX: '50%',
@@ -201,7 +201,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     prefix: 'ripple',
     rememberPositionOnDisable: false,
     sharpSpotlight: (size, x, y, variationX, variationY, color) => {
-      return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+      return `radial-gradient(${size} ${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
     },
     size: '0px',
     target: '.ripple',
