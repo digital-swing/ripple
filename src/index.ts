@@ -55,8 +55,8 @@ export interface RippleConfig {
   /** Function to generates the gradient spotlight
    * @defaultValue
    * ```
-   * (size, x, y, variationX, variationY, color) => {
-   * return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+   * (size, x, y, deltaX, deltaY, color) => {
+   * return `radial-gradient(${size} at calc(${x} + ${deltaX}) calc(${y} + ${deltaY}), ${color}, transparent)`;
    * }
    *```
    **/
@@ -64,8 +64,8 @@ export interface RippleConfig {
     size: string,
     x: string,
     y: string,
-    variationX: string,
-    variationY: string,
+    deltaX: string,
+    deltaY: string,
     color: string
   ) => string;
 
@@ -105,8 +105,8 @@ export interface RippleConfig {
   /** Function to generates the sharp spotlight
    * @defaultValue
    * ```
-   * (size, x, y, variationX, variationY, color) => {
-   *  return `radial-gradient(${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+   * (size, x, y, deltaX, deltaY, color) => {
+   *  return `radial-gradient(${size} at calc(${x} + ${deltaX}) calc(${y} + ${deltaY}), ${color} 0%, ${color} 100%, transparent)`;
    * }
    * ```
    **/
@@ -114,8 +114,8 @@ export interface RippleConfig {
     size: string,
     x: string,
     y: string,
-    variationX: string,
-    variationY: string,
+    deltaX: string,
+    deltaY: string,
     color: string
   ) => string;
 
@@ -181,7 +181,7 @@ function getRelativeMouseY(element: HTMLElement, mouseEvent: MouseEvent) {
  * @param  userConfig - Custom user config. {@link RippleConfig | See detailed options.}
  *
  */
-export function ripple(userConfig?: Partial<RippleConfig>) {
+function ripple(userConfig?: Partial<RippleConfig>) {
   let config: RippleConfig = {
     color: 'rgba(255, 255, 255, 0.7)',
     delay: 0,
@@ -191,8 +191,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     expandedFactor: 2,
     fadeOutOnClick: true,
     gradient: false,
-    gradientSpotlight: (size, x, y, variationX, variationY, color) => {
-      return `radial-gradient(${size} ${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color}, transparent)`;
+    gradientSpotlight: (size, x, y, deltaX, deltaY, color) => {
+      return `radial-gradient(${size} ${size} at calc(${x} + ${deltaX}) calc(${y} + ${deltaY}), ${color}, transparent)`;
     },
     ignore: `.disabled, [disabled]`,
     initialX: '50%',
@@ -200,8 +200,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
     on: 'click',
     prefix: 'ripple',
     rememberPositionOnDisable: false,
-    sharpSpotlight: (size, x, y, variationX, variationY, color) => {
-      return `radial-gradient(${size} ${size} at calc(${x} + ${variationX}) calc(${y} + ${variationY}), ${color} 0%, ${color} 100%, transparent)`;
+    sharpSpotlight: (size, x, y, deltaX, deltaY, color) => {
+      return `radial-gradient(${size} ${size} at calc(${x} + ${deltaX}) calc(${y} + ${deltaY}), ${color} 0%, ${color} 100%, transparent)`;
     },
     size: '0px',
     target: '.ripple',
@@ -220,7 +220,7 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
   rippleTargets.forEach((el) => {
     const isIgnored = () => el.matches(config.ignore);
     let isInit = false;
-    let isHovered = true;
+    let isHovered = false;
     if (isIgnored()) return;
 
     const ripple = config.gradient
@@ -228,16 +228,16 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           `var(--${config.prefix}-size)`,
           `var(--${config.prefix}-x)`,
           `var(--${config.prefix}-y)`,
-          `var(--${config.prefix}-variationX)`,
-          `var(--${config.prefix}-variationY)`,
+          `var(--${config.prefix}-deltaX)`,
+          `var(--${config.prefix}-deltaY)`,
           `var(--${config.prefix}-color)`
         )
       : config.sharpSpotlight(
           `var(--${config.prefix}-size)`,
           `var(--${config.prefix}-x)`,
           `var(--${config.prefix}-y)`,
-          `var(--${config.prefix}-variationX)`,
-          `var(--${config.prefix}-variationY)`,
+          `var(--${config.prefix}-deltaX)`,
+          `var(--${config.prefix}-deltaY)`,
           `var(--${config.prefix}-color)`
         );
 
@@ -385,8 +385,8 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
       el.style.setProperty(`--${config.prefix}-size`, '0px');
       el.style.setProperty(`--${config.prefix}-x`, rippleX);
       el.style.setProperty(`--${config.prefix}-y`, rippleY);
-      el.style.setProperty(`--${config.prefix}-variationX`, '0px');
-      el.style.setProperty(`--${config.prefix}-variationY`, '0px');
+      el.style.setProperty(`--${config.prefix}-deltaX`, '0px');
+      el.style.setProperty(`--${config.prefix}-deltaY`, '0px');
       el.style.setProperty(`--${config.prefix}-color`, rippleColor);
       el.style.setProperty('background-image', newBackground);
 
