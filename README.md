@@ -134,3 +134,4 @@ If you discover any security related issues, please email lucas@digital-swing.co
 
 - Add compatibility with other animation libraries : anime.js, shifty, popmotion...
 - Support touch events
+- Allow a multi-color ripple

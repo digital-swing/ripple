@@ -1,3 +1,3 @@
 # Contributing to Ripple
 
-TODO
+<!-- TODO -->
