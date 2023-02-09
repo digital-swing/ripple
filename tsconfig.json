@@ -16,9 +16,6 @@
     "strict": true,
     "sourceMap": true,
     "declaration": false,
-    "lib": ["ES2021", "DOM"],
-    "plugins": [
-      { "transform": "ts-auto-mock/transformer", "cacheBetweenTests": false }
-    ]
+    "lib": ["ES2021", "DOM"]
   }
 }
