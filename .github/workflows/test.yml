@@ -33,6 +33,7 @@ jobs:
           @gsap:registry=https://npm.greensock.com
           always-auth = true
           auto-install-peers=true' > ${{ github.workspace }}/.npmrc
+      - run: pnpm -v
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
