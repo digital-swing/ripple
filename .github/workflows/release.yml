@@ -10,7 +10,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          last-release-sha: b04a49ca345c116000ee8a631ecf659474fccb65
+          last-release-sha: 6869b119af4d91d137c8dbcee6c7e13dcee47238
           bump-minor-pre-major: true
           prerelease: true
           release-type: 'node'
