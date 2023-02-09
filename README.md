@@ -43,7 +43,7 @@ import ripple from '@digital-swing/ripple';
 
 ## 🛠️ Usage
 
-### Basic
+### Simple
 
 ```js
 ripple();
@@ -66,7 +66,7 @@ ripple({
 });
 ```
 
-[See the documentation](https://digital-swing.github.io/ripple/types/interfaces/RippleConfig.html) for detailed config options.
+[See the full API in the docs](https://digital-swing.github.io/ripple/types/interfaces/RippleConfig.html).
 
 ## 💡 Tips
 
@@ -107,30 +107,30 @@ This can prevent a [Flash Of Unstyled Content](https://en.wikipedia.org/wiki/Fla
 
 [See this post on StackOverflow](https://stackoverflow.com/questions/55725461/webkit-background-clip-text-on-an-element-with-transition-is-not-working-after).
 
-## Changelog
+## 💬 Changelog
 
 Please [see the CHANGELOG](https://github.com/digital-swing/ripple/blob/main/CHANGELOG.md) for more information about what has changed recently.
 
-## Testing
+## 🐛 Testing
 
 ```console
 yarn
 yarn test
 ```
 
-## Contributing
+## 🌍 Contributing
 
 Please [see CONTRIBUTING](https://github.com/digital-swing/ripple/blob/main/CONTRIBUTING.md) for details.
 
-## Security
+## 🔒 Security
 
 If you discover any security related issues, please email lucas@digital-swing.com instead of using the issue tracker.
 
-## Credits
+## 👥 Credits
 
 [Lucas Demea](https://github.com/LucasDemea)
 
-## Roadmap
+## 🗒 Roadmap
 
 - Add compatibility with other animation libraries : anime.js, shifty, popmotion...
 - Support touch events
