@@ -9,15 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Create .npmrc file for github registry
-        run: |
-          echo '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}
-          @digital-swing:registry=https://npm.pkg.github.com
-          //npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN  }}
-          @gsap:registry=https://npm.greensock.com
-          always-auth = true
-          auto-install-peers=true' > ${{ github.workspace }}/.npmrc
-
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
@@ -28,6 +19,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+
+      - name: Create .npmrc file for github registry
+        run: |
+          echo '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}
+          @digital-swing:registry=https://npm.pkg.github.com
+          //npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN  }}
+          @gsap:registry=https://npm.greensock.com
+          always-auth = true
+          auto-install-peers=true' > ${{ github.workspace }}/.npmrc
 
       - run: pnpm install
       - run: pnpm build
