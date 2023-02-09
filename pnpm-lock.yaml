@@ -11,7 +11,6 @@ specifiers:
   '@rollup/plugin-node-resolve': 15.0.1
   '@rollup/plugin-terser': 0.4.0
   '@rollup/plugin-typescript': 11.0.0
-  '@types/gsap': 3.0.0
   '@types/jest': 29.4.0
   '@types/jest-image-snapshot': 6.1.0
   '@types/jsdom-screenshot': 3.2.2
@@ -63,7 +62,6 @@ devDependencies:
   '@rollup/plugin-node-resolve': 15.0.1_rollup@3.12.0
   '@rollup/plugin-terser': 0.4.0_rollup@3.12.0
   '@rollup/plugin-typescript': 11.0.0_m3kxv4pqnmlodzidcpaglsppii
-  '@types/gsap': 3.0.0
   '@types/jest': 29.4.0
   '@types/jest-image-snapshot': 6.1.0
   '@types/jsdom-screenshot': 3.2.2
@@ -2378,13 +2376,6 @@ packages:
     resolution: {integrity: sha512-Sig0SNORX9fdW+bQuTEovKj3uHcUL6LQKbCrrqb1X7J6/ReAbhCXRAhc+SMejhLELFj2QcyuxmUooZ4bt5ReSw==}
     dependencies:
       '@types/node': 18.13.0
-    dev: true
-
-  /@types/gsap/3.0.0:
-    resolution: {integrity: sha512-BbWLi4WRHGze4C8NV7U7yRevuBFiPkPZZyGa0rryanvh/9HPUFXTNBXsGQxJZJq7Ix7j4RXMYodP3s+OsqCErg==}
-    deprecated: This is a stub types definition. gsap provides its own type definitions, so you do not need this installed.
-    dependencies:
-      gsap: 3.11.4
     dev: true
 
   /@types/hash-sum/1.0.0:
@@ -5028,10 +5019,6 @@ packages:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
-    dev: true
-
-  /gsap/3.11.4:
-    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
     dev: true
 
   /gzip-size/7.0.0:
