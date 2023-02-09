@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.8.0](https://github.com/digital-swing/ripple/compare/v0.7.1...v0.8.0) (2023-02-09)
+
+
+### Added
+
+* Add rememberPositionOnDisable setting ([157f4f6](https://github.com/digital-swing/ripple/commit/157f4f68da6487bd4c365f73e6dc0bcc3d7b6a6c))
+* Relative ripple size support ([e84231a](https://github.com/digital-swing/ripple/commit/e84231a60a17174590f76893a79cc26abf626b7e))
+
+
+### Documentation
+
+* **examples:** Import ripple script from unpkg ([cf0787e](https://github.com/digital-swing/ripple/commit/cf0787e7dcf4d61b9dc93d95fdae93d5ce700990))
+* Minor readme & contributing changes ([95163bb](https://github.com/digital-swing/ripple/commit/95163bbe092a82ec5e1b00ffbc7b1efa940f2789))
+* Minor readme changes ([310af3e](https://github.com/digital-swing/ripple/commit/310af3eaa745c9f0b57ce061091b4b4ba7c4312d))
+* **readme:** Change title icons ([fec390a](https://github.com/digital-swing/ripple/commit/fec390a5123e958d2f77a21791918f779fcd2214))
+
+
+### Fixed
+
+* Add missing export of main function ([f783e10](https://github.com/digital-swing/ripple/commit/f783e10c09a8273ef3c31bc37ee1372a74d02674))
+
 ## [0.7.1](https://github.com/digital-swing/ripple/compare/ripple-v0.7.0...ripple-v0.7.1) (2023-01-16)
 
 
