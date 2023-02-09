@@ -3,5 +3,9 @@
     "config:js-lib",
     "schedule:weekends"
   ],
-  "automerge": true
+  "automerge": true,
+  "encrypted": {
+    "npmToken": "wcFMA/xDdHCJBTolAQ//SgeW1iQU910vVknHkAOPsPdSVD6UzBfLFQd2qDsw0K8tTu9s8axwK1hXcOjLU2qqX/5P5eHuSPEZAZR4FA1080x7f0X2UtEdMr1whD2wqwwb7DZUOtqFIj2oXJ8Vn476wh6+kck15jPwOyESz4haXc1hzakT0b64R5C4IHzA2cfAw7XXrWgk8qLriyj1O7ZH+aYqBLuiiZSEZlWRki3n7wO4F/GXeEeUGg9kx1kHMsoEjgQGuIxd8quA5Aw0fcxkEBaODkXx1Lbhx/++UVrDM84zZPaK+HDVL1+CfRoN0HwR99+78HKDnhpenFVApzAeDi8iMywf+iJXylAVv16U0OY7MbNMdEGzybBHAPj6t6PG9S6+wUsAIGB/CP++4d2oUsfEBkEAH7jJAjDUK0R96SXYt8Za2f/yrtSw9G9FjV9jT7hGd7byl79uB8pMcZ3f2I19xgB0KYkTionTJAi5z9MgQM07To4Jmh4oR0wTYaKN/ajbcHFB2tRqIez1HzDmur7NUq71jovA8dptSkmmiIx2PFWTteJX+XhuOk1l3/jskBxnfTghGhXRkbSPcsOa1cAztWGqG+fX50ohZOqjg/jp8PUbkW0Ry2F8zCIXVhqt8/3Y5Nqq6ikCyzlPtKNUCzYHAcIrvZ/XgfFPRIUtEFbv4oDXMoofTh6OMCKMF13SeAFs21AGVVYAE4/LC5LRgeCV9ulKDIHeZJod9KVY0f6pe1/jnkqDOFcwmRjIF5xKl9tX6yRIU9j86u5Tu0lZo2j4opd5BapxW/Cbhq+b4DJHy9a5IgmMPy6CrkUHSdEnkKk2G4t1yUxgB3oJH5zzGYU4wKdYmvmrbg"
+  },
+  "npmrc": "//npm.greensock.com/:_authToken=${NPM_TOKEN}\n@gsap:registry=https://npm.greensock.com\nauto-install-peers=true"
 }
