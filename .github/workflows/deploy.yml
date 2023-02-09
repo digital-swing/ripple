@@ -1,0 +1,45 @@
+on:
+  push:
+    tags:
+      - 'v*'
+name: Publish to npm registry
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create .npmrc file for github registry
+        run: |
+          echo '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN  }}
+          @digital-swing:registry=https://npm.pkg.github.com
+          //npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN  }}
+          @gsap:registry=https://npm.greensock.com
+          always-auth = true
+          auto-install-peers=true' > ${{ github.workspace }}/.npmrc
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: pnpm install
+      - run: pnpm build
+      - run: pnpm publish --access restricted
+
+      - name: Create .npmrc file for npm registry
+        run: |
+          echo '//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
+          @digital-swing:registry=https://npm.pkg.github.com
+          //npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN  }}
+          @gsap:registry=https://npm.greensock.com
+          always-auth = true
+          auto-install-peers=true' > ${{ github.workspace }}/.npmrc
+
+      - run: pnpm publish --access public
