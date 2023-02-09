@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.8.0](https://github.com/digital-swing/ripple/compare/Ripple-v0.7.1...Ripple-v0.8.0) (2023-02-09)
+
+
+### Features
+
+* Add expand ease & duration settings ([2e3b255](https://github.com/digital-swing/ripple/commit/2e3b255347fba0159d46b9acd78505d83635b00a))
+* Add expandedFactor setting ([be21c49](https://github.com/digital-swing/ripple/commit/be21c49f70fdb16d317b0017a3fd8b9124e8f780))
+* Add ignore setting to disable the ripple ([260647a](https://github.com/digital-swing/ripple/commit/260647ad7111ff9f27f2172c354bd13ab122bb00))
+* Add prefix setting ([c7941b0](https://github.com/digital-swing/ripple/commit/c7941b0593651fff631d9a93f01781946392cb97))
+* Add rememberPositionOnDisable setting ([157f4f6](https://github.com/digital-swing/ripple/commit/157f4f68da6487bd4c365f73e6dc0bcc3d7b6a6c))
+* Add ripple to window object ([49e0107](https://github.com/digital-swing/ripple/commit/49e01070173df19470b106a7f464481c9a27d632))
+* Relative ripple size support ([e84231a](https://github.com/digital-swing/ripple/commit/e84231a60a17174590f76893a79cc26abf626b7e))
+* Set text background ripple ([349827b](https://github.com/digital-swing/ripple/commit/349827b9a9f1df73cebb425c2cd7ef6f3d7dd6d2))
+
+
+### Fixes & updates
+
+* Animate the initial toggle ([69982d8](https://github.com/digital-swing/ripple/commit/69982d83651c634d5b257681b006088c9144828b))
+* Better default ripple color ([c13cfd1](https://github.com/digital-swing/ripple/commit/c13cfd19579cbb53d6f93b5d73027e5f3d294909))
+* **deps:** Remove unused packages ([8a449eb](https://github.com/digital-swing/ripple/commit/8a449eb56e791830baf4874bf08fd2fc7140c095))
+* **deps:** Set gsap as a peer dependency ([50ae3ad](https://github.com/digital-swing/ripple/commit/50ae3ad90bbcda91db1016835adf0639302c4aab))
+* Dynamically set fadeout alpha color ([0151f92](https://github.com/digital-swing/ripple/commit/0151f92ed897a4252ca297706bacc26553bda955))
+* Fix ripple expansion ([a58fae0](https://github.com/digital-swing/ripple/commit/a58fae05c7c6954cb66d8348108466ffda42e312))
+* Preserve settings between reinitializations ([006b488](https://github.com/digital-swing/ripple/commit/006b488b3b132dc8cc0cb265bfd66042df9db3a7))
+* Rename 'trigger' setting to 'on' ([b93bb54](https://github.com/digital-swing/ripple/commit/b93bb54e424b9d4fe5766e41597c7a8faf8bab20))
+* Renamed config props ([71c4541](https://github.com/digital-swing/ripple/commit/71c45410152e9bb58d4e1c64de90c52cdd54d629))
+* Set node to 16.18.1 ([5391cee](https://github.com/digital-swing/ripple/commit/5391ceec530fad5698606e5c470546ae9b75c5b5))
+* Set ripple expand size to 200% of parent element ([bb25928](https://github.com/digital-swing/ripple/commit/bb2592807084f15b9c9d1d1b98bbc5ca044a9497))
+
 ## [0.7.1](https://github.com/digital-swing/ripple/compare/ripple-v0.7.0...ripple-v0.7.1) (2023-01-16)
 
 
