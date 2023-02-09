@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/digital-swing/ripple/compare/v0.8.0...v0.8.1) (2023-02-09)
+
+
+### Fixed
+
+* Deploy without git checks ([320b5b7](https://github.com/digital-swing/ripple/commit/320b5b737f9396c3cb8811607d9845342609806a))
+
 ## [0.8.0](https://github.com/digital-swing/ripple/compare/v0.7.1...v0.8.0) (2023-02-09)
 
 
