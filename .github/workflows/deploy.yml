@@ -31,7 +31,7 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build
-      - run: pnpm publish --access restricted
+      - run: pnpm publish --access restricted --no-git-checks
 
       - name: Create .npmrc file for npm registry
         run: |
@@ -42,4 +42,4 @@ jobs:
           always-auth = true
           auto-install-peers=true' > ${{ github.workspace }}/.npmrc
 
-      - run: pnpm publish --access public
+      - run: pnpm publish --access public --no-git-checks
