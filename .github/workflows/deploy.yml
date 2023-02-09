@@ -35,8 +35,8 @@ jobs:
 
       - name: Create .npmrc file for npm registry
         run: |
-          echo '//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
-          @digital-swing:registry=https://npm.pkg.github.com
+          echo '//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+          @digital-swing:registry=https://registry.npmjs.org
           //npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}
           @gsap:registry=https://npm.greensock.com
           always-auth = true
