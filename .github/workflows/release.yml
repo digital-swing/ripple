@@ -10,22 +10,9 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          command: manifest
-      - uses: actions/checkout@v3
-        if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v3
-        if: ${{ steps.release.outputs.release_created }}
-        with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-      - name: Authenticate with private NPM package
-        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" >> ~/.npmrc
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm run build
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm publish
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          bump-minor-pre-major: true
+          prerelease: true
+          release-type: 'node'
+          plugins: 'sentence-case'
+          changelog-types: '[{"type": "feat","section": "Added"},{"type": "fix","section": "Fixed"},{"type": "refactor","section": "Changed"},{"type": "perf","section": "Optimizations"},{"type": "docs","section": "Documentation"},{"type": "style","hidden": true},{"type": "chore","hidden": true},{"type": "test","hidden": true}]'
+          token: ${{ secrets.GH_TOKEN }}
