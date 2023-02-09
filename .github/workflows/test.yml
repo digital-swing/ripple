@@ -17,12 +17,22 @@ jobs:
         node-version: [16.x, 18.x]
     steps:
       - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Authenticate with private NPM package
-        run: echo "//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}" > ~/.npmrc
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+      - name: Create .npmrc file
+        run: |
+          echo '//npm.greensock.com/:_authToken=${{ secrets.GSAP_TOKEN }}
+          @gsap:registry=https://npm.greensock.com
+          always-auth = true
+          auto-install-peers=true' > ${{ github.workspace }}/.npmrc
+      - run: pnpm install
+      - run: pnpm build
+      - run: pnpm test
