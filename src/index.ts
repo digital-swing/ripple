@@ -241,15 +241,15 @@ export function ripple(userConfig?: Partial<RippleConfig>) {
           `var(--${config.prefix}-color)`
         );
 
-    let initialRippleColor: string;
-    let rippleColor: string;
-    let initialRippleX: string;
-    let rippleX: string;
-    let initialRippleY: string;
-    let rippleY: string;
-    let initialRippleSize: string;
-    let rippleSize: string;
-    let newBackground: string;
+    let initialRippleColor: string,
+      rippleColor: string,
+      initialRippleX: string,
+      rippleX: string,
+      initialRippleY: string,
+      rippleY: string,
+      initialRippleSize: string,
+      rippleSize: string,
+      newBackground: string;
     const originalBackground =
       el.style.backgroundImage !== '' && el.style.backgroundImage !== 'initial'
         ? el.style.backgroundImage
