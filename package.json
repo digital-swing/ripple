@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "5.54.1",
     "@typescript-eslint/parser": "5.54.1",
     "@vuepress/plugin-back-to-top": "2.0.0-beta.60",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jest": "27.2.1",
     "eslint-plugin-sort-keys-fix": "1.1.2",
