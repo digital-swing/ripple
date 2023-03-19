@@ -23,7 +23,7 @@ specifiers:
   eslint-plugin-jest: 27.2.1
   eslint-plugin-sort-keys-fix: 1.1.2
   eslint-plugin-tsdoc: 0.2.17
-  eslint-plugin-typescript-sort-keys: 2.1.0
+  eslint-plugin-typescript-sort-keys: 2.3.0
   gsap: ^3
   husky: 8.0.3
   is-ci: 3.0.1
@@ -76,7 +76,7 @@ devDependencies:
   eslint-plugin-jest: 27.2.1_lvqes7ikig6w47pc2p5afjjoqi
   eslint-plugin-sort-keys-fix: 1.1.2
   eslint-plugin-tsdoc: 0.2.17
-  eslint-plugin-typescript-sort-keys: 2.1.0_4rfaf6mlw2mmutqjcopwvbftpu
+  eslint-plugin-typescript-sort-keys: 2.3.0_4rfaf6mlw2mmutqjcopwvbftpu
   husky: 8.0.3
   is-ci: 3.0.1
   jest: 29.5.0_ucpl6toqp57nqodtp3vxxi6g5a
@@ -4599,13 +4599,13 @@ packages:
       '@microsoft/tsdoc-config': 0.16.2
     dev: true
 
-  /eslint-plugin-typescript-sort-keys/2.1.0_4rfaf6mlw2mmutqjcopwvbftpu:
-    resolution: {integrity: sha512-ET7ABypdz19m47QnKynzNfWPi4CTNQ5jQQC1X5d0gojIwblkbGiCa5IilsqzBTmqxZ0yXDqKBO/GBkBFQCOFsg==}
-    engines: {node: 10 - 12 || >= 13.9}
+  /eslint-plugin-typescript-sort-keys/2.3.0_4rfaf6mlw2mmutqjcopwvbftpu:
+    resolution: {integrity: sha512-3LAcYulo5gNYiPWee+TksITfvWeBuBjGgcSLTacPESFVKEoy8laOQuZvJlSCwTBHT2SCGIxr3bJ56zuux+3MCQ==}
+    engines: {node: 12 || >= 13.9}
     peerDependencies:
       '@typescript-eslint/parser': ^1 || ^2 || ^3 || ^4 || ^5
       eslint: ^5 || ^6 || ^7 || ^8
-      typescript: ^3 || ^4
+      typescript: ^3 || ^4 || ^5
     dependencies:
       '@typescript-eslint/experimental-utils': 5.51.0_vgl77cfdswitgr47lm5swmv43m
       '@typescript-eslint/parser': 5.54.1_vgl77cfdswitgr47lm5swmv43m
