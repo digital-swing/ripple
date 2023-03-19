@@ -45,7 +45,7 @@ specifiers:
   ts-loader: 9.4.2
   ts-node: 10.9.1
   tslib: 2.5.0
-  typedoc: 0.23.27
+  typedoc: 0.23.28
   typedoc-plugin-markdown: 3.14.0
   typescript: 5.0.2
   vuepress: 2.0.0-beta.60
@@ -97,8 +97,8 @@ devDependencies:
   ts-loader: 9.4.2_uwemawexpmcwp4gcune73namy4
   ts-node: 10.9.1_k3seuiqtkc7kaykbviq6bmzani
   tslib: 2.5.0
-  typedoc: 0.23.27_typescript@5.0.2
-  typedoc-plugin-markdown: 3.14.0_typedoc@0.23.27
+  typedoc: 0.23.28_typescript@5.0.2
+  typedoc-plugin-markdown: 3.14.0_typedoc@0.23.28
   typescript: 5.0.2
   vuepress: 2.0.0-beta.60_5dumminfzuiqwe5vg4mpy5b7la
 
@@ -8374,21 +8374,21 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typedoc-plugin-markdown/3.14.0_typedoc@0.23.27:
+  /typedoc-plugin-markdown/3.14.0_typedoc@0.23.28:
     resolution: {integrity: sha512-UyQLkLRkfTFhLdhSf3RRpA3nNInGn+k6sll2vRXjflaMNwQAAiB61SYbisNZTg16t4K1dt1bPQMMGLrxS0GZ0Q==}
     peerDependencies:
       typedoc: '>=0.23.0'
     dependencies:
       handlebars: 4.7.7
-      typedoc: 0.23.27_typescript@5.0.2
+      typedoc: 0.23.28_typescript@5.0.2
     dev: true
 
-  /typedoc/0.23.27_typescript@5.0.2:
-    resolution: {integrity: sha512-YKjlxX3LEhYbMCkemjlpNh1OKDiFa+ynqP0VRPsH28bEugrMTGI6l8DC6oX5kzFcUKKlYWKpZDSGWszuO/FR3g==}
+  /typedoc/0.23.28_typescript@5.0.2:
+    resolution: {integrity: sha512-9x1+hZWTHEQcGoP7qFmlo4unUoVJLB0H/8vfO/7wqTnZxg4kPuji9y3uRzEu0ZKez63OJAUmiGhUrtukC6Uj3w==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
     dependencies:
       lunr: 2.3.9
       marked: 4.2.12
