@@ -31,7 +31,7 @@ specifiers:
   jest-environment-jsdom: 29.5.0
   jest-image-snapshot: 6.1.0
   jsdom-screenshot: 4.0.0
-  prettier: 2.8.4
+  prettier: 2.8.7
   rimraf: 4.4.0
   rollup: 3.19.1
   rollup-plugin-dts: 5.3.0
@@ -82,8 +82,8 @@ devDependencies:
   jest: 29.5.0_ucpl6toqp57nqodtp3vxxi6g5a
   jest-environment-jsdom: 29.5.0
   jest-image-snapshot: 6.1.0_jest@29.5.0
-  jsdom-screenshot: 4.0.0_a7sjvsbcgg5dveitgz3whbbski
-  prettier: 2.8.4
+  jsdom-screenshot: 4.0.0_46eickiazn37rcnqccwnhqcaki
+  prettier: 2.8.7
   rimraf: 4.4.0
   rollup: 3.19.1
   rollup-plugin-dts: 5.3.0_7iejawhbqmte5pthjozf4tfuqy
@@ -4570,7 +4570,7 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-prettier/3.1.0_a7sjvsbcgg5dveitgz3whbbski:
+  /eslint-plugin-prettier/3.1.0_46eickiazn37rcnqccwnhqcaki:
     resolution: {integrity: sha512-XWX2yVuwVNLOUhQijAkXz+rMPPoCr7WFiAl8ig6I7Xn+pPVhDhzg4DxHpmbeb0iqjO9UronEA3Tb09ChnFVHHA==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -4578,7 +4578,7 @@ packages:
       prettier: '>= 1.13.0'
     dependencies:
       eslint: 8.36.0
-      prettier: 2.8.4
+      prettier: 2.8.7
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -6232,12 +6232,12 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom-screenshot/4.0.0_a7sjvsbcgg5dveitgz3whbbski:
+  /jsdom-screenshot/4.0.0_46eickiazn37rcnqccwnhqcaki:
     resolution: {integrity: sha512-as86MWDSiwQEQqaw3qt41u4Fi0Wi60biHmL2p3xe8e/PoZoz/qcTmoCEsNrNzPm8RcnT69A8zXuMUL9g7uyQzA==}
     engines: {node: '>=8'}
     dependencies:
       connect: 3.7.0
-      eslint-plugin-prettier: 3.1.0_a7sjvsbcgg5dveitgz3whbbski
+      eslint-plugin-prettier: 3.1.0_46eickiazn37rcnqccwnhqcaki
       finalhandler: 1.1.2
       lodash.merge: 4.6.2
       pretty-format: 24.8.0
@@ -7171,8 +7171,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+  /prettier/2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
