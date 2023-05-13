@@ -37,8 +37,8 @@ devDependencies:
     specifier: 0.4.1
     version: 0.4.1(rollup@3.21.5)
   '@rollup/plugin-typescript':
-    specifier: 11.1.0
-    version: 11.1.0(rollup@3.21.5)(tslib@2.5.0)(typescript@5.0.4)
+    specifier: 11.1.1
+    version: 11.1.1(rollup@3.21.5)(tslib@2.5.0)(typescript@5.0.4)
   '@types/jest':
     specifier: 29.5.1
     version: 29.5.1
@@ -2382,8 +2382,8 @@ packages:
       terser: 5.16.3
     dev: true
 
-  /@rollup/plugin-typescript@11.1.0(rollup@3.21.5)(tslib@2.5.0)(typescript@5.0.4):
-    resolution: {integrity: sha512-86flrfE+bSHB69znnTV6kVjkncs2LBMhcTCyxWgRxLyfXfQrxg4UwlAqENnjrrxnSNS/XKCDJCl8EkdFJVHOxw==}
+  /@rollup/plugin-typescript@11.1.1(rollup@3.21.5)(tslib@2.5.0)(typescript@5.0.4):
+    resolution: {integrity: sha512-Ioir+x5Bejv72Lx2Zbz3/qGg7tvGbxQZALCLoJaGrkNXak/19+vKgKYJYM3i/fJxvsb23I9FuFQ8CUBEfsmBRg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.14.0||^3.0.0
