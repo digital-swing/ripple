@@ -121,8 +121,8 @@ devDependencies:
     specifier: 33.0.0
     version: 33.0.0(stylelint@15.6.1)
   ts-auto-mock:
-    specifier: 3.6.4
-    version: 3.6.4(typescript@5.0.4)
+    specifier: 3.7.0
+    version: 3.7.0(typescript@5.0.4)
   ts-jest:
     specifier: 29.1.0
     version: 29.1.0(@babel/core@7.20.12)(jest@29.5.0)(typescript@5.0.4)
@@ -8289,11 +8289,11 @@ packages:
     resolution: {integrity: sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==}
     dev: true
 
-  /ts-auto-mock@3.6.4(typescript@5.0.4):
-    resolution: {integrity: sha512-NDMlKRZotUQgQARp38vwDaP5ucQXnPK/A7H/lpAtcQmwzLAdLnwgxtNUzYF2G2gKQqw7SNcyGkjizWZm8EHNQw==}
+  /ts-auto-mock@3.7.0(typescript@5.0.4):
+    resolution: {integrity: sha512-UiQ3oK03h73W8XrXdTuBxw22oKyJRavA47JhCyvMQjYwiRXa4fe/lGXkvtSg/FNjAcA4Rx3nazC9L7y2CBJmag==}
     engines: {node: '>=14.x.x', npm: '>=6.x.x'}
     peerDependencies:
-      typescript: ^4.X.X
+      typescript: ^5.0.4
     dependencies:
       lodash-es: 4.17.21
       micromatch: 4.0.5
