@@ -34,8 +34,8 @@ devDependencies:
     specifier: 15.0.2
     version: 15.0.2(rollup@3.21.7)
   '@rollup/plugin-terser':
-    specifier: 0.4.1
-    version: 0.4.1(rollup@3.21.7)
+    specifier: 0.4.3
+    version: 0.4.3(rollup@3.21.7)
   '@rollup/plugin-typescript':
     specifier: 11.1.1
     version: 11.1.1(rollup@3.21.7)(tslib@2.5.0)(typescript@5.0.4)
@@ -2367,8 +2367,8 @@ packages:
       rollup: 3.21.7
     dev: true
 
-  /@rollup/plugin-terser@0.4.1(rollup@3.21.7):
-    resolution: {integrity: sha512-aKS32sw5a7hy+fEXVy+5T95aDIwjpGHCTv833HXVtyKMDoVS7pBr5K3L9hEQoNqbJFjfANPrNpIXlTQ7is00eA==}
+  /@rollup/plugin-terser@0.4.3(rollup@3.21.7):
+    resolution: {integrity: sha512-EF0oejTMtkyhrkwCdg0HJ0IpkcaVg1MMSf2olHb2Jp+1mnLM04OhjpJWGma4HobiDTF0WCyViWuvadyE9ch2XA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.x || ^3.x
@@ -2378,8 +2378,8 @@ packages:
     dependencies:
       rollup: 3.21.7
       serialize-javascript: 6.0.1
-      smob: 0.0.6
-      terser: 5.16.3
+      smob: 1.1.0
+      terser: 5.17.4
     dev: true
 
   /@rollup/plugin-typescript@11.1.1(rollup@3.21.7)(tslib@2.5.0)(typescript@5.0.4):
@@ -7844,8 +7844,8 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
-  /smob@0.0.6:
-    resolution: {integrity: sha512-V21+XeNni+tTyiST1MHsa84AQhT1aFZipzPpOFAVB8DkHzwJyjjAmt9bgwnuZiZWnIbMo2duE29wybxv/7HWUw==}
+  /smob@1.1.0:
+    resolution: {integrity: sha512-Rtrm1A5e/Yq53vgWinNSVkQ14UaGNdYzF5xaVqKXG4YBjTxkMdsx3bzpO8pD4hwf4O6JOi5/sAyFta0pLmKZOw==}
     dev: true
 
   /source-map-js@1.0.2:
@@ -8195,12 +8195,23 @@ packages:
       jest-worker: 27.5.1
       schema-utils: 3.1.1
       serialize-javascript: 6.0.1
-      terser: 5.16.3
+      terser: 5.17.4
       webpack: 5.75.0
     dev: true
 
   /terser@5.16.3:
     resolution: {integrity: sha512-v8wWLaS/xt3nE9dgKEWhNUFP6q4kngO5B8eYFUuebsu7Dw/UNAnpUod6UHo04jSSkv8TzKHjZDSd7EXdDQAl8Q==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      '@jridgewell/source-map': 0.3.2
+      acorn: 8.8.2
+      commander: 2.20.3
+      source-map-support: 0.5.21
+    dev: true
+
+  /terser@5.17.4:
+    resolution: {integrity: sha512-jcEKZw6UPrgugz/0Tuk/PVyLAPfMBJf5clnGueo45wTweoV8yh7Q7PEkhkJ5uuUbC7zAxEcG3tqNr1bstkQ8nw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
