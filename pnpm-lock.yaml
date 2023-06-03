@@ -42,7 +42,7 @@ devDependencies:
     version: 0.4.3(rollup@3.23.0)
   '@rollup/plugin-typescript':
     specifier: 11.1.1
-    version: 11.1.1(rollup@3.23.0)(tslib@2.5.2)(typescript@5.0.4)
+    version: 11.1.1(rollup@3.23.0)(tslib@2.5.3)(typescript@5.0.4)
   '@types/jest':
     specifier: 29.5.2
     version: 29.5.2
@@ -137,8 +137,8 @@ devDependencies:
     specifier: 10.9.1
     version: 10.9.1(@types/node@18.13.0)(typescript@5.0.4)
   tslib:
-    specifier: 2.5.2
-    version: 2.5.2
+    specifier: 2.5.3
+    version: 2.5.3
   typedoc:
     specifier: 0.24.7
     version: 0.24.7(typescript@5.0.4)
@@ -2516,7 +2516,7 @@ packages:
       terser: 5.17.4
     dev: true
 
-  /@rollup/plugin-typescript@11.1.1(rollup@3.23.0)(tslib@2.5.2)(typescript@5.0.4):
+  /@rollup/plugin-typescript@11.1.1(rollup@3.23.0)(tslib@2.5.3)(typescript@5.0.4):
     resolution: {integrity: sha512-Ioir+x5Bejv72Lx2Zbz3/qGg7tvGbxQZALCLoJaGrkNXak/19+vKgKYJYM3i/fJxvsb23I9FuFQ8CUBEfsmBRg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -2532,7 +2532,7 @@ packages:
       '@rollup/pluginutils': 5.0.2(rollup@3.23.0)
       resolve: 1.22.1
       rollup: 3.23.0
-      tslib: 2.5.2
+      tslib: 2.5.3
       typescript: 5.0.4
     dev: true
 
@@ -8587,8 +8587,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib@2.5.2:
-    resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
+  /tslib@2.5.3:
+    resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
     dev: true
 
   /tsutils@3.21.0(typescript@5.0.4):
