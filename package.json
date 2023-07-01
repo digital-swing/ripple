@@ -81,7 +81,7 @@
     "stylelint-config-standard": "33.0.0",
     "ts-auto-mock": "3.7.1",
     "ts-jest": "29.1.1",
-    "ts-loader": "9.4.3",
+    "ts-loader": "9.4.4",
     "ts-node": "10.9.1",
     "tslib": "2.5.3",
     "typedoc": "0.24.8",
