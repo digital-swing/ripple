@@ -14,14 +14,14 @@ dependencies:
 
 devDependencies:
   '@babel/eslint-parser':
-    specifier: 7.22.7
-    version: 7.22.7(@babel/core@7.20.12)(eslint@8.44.0)
+    specifier: 7.22.9
+    version: 7.22.9(@babel/core@7.20.12)(eslint@8.44.0)
   '@babel/plugin-syntax-dynamic-import':
     specifier: 7.8.3
     version: 7.8.3(@babel/core@7.20.12)
   '@babel/preset-env':
-    specifier: 7.22.7
-    version: 7.22.7(@babel/core@7.20.12)
+    specifier: 7.22.9
+    version: 7.22.9(@babel/core@7.20.12)
   '@babel/preset-typescript':
     specifier: 7.22.5
     version: 7.22.5(@babel/core@7.20.12)
@@ -179,6 +179,11 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
+  /@babel/compat-data@7.22.9:
+    resolution: {integrity: sha512-5UamI7xkUcJ3i9qVDS+KFDEK8/7oJ55/sJMB1Ge7IEapr7KfdfV/HErR+koZwOfd+SgtFKOKRhRakdg++DcJpQ==}
+    engines: {node: '>=6.9.0'}
+    dev: true
+
   /@babel/core@7.20.12:
     resolution: {integrity: sha512-XsMfHovsUYHFMdrIHkZphTN/2Hzzi78R08NuHfDBehym2VsPDL6Zn/JAD/JQdnRvbSsbQc4mVaU1m6JgtTEElg==}
     engines: {node: '>=6.9.0'}
@@ -202,8 +207,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/eslint-parser@7.22.7(@babel/core@7.20.12)(eslint@8.44.0):
-    resolution: {integrity: sha512-LH6HJqjOyu/Qtp7LuSycZXK/CYXQ4ohdkliEaL1QTdtOXVdOVpTBKVxAo/+eeyt+x/2SRzB+zUPduVl+xiEvdg==}
+  /@babel/eslint-parser@7.22.9(@babel/core@7.20.12)(eslint@8.44.0):
+    resolution: {integrity: sha512-xdMkt39/nviO/4vpVdrEYPwXCsYIXSSAr6mC7WQsNIlGnuxKyKE7GZjalcnbSWiC4OXGNNN3UQPeHfjSC6sTDA==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': '>=7.11.0'
@@ -211,9 +216,9 @@ packages:
     dependencies:
       '@babel/core': 7.20.12
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      '@nicolo-ribaudo/semver-v6': 6.3.3
       eslint: 8.44.0
       eslint-visitor-keys: 2.1.0
+      semver: 6.3.1
     dev: true
 
   /@babel/generator@7.22.5:
@@ -254,6 +259,20 @@ packages:
       lru-cache: 5.1.1
     dev: true
 
+  /@babel/helper-compilation-targets@7.22.9(@babel/core@7.20.12):
+    resolution: {integrity: sha512-7qYrNM6HjpnPHJbopxmb8hSPoZ0gsX8IvUS32JGVoy+pU9e5N0nLr1VjJoR6kA4d9dmGLxNYOjeB8sUDal2WMw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    dependencies:
+      '@babel/compat-data': 7.22.9
+      '@babel/core': 7.20.12
+      '@babel/helper-validator-option': 7.22.5
+      browserslist: 4.21.9
+      lru-cache: 5.1.1
+      semver: 6.3.1
+    dev: true
+
   /@babel/helper-create-class-features-plugin@7.22.5(@babel/core@7.20.12):
     resolution: {integrity: sha512-xkb58MyOYIslxu3gKmVXmjTtUPvBU4odYzbiIQbWwLKIHCsx6UGZGX6F1IznMFVnDdirseUZopzN+ZRt8Xb33Q==}
     engines: {node: '>=6.9.0'}
@@ -283,7 +302,7 @@ packages:
       '@babel/core': 7.20.12
       '@babel/helper-annotate-as-pure': 7.22.5
       regexpu-core: 5.3.2
-      semver: 6.3.0
+      semver: 6.3.1
     dev: true
 
   /@babel/helper-define-polyfill-provider@0.4.1(@babel/core@7.20.12):
@@ -292,7 +311,7 @@ packages:
       '@babel/core': ^7.4.0-0
     dependencies:
       '@babel/core': 7.20.12
-      '@babel/helper-compilation-targets': 7.22.6(@babel/core@7.20.12)
+      '@babel/helper-compilation-targets': 7.22.9(@babel/core@7.20.12)
       '@babel/helper-plugin-utils': 7.22.5
       debug: 4.3.4
       lodash.debounce: 4.0.8
@@ -814,7 +833,7 @@ packages:
     dependencies:
       '@babel/core': 7.20.12
       '@babel/helper-annotate-as-pure': 7.22.5
-      '@babel/helper-compilation-targets': 7.22.6(@babel/core@7.20.12)
+      '@babel/helper-compilation-targets': 7.22.9(@babel/core@7.20.12)
       '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-optimise-call-expression': 7.22.5
@@ -918,7 +937,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.20.12
-      '@babel/helper-compilation-targets': 7.22.6(@babel/core@7.20.12)
+      '@babel/helper-compilation-targets': 7.22.9(@babel/core@7.20.12)
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
@@ -1069,9 +1088,9 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/compat-data': 7.22.6
+      '@babel/compat-data': 7.22.9
       '@babel/core': 7.20.12
-      '@babel/helper-compilation-targets': 7.22.6(@babel/core@7.20.12)
+      '@babel/helper-compilation-targets': 7.22.9(@babel/core@7.20.12)
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.20.12)
       '@babel/plugin-transform-parameters': 7.22.5(@babel/core@7.20.12)
@@ -1291,15 +1310,15 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
-  /@babel/preset-env@7.22.7(@babel/core@7.20.12):
-    resolution: {integrity: sha512-1whfDtW+CzhETuzYXfcgZAh8/GFMeEbz0V5dVgya8YeJyCU6Y/P2Gnx4Qb3MylK68Zu9UiwUvbPMPTpFAOJ+sQ==}
+  /@babel/preset-env@7.22.9(@babel/core@7.20.12):
+    resolution: {integrity: sha512-wNi5H/Emkhll/bqPjsjQorSykrlfY5OWakd6AulLvMEytpKasMVUpVy8RL4qBIBs5Ac6/5i0/Rv0b/Fg6Eag/g==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/compat-data': 7.22.6
+      '@babel/compat-data': 7.22.9
       '@babel/core': 7.20.12
-      '@babel/helper-compilation-targets': 7.22.6(@babel/core@7.20.12)
+      '@babel/helper-compilation-targets': 7.22.9(@babel/core@7.20.12)
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-validator-option': 7.22.5
       '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.22.5(@babel/core@7.20.12)
@@ -1373,11 +1392,11 @@ packages:
       '@babel/plugin-transform-unicode-sets-regex': 7.22.5(@babel/core@7.20.12)
       '@babel/preset-modules': 0.1.5(@babel/core@7.20.12)
       '@babel/types': 7.22.5
-      '@nicolo-ribaudo/semver-v6': 6.3.3
       babel-plugin-polyfill-corejs2: 0.4.4(@babel/core@7.20.12)
       babel-plugin-polyfill-corejs3: 0.8.2(@babel/core@7.20.12)
       babel-plugin-polyfill-regenerator: 0.5.1(@babel/core@7.20.12)
       core-js-compat: 3.31.1
+      semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1440,7 +1459,7 @@ packages:
       '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.5
+      '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.22.5
       '@babel/types': 7.22.5
       debug: 4.3.4
@@ -3839,7 +3858,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/compat-data': 7.22.6
+      '@babel/compat-data': 7.22.9
       '@babel/core': 7.20.12
       '@babel/helper-define-polyfill-provider': 0.4.1(@babel/core@7.20.12)
       '@nicolo-ribaudo/semver-v6': 6.3.3
@@ -8011,6 +8030,11 @@ packages:
 
   /semver@6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
+    hasBin: true
+    dev: true
+
+  /semver@6.3.1:
+    resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
     dev: true
 
