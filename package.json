@@ -72,7 +72,7 @@
     "jsdom-screenshot": "4.0.0",
     "prettier": "3.0.0",
     "rimraf": "5.0.1",
-    "rollup": "3.26.3",
+    "rollup": "3.27.0",
     "rollup-plugin-dts": "5.3.0",
     "rollup-plugin-summary": "2.0.0",
     "sass": "1.64.1",
