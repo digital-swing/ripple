@@ -47,8 +47,8 @@ devDependencies:
     specifier: 29.5.3
     version: 29.5.3
   '@types/jest-image-snapshot':
-    specifier: 6.1.0
-    version: 6.1.0
+    specifier: 6.2.0
+    version: 6.2.0
   '@types/jsdom-screenshot':
     specifier: 3.2.2
     version: 3.2.2
@@ -2606,8 +2606,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest-image-snapshot@6.1.0:
-    resolution: {integrity: sha512-wYayjKQGdI0ZbmsAq7OPt+5wMMi1CDXXkF3LfoGj4eRC0dOqlYJdXqLwfC89Qf2apQdlL9StgCkw0iTDb8lpUw==}
+  /@types/jest-image-snapshot@6.2.0:
+    resolution: {integrity: sha512-LG8r7GzYJE9sETkSe4z6k1lVyab0nnln6wGcNXOat8Kny3opvjqw1A5cIKf4mWdsTPuIuCtdMO+KmQLPFZ14Yw==}
     dependencies:
       '@types/jest': 29.5.3
       '@types/pixelmatch': 5.2.4
