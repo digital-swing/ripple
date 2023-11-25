@@ -54,7 +54,7 @@
     "@rollup/plugin-typescript": "11.1.5",
     "@types/jest": "29.5.10",
     "@types/jest-image-snapshot": "6.2.3",
-    "@types/jsdom-screenshot": "3.2.5",
+    "@types/jsdom-screenshot": "3.2.6",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@vuepress/plugin-back-to-top": "2.0.0-rc.0",
