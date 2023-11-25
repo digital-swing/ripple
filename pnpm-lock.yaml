@@ -50,8 +50,8 @@ devDependencies:
     specifier: 6.2.3
     version: 6.2.3
   '@types/jsdom-screenshot':
-    specifier: 3.2.5
-    version: 3.2.5
+    specifier: 3.2.6
+    version: 3.2.6
   '@typescript-eslint/eslint-plugin':
     specifier: 6.11.0
     version: 6.11.0(@typescript-eslint/parser@6.11.0)(eslint@8.54.0)(typescript@5.2.2)
@@ -2705,8 +2705,8 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@types/jsdom-screenshot@3.2.5:
-    resolution: {integrity: sha512-r1eDiXILPQvcnEfYTZ7X7Fcwk/9LKdLKiBzavt27RfStthymhkhtLMUfJcJKwFo/ZbTMQ06VOwegg37uAhM3fg==}
+  /@types/jsdom-screenshot@3.2.6:
+    resolution: {integrity: sha512-fb668fZA1i5UzoGVl0ryfEt1ruDhFM0T5hAdpmnUV6Y5J8uFKXSHqAznBajGLyc0w2Fqw+uCdxJTvZxHNCQr+A==}
     dependencies:
       '@types/puppeteer': 5.4.7
     dev: true
