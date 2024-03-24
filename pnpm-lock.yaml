@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   color-alpha:
-    specifier: ^1.1.3
-    version: 1.1.3
+    specifier: ^2.0.0
+    version: 2.0.0
   gsap:
     specifier: ^3
     version: 3.11.4
@@ -4082,10 +4082,10 @@ packages:
     resolution: {integrity: sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg==}
     dev: true
 
-  /color-alpha@1.1.3:
-    resolution: {integrity: sha512-krPYBO1RSO5LH4AGb/b6z70O1Ip2o0F0+0cVFN5FN99jfQtZFT08rQyg+9oOBNJYAn3SRwJIFC8jUEOKz7PisA==}
+  /color-alpha@2.0.0:
+    resolution: {integrity: sha512-AFicJNV27HMw2l3KZPngmoL9euIe+7YDVprQHuJbChyh1x/R4AjKdL9WKvfE5/nXIok+WfYhm+I6GsXaFgB7Xg==}
     dependencies:
-      color-parse: 1.4.2
+      color-parse: 2.0.2
     dev: false
 
   /color-convert@1.9.3:
@@ -4109,11 +4109,17 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    dev: true
 
-  /color-parse@1.4.2:
-    resolution: {integrity: sha512-RI7s49/8yqDj3fECFZjUI1Yi0z/Gq1py43oNJivAIIDSyJiOZLfYCRQEgn8HEVAj++PcRe8AnL2XF0fRJ3BTnA==}
+  /color-name@2.0.0:
+    resolution: {integrity: sha512-SbtvAMWvASO5TE2QP07jHBMXKafgdZz8Vrsrn96fiL+O92/FN/PLARzUW5sKt013fjAprK2d2iCn2hk2Xb5oow==}
+    engines: {node: '>=12.20'}
+    dev: false
+
+  /color-parse@2.0.2:
+    resolution: {integrity: sha512-eCtOz5w5ttWIUcaKLiktF+DxZO1R9KLNY/xhbV6CkhM7sR3GhVghmt6X6yOnzeaM24po+Z9/S1apbXMwA3Iepw==}
     dependencies:
-      color-name: 1.1.4
+      color-name: 2.0.0
     dev: false
 
   /colord@2.9.3:
