@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.0 (2024-03-24)
+
+
+### Features
+
+* add ignore setting to disable the ripple ([260647a](https://github.com/digital-swing/ripple/commit/260647ad7111ff9f27f2172c354bd13ab122bb00))
+* add rememberPositionOnDisable setting ([157f4f6](https://github.com/digital-swing/ripple/commit/157f4f68da6487bd4c365f73e6dc0bcc3d7b6a6c))
+* relative ripple size support ([e84231a](https://github.com/digital-swing/ripple/commit/e84231a60a17174590f76893a79cc26abf626b7e))
+
+
+### Bug Fixes
+
+* add missing export of main function ([f783e10](https://github.com/digital-swing/ripple/commit/f783e10c09a8273ef3c31bc37ee1372a74d02674))
+* deploy without git checks ([320b5b7](https://github.com/digital-swing/ripple/commit/320b5b737f9396c3cb8811607d9845342609806a))
+* preserve settings between reinitializations ([006b488](https://github.com/digital-swing/ripple/commit/006b488b3b132dc8cc0cb265bfd66042df9db3a7))
+
 ## [0.8.1](https://github.com/digital-swing/ripple/compare/v0.8.0...v0.8.1) (2023-02-09)
 
 
