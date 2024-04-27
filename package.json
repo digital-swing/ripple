@@ -76,7 +76,7 @@
     "rollup-plugin-dts": "6.1.0",
     "rollup-plugin-summary": "2.0.0",
     "sass": "1.75.0",
-    "stylelint": "16.3.1",
+    "stylelint": "16.4.0",
     "stylelint-config-property-sort-order-smacss": "10.0.0",
     "stylelint-config-standard": "36.0.0",
     "ts-auto-mock": "3.7.3",
