@@ -112,8 +112,8 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(rollup@4.18.0)(typescript@5.4.5)
       rollup-plugin-summary:
-        specifier: 2.0.0
-        version: 2.0.0(rollup@4.18.0)
+        specifier: 2.0.1
+        version: 2.0.1(rollup@4.18.0)
       sass:
         specifier: 1.77.2
         version: 1.77.2
@@ -2854,10 +2854,12 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -4063,6 +4065,7 @@ packages:
 
   rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -4077,11 +4080,11 @@ packages:
       rollup: ^3.29.4 || ^4
       typescript: ^4.5 || ^5.0
 
-  rollup-plugin-summary@2.0.0:
-    resolution: {integrity: sha512-7Av6DQeCmVNpFmCdkkbMya1CneeGWhjSXXQ3B4yDO+BvN/Kbohqi3IEYXAvgHP3iIafSfMyOw+PBLFUlvf1ViA==}
+  rollup-plugin-summary@2.0.1:
+    resolution: {integrity: sha512-aO8t5ZxAB9svdUl4etKUbWr7FFK/2RLj81ZiHnsJKsXPcZEekh32+TknJFj/V8JYRqjmlb/Ygi4aktRa9LdQjw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^2.68.0||^3.0.0
+      rollup: ^2.68.0||^3.0.0||^4.0.0
 
   rollup@4.18.0:
     resolution: {integrity: sha512-QmJz14PX3rzbJCN1SG4Xe/bAAX2a6NpCP8ab2vfu2GiUr8AQcr2nCV/oEO3yneFarB67zk8ShlIyWb2LGTb3Sg==}
@@ -4369,11 +4372,6 @@ packages:
         optional: true
       uglify-js:
         optional: true
-
-  terser@5.16.3:
-    resolution: {integrity: sha512-v8wWLaS/xt3nE9dgKEWhNUFP6q4kngO5B8eYFUuebsu7Dw/UNAnpUod6UHo04jSSkv8TzKHjZDSd7EXdDQAl8Q==}
-    engines: {node: '>=10'}
-    hasBin: true
 
   terser@5.17.4:
     resolution: {integrity: sha512-jcEKZw6UPrgugz/0Tuk/PVyLAPfMBJf5clnGueo45wTweoV8yh7Q7PEkhkJ5uuUbC7zAxEcG3tqNr1bstkQ8nw==}
@@ -9405,14 +9403,14 @@ snapshots:
     optionalDependencies:
       '@babel/code-frame': 7.24.2
 
-  rollup-plugin-summary@2.0.0(rollup@4.18.0):
+  rollup-plugin-summary@2.0.1(rollup@4.18.0):
     dependencies:
       brotli-size: 4.0.0
       cli-table3: 0.6.3
       filesize: 10.0.6
       gzip-size: 7.0.0
       rollup: 4.18.0
-      terser: 5.16.3
+      terser: 5.17.4
 
   rollup@4.18.0:
     dependencies:
@@ -9762,13 +9760,6 @@ snapshots:
       serialize-javascript: 6.0.1
       terser: 5.17.4
       webpack: 5.75.0
-
-  terser@5.16.3:
-    dependencies:
-      '@jridgewell/source-map': 0.3.2
-      acorn: 8.9.0
-      commander: 2.20.3
-      source-map-support: 0.5.21
 
   terser@5.17.4:
     dependencies:
