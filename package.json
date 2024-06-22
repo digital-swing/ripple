@@ -84,7 +84,7 @@
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
     "tslib": "2.6.3",
-    "typedoc": "0.25.13",
+    "typedoc": "0.26.0",
     "typedoc-plugin-markdown": "4.0.3",
     "typescript": "5.4.5",
     "vuepress": "2.0.0-rc.14"
