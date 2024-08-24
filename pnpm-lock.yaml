@@ -127,8 +127,8 @@ importers:
         specifier: 36.0.1
         version: 36.0.1(stylelint@16.8.2(typescript@5.5.4))
       ts-auto-mock:
-        specifier: 3.7.3
-        version: 3.7.3(typescript@5.5.4)
+        specifier: 3.7.4
+        version: 3.7.4(typescript@5.5.4)
       ts-jest:
         specifier: 29.2.5
         version: 29.2.5(@babel/core@7.20.12)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.20.12))(jest@29.7.0(@types/node@20.5.1)(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.5.4)))(typescript@5.5.4)
@@ -3669,6 +3669,10 @@ packages:
     resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
     engines: {node: '>=8.6'}
 
+  micromatch@4.0.8:
+    resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
+    engines: {node: '>=8.6'}
+
   mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
@@ -4504,8 +4508,8 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
-  ts-auto-mock@3.7.3:
-    resolution: {integrity: sha512-EmFVlfQQWogVtWWgkDXVdtLgGje0P8PaWFz217A4ojNIMwF+iKFnim6ykZsGAtClWCfmGig0VMH7KlbMxc8yKw==}
+  ts-auto-mock@3.7.4:
+    resolution: {integrity: sha512-+/X+7yjpUBsIJBRxl/hs9aq3pA76w3Pcu70uHDxdr4C8TbXXwd/gq6t3b81xqU9N/KPFIFata1HcQZ2lwGKDRQ==}
     engines: {node: '>=14.x.x', npm: '>=6.x.x'}
     peerDependencies:
       typescript: ^5.0.4
@@ -9225,6 +9229,11 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
+  micromatch@4.0.8:
+    dependencies:
+      braces: 3.0.3
+      picomatch: 2.3.1
+
   mime-db@1.52.0: {}
 
   mime-types@2.1.35:
@@ -10087,10 +10096,10 @@ snapshots:
     dependencies:
       typescript: 5.5.4
 
-  ts-auto-mock@3.7.3(typescript@5.5.4):
+  ts-auto-mock@3.7.4(typescript@5.5.4):
     dependencies:
       lodash-es: 4.17.21
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       typescript: 5.5.4
 
   ts-jest@29.2.5(@babel/core@7.20.12)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.20.12))(jest@29.7.0(@types/node@20.5.1)(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.5.4)))(typescript@5.5.4):
