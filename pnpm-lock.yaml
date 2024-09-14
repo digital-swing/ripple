@@ -46,8 +46,8 @@ importers:
         specifier: 11.1.6
         version: 11.1.6(rollup@4.21.2)(tslib@2.7.0)(typescript@5.5.4)
       '@types/jest':
-        specifier: 29.5.12
-        version: 29.5.12
+        specifier: 29.5.13
+        version: 29.5.13
       '@types/jest-image-snapshot':
         specifier: 6.4.0
         version: 6.4.0
@@ -1548,8 +1548,8 @@ packages:
   '@types/jest-image-snapshot@6.4.0':
     resolution: {integrity: sha512-8TQ/EgqFCX0UWSpH488zAc21fCkJNpZPnnp3xWFMqElxApoJV5QOoqajnVRV7AhfF0rbQWTVyc04KG7tXnzCPA==}
 
-  '@types/jest@29.5.12':
-    resolution: {integrity: sha512-eDC8bTvT/QhYdxJAulQikueigY5AsdBRH2yDKW3yveW7svY3+DzN84/2NUgkw10RTiJbWqZrTtoGVdYlvFJdLw==}
+  '@types/jest@29.5.13':
+    resolution: {integrity: sha512-wd+MVEZCHt23V0/L642O5APvspWply/rGY5BcW4SUETo2UzPU3Z26qr8jC2qxpimI2jjx9h7+2cj2FwIr01bXg==}
 
   '@types/jsdom-screenshot@4.0.0':
     resolution: {integrity: sha512-zCteo+XxDZW3AuiFoIrBLsTSLmvjl3wSUbBHhPenVO3fi0Nmo3TY4MLtVL1MLbBOOya3gHxImOuRN2CuhWCfYA==}
@@ -5074,6 +5074,7 @@ snapshots:
     dependencies:
       '@babel/highlight': 7.24.2
       picocolors: 1.0.0
+    optional: true
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -5334,6 +5335,7 @@ snapshots:
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.1
+    optional: true
 
   '@babel/highlight@7.24.7':
     dependencies:
@@ -6764,11 +6766,11 @@ snapshots:
 
   '@types/jest-image-snapshot@6.4.0':
     dependencies:
-      '@types/jest': 29.5.12
+      '@types/jest': 29.5.13
       '@types/pixelmatch': 5.2.4
       ssim.js: 3.5.0
 
-  '@types/jest@29.5.12':
+  '@types/jest@29.5.13':
     dependencies:
       expect: 29.7.0
       pretty-format: 29.7.0
@@ -9186,7 +9188,7 @@ snapshots:
 
   jest-message-util@29.7.0:
     dependencies:
-      '@babel/code-frame': 7.24.2
+      '@babel/code-frame': 7.24.7
       '@jest/types': 29.6.3
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
@@ -9843,7 +9845,8 @@ snapshots:
 
   pend@1.2.0: {}
 
-  picocolors@1.0.0: {}
+  picocolors@1.0.0:
+    optional: true
 
   picocolors@1.0.1: {}
 
