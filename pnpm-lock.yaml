@@ -118,14 +118,14 @@ importers:
         specifier: 1.79.5
         version: 1.79.5
       stylelint:
-        specifier: 16.9.0
-        version: 16.9.0(typescript@5.6.3)
+        specifier: 16.10.0
+        version: 16.10.0(typescript@5.6.3)
       stylelint-config-property-sort-order-smacss:
         specifier: 10.0.0
-        version: 10.0.0(stylelint@16.9.0(typescript@5.6.3))
+        version: 10.0.0(stylelint@16.10.0(typescript@5.6.3))
       stylelint-config-standard:
         specifier: 36.0.1
-        version: 36.0.1(stylelint@16.9.0(typescript@5.6.3))
+        version: 36.0.1(stylelint@16.10.0(typescript@5.6.3))
       ts-auto-mock:
         specifier: 3.7.4
         version: 3.7.4(typescript@5.6.3)
@@ -2352,8 +2352,8 @@ packages:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
 
-  css-functions-list@3.2.2:
-    resolution: {integrity: sha512-c+N0v6wbKVxTu5gOBBFkr9BEdBWaqqjQeiJ8QvSRIJOf+UxlJh930m8e6/WNeODIK0mYLFkoONrnj16i2EcvfQ==}
+  css-functions-list@3.2.3:
+    resolution: {integrity: sha512-IQOkD3hbR5KrN93MtcYuad6YPuTSUhntLHDuLEbFWE+ff2/XSZNdZG+LcbbIW5AXKg/WFIfYItIzVoHngHXZzA==}
     engines: {node: '>=12 || >=16'}
 
   css-property-sort-order-smacss@2.2.0:
@@ -2362,8 +2362,8 @@ packages:
   css-select@5.1.0:
     resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
 
-  css-tree@2.3.1:
-    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
+  css-tree@3.0.0:
+    resolution: {integrity: sha512-o88DVQ6GzsABn1+6+zo2ct801dBO5OASVyxbbvA2W20ue2puSh/VOuqUj90eUeMSX/xqGqBmOKiRQN7tJOuBXw==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   css-what@6.1.0:
@@ -2418,15 +2418,6 @@ packages:
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-
-  debug@4.3.6:
-    resolution: {integrity: sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==}
-    engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
@@ -2875,8 +2866,8 @@ packages:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
 
-  file-entry-cache@9.0.0:
-    resolution: {integrity: sha512-6MgEugi8p2tiUhqO7GnPsmbCCzj0YRCwwaTbpGRyKZesjRSzkqkAE9fPp7V2yMs5hwfgbQLgdvSSkGNg1s5Uvw==}
+  file-entry-cache@9.1.0:
+    resolution: {integrity: sha512-/pqPFG+FdxWQj+/WSuzXSDaNzxgTLr/OrR1QuqfEZzDakpdYE70PwUxL7BPUa8hpjbvY1+qvCl8k+8Tq34xJgg==}
     engines: {node: '>=18'}
 
   filelist@1.0.4:
@@ -3168,6 +3159,10 @@ packages:
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
+    engines: {node: '>= 4'}
+
+  ignore@6.0.2:
+    resolution: {integrity: sha512-InwqeHHN2XpumIkMvpl/DCJVrAHgCsG5+cn1XlnLWGwtZBm8QJfSusItfrwx81CTp5agNZqpKU2J/ccC5nGT4A==}
     engines: {node: '>= 4'}
 
   immutable@4.2.4:
@@ -3760,8 +3755,8 @@ packages:
   mdast-util-to-hast@13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
 
-  mdn-data@2.0.30:
-    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
+  mdn-data@2.10.0:
+    resolution: {integrity: sha512-qq7C3EtK3yJXMwz1zAab65pjl+UhohqMOctTgcqjLOWABqmwj+me02LSsCuEUxnst9X1lCBpoE0WArGKgdGDzw==}
 
   mdurl@2.0.0:
     resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
@@ -3864,9 +3859,6 @@ packages:
 
   ms@2.1.1:
     resolution: {integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==}
-
-  ms@2.1.2:
-    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -4058,9 +4050,6 @@ packages:
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
-
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
@@ -4095,8 +4084,8 @@ packages:
   postcss-resolve-nested-selector@0.1.6:
     resolution: {integrity: sha512-0sglIs9Wmkzbr8lQwEyIzlDOOC9bGmfVKcJTaxv3vMmd3uo4o4DerC3En0bnmgceeql9BfC8hRkp7cg0fjdVqw==}
 
-  postcss-safe-parser@7.0.0:
-    resolution: {integrity: sha512-ovehqRNVCpuFzbXoTb4qLtyzK3xn3t/CUBxOs8LsnQjQrShaB4lKiHoVqY8ANaC0hBMHq5QVWk77rwGklFUDrg==}
+  postcss-safe-parser@7.0.1:
+    resolution: {integrity: sha512-0AioNCJZ2DPYz5ABT6bddIqlhgwhpHZ/l65YAYo0BCIn0xiDpsnTHz0gnoTGk0OXZW0JRs+cDwL8u/teRdz+8A==}
     engines: {node: '>=18.0'}
     peerDependencies:
       postcss: ^8.4.31
@@ -4565,8 +4554,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
 
-  stylelint@16.9.0:
-    resolution: {integrity: sha512-31Nm3WjxGOBGpQqF43o3wO9L5AC36TPIe6030Lnm13H3vDMTcS21DrLh69bMX+DBilKqMMVLian4iG6ybBoNRQ==}
+  stylelint@16.10.0:
+    resolution: {integrity: sha512-z/8X2rZ52dt2c0stVwI9QL2AFJhLhbPkyfpDFcizs200V/g7v+UYY6SNcB9hKOLcDDX/yGLDsY/pX08sLkz9xQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -5306,7 +5295,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
     optional: true
 
   '@babel/highlight@7.24.7':
@@ -7797,7 +7786,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-functions-list@3.2.2: {}
+  css-functions-list@3.2.3: {}
 
   css-property-sort-order-smacss@2.2.0: {}
 
@@ -7809,9 +7798,9 @@ snapshots:
       domutils: 3.1.0
       nth-check: 2.1.1
 
-  css-tree@2.3.1:
+  css-tree@3.0.0:
     dependencies:
-      mdn-data: 2.0.30
+      mdn-data: 2.10.0
       source-map-js: 1.2.1
 
   css-what@6.1.0: {}
@@ -7861,10 +7850,6 @@ snapshots:
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
-
-  debug@4.3.6:
-    dependencies:
-      ms: 2.1.2
 
   debug@4.3.7:
     dependencies:
@@ -8377,7 +8362,7 @@ snapshots:
     dependencies:
       flat-cache: 4.0.0
 
-  file-entry-cache@9.0.0:
+  file-entry-cache@9.1.0:
     dependencies:
       flat-cache: 5.0.0
 
@@ -8708,6 +8693,8 @@ snapshots:
       safer-buffer: 2.1.2
 
   ignore@5.3.2: {}
+
+  ignore@6.0.2: {}
 
   immutable@4.2.4: {}
 
@@ -9491,7 +9478,7 @@ snapshots:
       unist-util-visit: 5.0.0
       vfile: 6.0.3
 
-  mdn-data@2.0.30: {}
+  mdn-data@2.10.0: {}
 
   mdurl@2.0.0: {}
 
@@ -9573,8 +9560,6 @@ snapshots:
   ms@2.0.0: {}
 
   ms@2.1.1: {}
-
-  ms@2.1.2: {}
 
   ms@2.1.3: {}
 
@@ -9718,7 +9703,7 @@ snapshots:
 
   parse-json@5.2.0:
     dependencies:
-      '@babel/code-frame': 7.24.7
+      '@babel/code-frame': 7.25.7
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -9769,8 +9754,6 @@ snapshots:
   picocolors@1.0.0:
     optional: true
 
-  picocolors@1.0.1: {}
-
   picocolors@1.1.0: {}
 
   picomatch@2.3.1: {}
@@ -9793,9 +9776,9 @@ snapshots:
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@7.0.0(postcss@8.4.41):
+  postcss-safe-parser@7.0.1(postcss@8.4.47):
     dependencies:
-      postcss: 8.4.41
+      postcss: 8.4.47
 
   postcss-selector-parser@6.1.2:
     dependencies:
@@ -9811,7 +9794,7 @@ snapshots:
   postcss@8.4.41:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       source-map-js: 1.2.1
 
   postcss@8.4.47:
@@ -10274,28 +10257,28 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stylelint-config-property-sort-order-smacss@10.0.0(stylelint@16.9.0(typescript@5.6.3)):
+  stylelint-config-property-sort-order-smacss@10.0.0(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
       css-property-sort-order-smacss: 2.2.0
-      stylelint: 16.9.0(typescript@5.6.3)
-      stylelint-order: 6.0.4(stylelint@16.9.0(typescript@5.6.3))
+      stylelint: 16.10.0(typescript@5.6.3)
+      stylelint-order: 6.0.4(stylelint@16.10.0(typescript@5.6.3))
 
-  stylelint-config-recommended@14.0.1(stylelint@16.9.0(typescript@5.6.3)):
+  stylelint-config-recommended@14.0.1(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.3)
+      stylelint: 16.10.0(typescript@5.6.3)
 
-  stylelint-config-standard@36.0.1(stylelint@16.9.0(typescript@5.6.3)):
+  stylelint-config-standard@36.0.1(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.6.3))
+      stylelint: 16.10.0(typescript@5.6.3)
+      stylelint-config-recommended: 14.0.1(stylelint@16.10.0(typescript@5.6.3))
 
-  stylelint-order@6.0.4(stylelint@16.9.0(typescript@5.6.3)):
+  stylelint-order@6.0.4(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
       postcss: 8.4.41
       postcss-sorting: 8.0.2(postcss@8.4.41)
-      stylelint: 16.9.0(typescript@5.6.3)
+      stylelint: 16.10.0(typescript@5.6.3)
 
-  stylelint@16.9.0(typescript@5.6.3):
+  stylelint@16.10.0(typescript@5.6.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.1(@csstools/css-tokenizer@3.0.1)
       '@csstools/css-tokenizer': 3.0.1
@@ -10305,17 +10288,17 @@ snapshots:
       balanced-match: 2.0.0
       colord: 2.9.3
       cosmiconfig: 9.0.0(typescript@5.6.3)
-      css-functions-list: 3.2.2
-      css-tree: 2.3.1
-      debug: 4.3.6
+      css-functions-list: 3.2.3
+      css-tree: 3.0.0
+      debug: 4.3.7
       fast-glob: 3.3.2
       fastest-levenshtein: 1.0.16
-      file-entry-cache: 9.0.0
+      file-entry-cache: 9.1.0
       global-modules: 2.0.0
       globby: 11.1.0
       globjoin: 0.1.4
       html-tags: 3.3.1
-      ignore: 5.3.2
+      ignore: 6.0.2
       imurmurhash: 0.1.4
       is-plain-object: 5.0.0
       known-css-properties: 0.34.0
@@ -10323,15 +10306,14 @@ snapshots:
       meow: 13.2.0
       micromatch: 4.0.8
       normalize-path: 3.0.0
-      picocolors: 1.0.1
-      postcss: 8.4.41
+      picocolors: 1.1.0
+      postcss: 8.4.47
       postcss-resolve-nested-selector: 0.1.6
-      postcss-safe-parser: 7.0.0(postcss@8.4.41)
+      postcss-safe-parser: 7.0.1(postcss@8.4.47)
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       string-width: 4.2.3
-      strip-ansi: 7.1.0
       supports-hyperlinks: 3.1.0
       svg-tags: 1.0.0
       table: 6.8.2
