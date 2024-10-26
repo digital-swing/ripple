@@ -46,8 +46,8 @@ importers:
         specifier: 12.1.0
         version: 12.1.0(rollup@4.24.0)(tslib@2.8.0)(typescript@5.6.3)
       '@types/jest':
-        specifier: 29.5.13
-        version: 29.5.13
+        specifier: 29.5.14
+        version: 29.5.14
       '@types/jest-image-snapshot':
         specifier: 6.4.0
         version: 6.4.0
@@ -1646,8 +1646,8 @@ packages:
   '@types/jest-image-snapshot@6.4.0':
     resolution: {integrity: sha512-8TQ/EgqFCX0UWSpH488zAc21fCkJNpZPnnp3xWFMqElxApoJV5QOoqajnVRV7AhfF0rbQWTVyc04KG7tXnzCPA==}
 
-  '@types/jest@29.5.13':
-    resolution: {integrity: sha512-wd+MVEZCHt23V0/L642O5APvspWply/rGY5BcW4SUETo2UzPU3Z26qr8jC2qxpimI2jjx9h7+2cj2FwIr01bXg==}
+  '@types/jest@29.5.14':
+    resolution: {integrity: sha512-ZN+4sdnLUbo8EVvVc2ao0GFW6oVrQRPn4K2lglySj7APvSrgzxHiNNK99us4WDMi57xxA2yggblIAMNhXOotLQ==}
 
   '@types/jsdom-screenshot@4.0.0':
     resolution: {integrity: sha512-zCteo+XxDZW3AuiFoIrBLsTSLmvjl3wSUbBHhPenVO3fi0Nmo3TY4MLtVL1MLbBOOya3gHxImOuRN2CuhWCfYA==}
@@ -6908,11 +6908,11 @@ snapshots:
 
   '@types/jest-image-snapshot@6.4.0':
     dependencies:
-      '@types/jest': 29.5.13
+      '@types/jest': 29.5.14
       '@types/pixelmatch': 5.2.4
       ssim.js: 3.5.0
 
-  '@types/jest@29.5.13':
+  '@types/jest@29.5.14':
     dependencies:
       expect: 29.7.0
       pretty-format: 29.7.0
