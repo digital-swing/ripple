@@ -133,8 +133,8 @@ importers:
         specifier: 29.2.5
         version: 29.2.5(@babel/core@7.20.12)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.20.12))(jest@29.7.0(@types/node@20.5.1)(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3)))(typescript@5.7.3)
       ts-loader:
-        specifier: 9.5.1
-        version: 9.5.1(typescript@5.7.3)(webpack@5.75.0)
+        specifier: 9.5.2
+        version: 9.5.2(typescript@5.7.3)(webpack@5.75.0)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.5.1)(typescript@5.7.3)
@@ -3765,10 +3765,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lru-cache@6.0.0:
-    resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
-    engines: {node: '>=10'}
-
   lunr@2.3.9:
     resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
 
@@ -4381,11 +4377,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.5.4:
-    resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.6.3:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
@@ -4722,8 +4713,8 @@ packages:
       esbuild:
         optional: true
 
-  ts-loader@9.5.1:
-    resolution: {integrity: sha512-rNH3sK9kGZcH9dYzC7CewQm4NtxJTjSEVRJ2DyBZR7f8/wcta+iV44UPCXc5+nzDzivKtlzV6c9P4e+oFhDLYg==}
+  ts-loader@9.5.2:
+    resolution: {integrity: sha512-Qo4piXvOTWcMGIgRiuFa6nHNm+54HbYaZCKqc9eeZCLRy3XqafQgwX2F7mofrbJG3g7EEb+lkiR+z2Lic2s3Zw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
@@ -5034,9 +5025,6 @@ packages:
 
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
-
-  yallist@4.0.0:
-    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
   yaml@2.6.1:
     resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
@@ -9478,10 +9466,6 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lru-cache@6.0.0:
-    dependencies:
-      yallist: 4.0.0
-
   lunr@2.3.9: {}
 
   magic-string@0.30.10:
@@ -10089,10 +10073,6 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.5.4:
-    dependencies:
-      lru-cache: 6.0.0
-
   semver@7.6.3: {}
 
   send@0.17.1:
@@ -10461,12 +10441,12 @@ snapshots:
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.20.12)
 
-  ts-loader@9.5.1(typescript@5.7.3)(webpack@5.75.0):
+  ts-loader@9.5.2(typescript@5.7.3)(webpack@5.75.0):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.12.0
-      micromatch: 4.0.5
-      semver: 7.5.4
+      micromatch: 4.0.8
+      semver: 7.6.3
       source-map: 0.7.4
       typescript: 5.7.3
       webpack: 5.75.0
@@ -10781,8 +10761,6 @@ snapshots:
   y18n@5.0.8: {}
 
   yallist@3.1.1: {}
-
-  yallist@4.0.0: {}
 
   yaml@2.6.1: {}
 
