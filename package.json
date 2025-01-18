@@ -57,7 +57,7 @@
     "@types/jsdom-screenshot": "4.0.0",
     "@typescript-eslint/eslint-plugin": "8.19.1",
     "@typescript-eslint/parser": "8.19.1",
-    "@vuepress/plugin-back-to-top": "2.0.0-rc.69",
+    "@vuepress/plugin-back-to-top": "2.0.0-rc.73",
     "eslint": "9.18.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.10.0",
