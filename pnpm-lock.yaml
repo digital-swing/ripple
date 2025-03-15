@@ -16,8 +16,8 @@ importers:
         version: 3.11.4
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 7.26.8
-        version: 7.26.8(@babel/core@7.20.12)(eslint@9.22.0(jiti@2.4.1))
+        specifier: 7.26.10
+        version: 7.26.10(@babel/core@7.20.12)(eslint@9.22.0(jiti@2.4.1))
       '@babel/plugin-syntax-dynamic-import':
         specifier: 7.8.3
         version: 7.8.3(@babel/core@7.20.12)
@@ -188,8 +188,8 @@ packages:
     resolution: {integrity: sha512-XsMfHovsUYHFMdrIHkZphTN/2Hzzi78R08NuHfDBehym2VsPDL6Zn/JAD/JQdnRvbSsbQc4mVaU1m6JgtTEElg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.26.8':
-    resolution: {integrity: sha512-3tBctaHRW6xSub26z7n8uyOTwwUsCdvIug/oxBH9n6yCO5hMj2vwDJAo7RbBMKrM7P+W2j61zLKviJQFGOYKMg==}
+  '@babel/eslint-parser@7.26.10':
+    resolution: {integrity: sha512-QsfQZr4AiLpKqn7fz+j7SN+f43z2DZCgGyYbNJ2vJOqKfG4E6MZer1+jqGZqKJaxq/gdO2DC/nUu45+pOL5p2Q==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -5102,7 +5102,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.26.8(@babel/core@7.20.12)(eslint@9.22.0(jiti@2.4.1))':
+  '@babel/eslint-parser@7.26.10(@babel/core@7.20.12)(eslint@9.22.0(jiti@2.4.1))':
     dependencies:
       '@babel/core': 7.20.12
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -6951,7 +6951,7 @@ snapshots:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.6.3
+      semver: 7.7.1
       ts-api-utils: 2.0.1(typescript@5.8.2)
       typescript: 5.8.2
     transitivePeerDependencies:
@@ -9197,7 +9197,7 @@ snapshots:
       jest-util: 29.7.0
       natural-compare: 1.4.0
       pretty-format: 29.7.0
-      semver: 7.6.3
+      semver: 7.7.1
     transitivePeerDependencies:
       - supports-color
 
