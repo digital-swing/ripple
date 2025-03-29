@@ -61,8 +61,8 @@ importers:
         specifier: 8.27.0
         version: 8.27.0(eslint@9.23.0(jiti@2.4.1))(typescript@5.8.2)
       '@vuepress/plugin-back-to-top':
-        specifier: 2.0.0-rc.86
-        version: 2.0.0-rc.86(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))
+        specifier: 2.0.0-rc.90
+        version: 2.0.0-rc.90(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))
       eslint:
         specifier: 9.23.0
         version: 9.23.0(jiti@2.4.1)
@@ -1852,16 +1852,16 @@ packages:
   '@vuepress/core@2.0.0-rc.20':
     resolution: {integrity: sha512-FcDvG+i35TGd0JZrOAPEUuXkCiVMdoohF1+rKRuIAknRX+SecaqN1RcrQlUEG1HBX+U2h4UGtOM1QkaLmQb8Mg==}
 
-  '@vuepress/helper@2.0.0-rc.86':
-    resolution: {integrity: sha512-gWsH+m0EINYhx+aylFwSlPB9nHAmJwTqBZDttdm7y7GZxVkL5BtI9q+wN0/56UxXkATpVltZq/EfNuLpibr9WQ==}
+  '@vuepress/helper@2.0.0-rc.90':
+    resolution: {integrity: sha512-Muka4gW9LP+Sy1okW51bjxzFqAu0V7fzxQIhPQYMWmG9odbyR1yalxVUETeQNt6j0j7xWf+V8cbIb8QHmaXokQ==}
     peerDependencies:
       vuepress: 2.0.0-rc.20
 
   '@vuepress/markdown@2.0.0-rc.20':
     resolution: {integrity: sha512-Q/zsW9Kp1BDsLaTxP6J9sVUtH8FfIYkEb6vMT8HHhNvEcIcoLBQRWMZp0VG3yuYRW5sMzjMU5IPD3BdSi52ayw==}
 
-  '@vuepress/plugin-back-to-top@2.0.0-rc.86':
-    resolution: {integrity: sha512-5miIaHbDlCKnSQNN8h8sYZdb6bd+NATTMgYiRarNpSsWz8X0xfeM2No+0qKhsN3Jx6K+H9rkpTqZLsMI1k8Mew==}
+  '@vuepress/plugin-back-to-top@2.0.0-rc.90':
+    resolution: {integrity: sha512-5sr30hoIuxV0DQmaj+iYRrPXdII0iABqZmhKeSi/fw/xubo9HqdD5A6soe5WikMytu+lCkXJG2blUGTS0qERBA==}
     peerDependencies:
       vuepress: 2.0.0-rc.20
 
@@ -7067,7 +7067,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@vuepress/helper@2.0.0-rc.86(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))':
+  '@vuepress/helper@2.0.0-rc.90(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))':
     dependencies:
       '@vue/shared': 3.5.13
       '@vueuse/core': 13.0.0(vue@3.5.13(typescript@5.8.2))
@@ -7100,9 +7100,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vuepress/plugin-back-to-top@2.0.0-rc.86(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))':
+  '@vuepress/plugin-back-to-top@2.0.0-rc.90(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))':
     dependencies:
-      '@vuepress/helper': 2.0.0-rc.86(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))
+      '@vuepress/helper': 2.0.0-rc.90(typescript@5.8.2)(vuepress@2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))
       '@vueuse/core': 13.0.0(vue@3.5.13(typescript@5.8.2))
       vue: 3.5.13(typescript@5.8.2)
       vuepress: 2.0.0-rc.20(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
