@@ -112,8 +112,8 @@ importers:
         specifier: 6.2.1
         version: 6.2.1(rollup@4.39.0)(typescript@5.8.3)
       rollup-plugin-summary:
-        specifier: 3.0.0
-        version: 3.0.0(rollup@4.39.0)
+        specifier: 3.0.1
+        version: 3.0.1(rollup@4.39.0)
       sass:
         specifier: 1.86.3
         version: 1.86.3
@@ -1088,16 +1088,8 @@ packages:
     resolution: {integrity: sha512-cmrR6pytBuSMTaBweKoGMwu3EiHiEC+DoyupPmlZ0HxBJBtIxwe+j/E4XPIKNx+Q74c8lXKPwYawBf5glsTkHg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/eslintrc@3.1.0':
-    resolution: {integrity: sha512-4Bfj15dVJdoy3RfZmmo86RK1Fwzn6SstsvK9JS+BaVKqC6QQQQyXekNaC+g+LKNgkQ+2VhGAzm6hO40AhMR3zQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
   '@eslint/eslintrc@3.3.1':
     resolution: {integrity: sha512-gtF186CXhIl1p4pJNGZw8Yc6RlshoePRvE0X91oPGb3vZ8pM3qOS9W9NGPat9LziaBV7XrJWGylNQXkGcnM3IQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@eslint/js@9.14.0':
-    resolution: {integrity: sha512-pFoEtFWCPyDOl+C6Ift+wC7Ro89otjigCf5vcuWqWgqNSQbRrpjSvdeE6ofLz4dHmyxD5f7gIdGT4+p36L6Twg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/js@9.24.0':
@@ -4307,8 +4299,8 @@ packages:
       rollup: ^3.29.4 || ^4
       typescript: ^4.5 || ^5.0
 
-  rollup-plugin-summary@3.0.0:
-    resolution: {integrity: sha512-TS+rGc32eYo8Gy14h98TEnsAQ9USSzumGC6Z5P2rSiphwM8lBST8/0ZXJyHwQG8idY/x3rrH1ek+l8qc/sH9wQ==}
+  rollup-plugin-summary@3.0.1:
+    resolution: {integrity: sha512-SSoMQ5dCTD+Xq9E6LwHp7DJOnTZ1Dxe/EW0VJDrim2CAVVAGNmuj+1Qg8u/OyUjWqAgoqt4mXDAearjXVpxGSg==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
       rollup: ^3.0.0||^4.0.0
@@ -6123,20 +6115,6 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/eslintrc@3.1.0':
-    dependencies:
-      ajv: 6.12.6
-      debug: 4.4.0
-      espree: 10.3.0
-      globals: 14.0.0
-      ignore: 5.3.2
-      import-fresh: 3.3.0
-      js-yaml: 4.1.0
-      minimatch: 3.1.2
-      strip-json-comments: 3.1.1
-    transitivePeerDependencies:
-      - supports-color
-
   '@eslint/eslintrc@3.3.1':
     dependencies:
       ajv: 6.12.6
@@ -6150,8 +6128,6 @@ snapshots:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
-
-  '@eslint/js@9.14.0': {}
 
   '@eslint/js@9.24.0': {}
 
@@ -9933,10 +9909,10 @@ snapshots:
     optionalDependencies:
       '@babel/code-frame': 7.26.2
 
-  rollup-plugin-summary@3.0.0(rollup@4.39.0):
+  rollup-plugin-summary@3.0.1(rollup@4.39.0):
     dependencies:
-      '@eslint/eslintrc': 3.1.0
-      '@eslint/js': 9.14.0
+      '@eslint/eslintrc': 3.3.1
+      '@eslint/js': 9.24.0
       brotli-size: 4.0.0
       cli-table3: 0.6.5
       filesize: 10.1.6
